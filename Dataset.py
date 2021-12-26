@@ -30,7 +30,7 @@ class DataSequenceLoader(Sequence):
         X_batch = self.x_path[index*self.batch_size: (index+1)*self.batch_size]
         Y_batch = self.y_path[index*self.batch_size: (index+1)*self.batch_size]
         
-        return self.generate(X_batch), self.OHE(Y_batch)
+        return self.generate(X_batch), [lambda x: self.vectorize(Y_batch)]
 
     def __len__(self):
         """Measure the length of the dataset in batches"""
@@ -107,8 +107,11 @@ class DataSequenceLoader(Sequence):
         padding = (pad_width, pad_height, d_width-pad_width, d_height-pad_height)
         return ImageOps.expand(image,padding)
 
-    def OHE(self, Y):
-        if self.batch_size == 1:
-            #########
-        return ohe_y
 
+    def vectorize(self, Y):
+        if Y == 'Normal':
+            return [1,0,0]
+        elif Y == 'Benign':
+            return [0,1,0]
+        else:
+            return [0,0,1]
