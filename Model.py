@@ -8,7 +8,7 @@ from tensorflow.keras.layers import Input, Dense, MaxPooling2D, Flatten, Dropout
 class EFFNET:
     def __init__(self):
 
-        input_img = Input(shape=(252,252))
+        input_img = Input(shape=(252,252,3))
         Backbone = Effnet(include_top=False, weights= 'imagenet', input_tensor=input_img)
         Backbone.trainable = False
 
@@ -48,7 +48,7 @@ class EFFNET:
         rlrop = ReduceLROnPlateau(monitor='val_loss', mode='min', patience= 3, factor= 0.5, min_lr= 1e-6, verbose=1,min_delta=0.05)
         #self.model.summary()
         self.model.compile(optimizer='adam', loss={"FC" :'categorical_crossentropy'}, metrics={"FC" :[Precision(), Recall()]})
-        self.FC_history = self.model.fit(trainGen,validation_data =valGen,epochs=Nepoch,callbacks=[callBack,rlrop])
+        self.FC_history = self.model.fit(trainGen,validation_data=valGen,epochs=Nepoch,callbacks=[callBack,rlrop])
 
     def train_Classifier_withBackbone(self,trainGen,valGen,Nepoch=30,Nlayers=3):
         self.unfix_layers_Backbone_weights(Nlayer= Nlayers)

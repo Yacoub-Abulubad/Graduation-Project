@@ -8,7 +8,7 @@ import numpy as np
 
 
 class DataSequenceLoader(Sequence):
-    def __init__(self, path, batch_size=10,train_size=0.8, is_val=False, verbose=True):
+    def __init__(self, path, batch_size=10,train_size=0.8, is_val=False, verbose=False):
         """Initialization
 
         Args:
@@ -30,7 +30,7 @@ class DataSequenceLoader(Sequence):
         X_batch = self.x_path[index*self.batch_size: (index+1)*self.batch_size]
         Y_batch = self.y_path[index*self.batch_size: (index+1)*self.batch_size]
         
-        return self.generate(X_batch), [lambda x: self.vectorize(Y_batch)]
+        return self.generate(X_batch), np.array(list(map(self.vectorize,Y_batch)))
 
     def __len__(self):
         """Measure the length of the dataset in batches"""
@@ -83,15 +83,14 @@ class DataSequenceLoader(Sequence):
         x_array = np.empty_like(x_batch)
         if self.verbose:
             print('Generating and resizing images!')
-        if self.batch_size==1:
-            for i in range(len(x_batch)):
-                x_batch[i] = self.resize_with_padding(load_img(x_batch[i], color_mode= 'grayscale'))
-                print(x_batch[i])
-        else:
-            for i in range(len(x_batch)):
-                for j in range(len(x_batch[0])):
-                    print(x_batch[i][j])
-                    x_batch[i][j] = self.resize_with_padding(load_img(x_batch[i][j], color_mode= 'grayscale'))
+        #if self.batch_size==1:
+        for i in range(len(x_batch)):
+            temp = self.resize_with_padding(load_img(x_batch[i]))
+            x_batch[i] = np.asarray(temp)
+        #else:
+        #    for i in range(len(x_batch)):
+        #        for j in range(len(x_batch[0])):
+        #            x_batch[i][j] = self.resize_with_padding(load_img(x_batch[i][j]))
         if self.verbose:
             print('Preprocessing images!')
         
@@ -109,6 +108,7 @@ class DataSequenceLoader(Sequence):
 
 
     def vectorize(self, Y):
+        print(Y)
         if Y == 'Normal':
             return [1,0,0]
         elif Y == 'Benign':
