@@ -1,8 +1,8 @@
 from sklearn.preprocessing import LabelBinarizer
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.utils import Sequence
+from imgaug import augmenters as iaa
 from PIL import ImageOps
-import cv2
 import pandas as pd
 import numpy as np
 
@@ -83,14 +83,11 @@ class DataSequenceLoader(Sequence):
         x_array = np.empty_like(x_batch)
         if self.verbose:
             print('Generating and resizing images!')
-        #if self.batch_size==1:
         for i in range(len(x_batch)):
             temp = self.resize_with_padding(load_img(x_batch[i]))
             x_batch[i] = np.asarray(temp)
-        #else:
-        #    for i in range(len(x_batch)):
-        #        for j in range(len(x_batch[0])):
-        #            x_batch[i][j] = self.resize_with_padding(load_img(x_batch[i][j]))
+        if not self.is_val:
+            x_batch = self.DataAugemntation(x_batch)
         if self.verbose:
             print('Preprocessing images!')
         
@@ -105,6 +102,12 @@ class DataSequenceLoader(Sequence):
         pad_height = d_height //2
         padding = (pad_width, pad_height, d_width-pad_width, d_height-pad_height)
         return ImageOps.expand(image,padding)
+
+    def DataAugemntation(self, images): #input should be a list of numpy arrays (list of images)
+        Auge= iaa.RandAugment(n=(1,5),m=(3,15))
+        Auge= iaa.RandAugment(n=(1,5),m=(10))
+        out=Auge(images=images)
+        return np.array(out)
 
 
     def vectorize(self, Y):
