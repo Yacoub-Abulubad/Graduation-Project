@@ -1,8 +1,8 @@
-from sklearn.preprocessing import LabelBinarizer
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.utils import Sequence
 from imgaug import augmenters as iaa
 from PIL import ImageOps
+from math import ceil
 import pandas as pd
 import numpy as np
 
@@ -23,18 +23,23 @@ class DataSequenceLoader(Sequence):
         self.is_val = is_val
         self.verbose = verbose
         self.pathtolist()
+        self.idxList = [i for i in range(len(self.x_path))]
 
 
     def __getitem__(self, index):
         """Load and pass one batch of images at a time per epoch to the model"""
-        X_batch = self.x_path[index*self.batch_size: (index+1)*self.batch_size]
-        Y_batch = self.y_path[index*self.batch_size: (index+1)*self.batch_size]
+        start = index*self.batch_size
+        ending = index*self.batch_size + self.batch_size
+        if ending >= len(self.idxList):
+            ending = len(self.idxList)
+        self.X_batch = self.x_path[start:ending]
+        self.Y_batch = self.y_path[start:ending]
         
-        return self.generate(X_batch), np.array(list(map(self.vectorize,Y_batch)))
+        return self.generate(self.X_batch), np.array(self.vectorize(self.Y_batch))
 
     def __len__(self):
         """Measure the length of the dataset in batches"""
-        return int(np.floor(len(self.x_path)/self.batch_size))
+        return int(ceil(len(self.idxList) / self.batch_size))
 
     def on_epoch_end(self):
         """Shuffle the list of paths after every epoch"""
@@ -53,26 +58,24 @@ class DataSequenceLoader(Sequence):
         if not self.is_val:
             for i in range(0,int(len(sheet)*self.train_size)):
                 x_paths.append(self.path + sheet['fullPath'][i])
-            self.x_path = x_paths
-            
-            for i in range(0,int(len(sheet)*self.train_size)):
                 if sheet['Tumour_Contour'][i]  != '-':
                     y_paths.append(sheet['Status'][i])
                 else:
                     y_paths.append('Normal')
             self.y_path = y_paths
-
+            self.x_path = x_paths         
+                
         else:
+            val_start = int(len(sheet)*self.train_size)
             for i in range(0,int(len(sheet)*(1-self.train_size))):
-                x_paths.append(self.path + sheet['fullPath'][i])
-            self.x_path = x_paths
-            
-            for i in range(0,int(len(sheet)*(1-self.train_size))):
-                if sheet['Tumour_Contour'][i]  != '-':
-                    y_paths.append(sheet['Status'][i])
+                x_paths.append(self.path + sheet['fullPath'][val_start+i])
+                if sheet['Tumour_Contour'][val_start+i]  != '-':
+                    y_paths.append(sheet['Status'][val_start+i])
                 else:
                     y_paths.append('Normal')
             self.y_path = y_paths
+            self.x_path = x_paths
+            
         if self.verbose:
             print("Path to list conversion complete!")
 
@@ -111,10 +114,17 @@ class DataSequenceLoader(Sequence):
 
 
     def vectorize(self, Y):
-        print(Y)
-        if Y == 'Normal':
-            return [1,0,0]
-        elif Y == 'Benign':
-            return [0,1,0]
-        else:
-            return [0,0,1]
+        np_Y = np.array(Y)
+        print(np_Y.shape)
+        for i in range(len(Y)):
+            for j in range(len(Y[i])):
+                if Y[i][j] == 'Normal':
+                    return [1,0,0]
+                elif Y[i][j] == 'Benign':
+                    return [0,1,0]
+                else:
+                    return [0,0,1]
+
+
+path = r"C:\Users\yacou\Desktop\GP\Code\Graduation-Project\Data"
+trainGen = DataSequenceLoader(path,2)
