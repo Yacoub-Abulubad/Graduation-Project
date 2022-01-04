@@ -114,8 +114,11 @@ class DataSequenceLoader(Sequence):
 
 
     def vectorize(self, Y):
+        ###############################
+        #Problem here
+        ###############################
         np_Y = np.array(Y)
-        print(np_Y.shape)
+        print(np_Y)
         for i in range(len(Y)):
             for j in range(len(Y[i])):
                 if Y[i][j] == 'Normal':
