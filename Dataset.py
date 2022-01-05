@@ -28,12 +28,12 @@ class DataSequenceLoader(Sequence):
 
     def __getitem__(self, index):
         """Load and pass one batch of images at a time per epoch to the model"""
-        start = index*self.batch_size
-        ending = index*self.batch_size + self.batch_size
-        if ending >= len(self.idxList):
-            ending = len(self.idxList)
-        self.X_batch = self.x_path[start:ending]
-        self.Y_batch = self.y_path[start:ending]
+        self.start = index*self.batch_size
+        self.ending = index*self.batch_size + self.batch_size
+        if self.ending >= len(self.idxList):
+            self.ending = len(self.idxList)
+        self.X_batch = self.x_path[self.start:self.ending]
+        self.Y_batch = self.y_path[self.start:self.ending]
         
         return self.generate(self.X_batch), np.array(self.vectorize(self.Y_batch))
 
@@ -117,13 +117,14 @@ class DataSequenceLoader(Sequence):
         ###############################
         #Problem here
         ###############################
-        np_Y = np.array(Y)
-        print(np_Y)
-        for i in range(len(Y)):
-            for j in range(len(Y[i])):
-                if Y[i][j] == 'Normal':
-                    return [1,0,0]
-                elif Y[i][j] == 'Benign':
-                    return [0,1,0]
-                else:
-                    return [0,0,1]
+        classes = []
+        batch_size = self.ending - self.start
+        for i in range(batch_size):
+            if Y[i] == 'Normal':
+                classes.append([1,0,0])
+            elif Y[i] == 'Benign':
+                classes.append([0,1,0])
+            else:
+                classes.append([0,0,1])
+        
+        return classes
