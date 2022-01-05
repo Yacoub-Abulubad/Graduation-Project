@@ -1,8 +1,8 @@
 #%%
 import pandas as pd
-path = r"C:\Users\yacou\Desktop\Studies\1-Deep Learning\GP\Code\Dataset\JPEG-Trial"
+path = r"C:\Users\yacou\Desktop\GP\Code\Graduation-Project\Data\Data-MoreThanTwoMasks.xlsx"
 
-sheet = pd.read_excel(path + '\Dataset.xlsx')
+sheet = pd.read_excel(path)
 
 for i in range(len(sheet)):
     sheet.loc[i,('fullPath')] = '\\' + sheet['fullPath'][i]
@@ -10,5 +10,5 @@ for i in range(len(sheet)):
 
     
 # %%
-sheet.to_csv('Dataset/JPEG-Trial/Dataset.csv')
+sheet.to_csv('Dataset_Full.csv')
 # %%
