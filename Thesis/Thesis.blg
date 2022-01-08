@@ -1,0 +1,70 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Thesis.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: IEEEtran.bst
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Reallocating 'wiz_functions' (item size: 4) to 6000 items.
+Reallocating 'singl_function' (item size: 4) to 100 items.
+Database file #1: IEEEabrv.bib
+Database file #2: myrefs.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Too many commas in name 1 of "Ferlay J, Ervik M, Lam F, Colombet M, Mery L, Piñeros M" for entry WHO_stats
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Ferlay J, Ervik M, Lam F, Colombet M, Mery L, Piñeros M" for entry WHO_stats
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Ferlay J, Ervik M, Lam F, Colombet M, Mery L, Piñeros M" for entry WHO_stats
+while executing---line 2403 of file IEEEtran.bst
+Warning--empty journal in WHO_stats
+Warning--empty journal in healthline
+Warning--empty journal in CDC
+
+Done.
+You've used 4 entries,
+            4087 wiz_defined-function locations,
+            1368 strings with 18182 characters,
+and the built_in function-call counts, 1699 in all, are:
+= -- 139
+> -- 16
+< -- 3
++ -- 8
+- -- 4
+* -- 92
+:= -- 351
+add.period$ -- 8
+call.type$ -- 4
+change.case$ -- 4
+chr.to.int$ -- 0
+cite$ -- 7
+duplicate$ -- 140
+empty$ -- 138
+format.name$ -- 4
+if$ -- 346
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 23
+newline$ -- 41
+num.names$ -- 4
+pop$ -- 51
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 127
+stack$ -- 0
+substring$ -- 8
+swap$ -- 86
+text.length$ -- 3
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 4
+warning$ -- 3
+while$ -- 5
+width$ -- 5
+write$ -- 63
+(There were 3 error messages)
