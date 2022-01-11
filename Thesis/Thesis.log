@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.8.30)  8 JAN 2022 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.8.30)  11 JAN 2022 19:12
 entering extended mode
 **./Thesis.tex
 (Thesis.tex
@@ -90,9 +90,6 @@ Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
 (C:\Users\yacou\AppData\Roaming\MiKTeX\tex/latex/setspace\setspace.sty
 Package: setspace 2011/12/19 v6.7a set line spacing
 )
-(C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
-
 (C:\Program Files\MiKTeX\tex/latex/graphics\graphics.sty
 Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
 
@@ -107,9 +104,6 @@ Package graphics Info: Driver file: pdftex.def on input line 107.
 (C:\Program Files\MiKTeX\tex/latex/graphics-def\pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen148
-\Gin@req@width=\dimen149
-)
 (C:\Users\yacou\AppData\Roaming\MiKTeX\tex/latex/notoccite\notoccite.sty
 Package: notoccite 2000/07/20
 )
@@ -121,13 +115,13 @@ Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 
 (C:\Users\yacou\AppData\Roaming\MiKTeX\tex/latex/caption\caption3.sty
 Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
-\captionmargin=\dimen150
-\captionmargin@=\dimen151
-\captionwidth=\dimen152
-\caption@tempdima=\dimen153
-\caption@indent=\dimen154
-\caption@parindent=\dimen155
-\caption@hangindent=\dimen156
+\captionmargin=\dimen148
+\captionmargin@=\dimen149
+\captionwidth=\dimen150
+\caption@tempdima=\dimen151
+\caption@indent=\dimen152
+\caption@parindent=\dimen153
+\caption@hangindent=\dimen154
 Package caption Info: Standard document class detected.
 )
 \c@caption@flags=\count277
@@ -171,7 +165,7 @@ Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 (C:\Users\yacou\AppData\Roaming\MiKTeX\tex/latex/kvoptions\kvoptions.sty
 Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
-\@linkdim=\dimen157
+\@linkdim=\dimen155
 \Hy@linkcounter=\count279
 \Hy@pagecounter=\count280
 
@@ -211,7 +205,7 @@ Package hyperref Info: Bookmarks ON on input line 4445.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen158
+\XeTeXLinkMargin=\dimen156
 
 (C:\Users\yacou\AppData\Roaming\MiKTeX\tex/generic/bitset\bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -221,8 +215,8 @@ Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
 \Fld@menulength=\count283
-\Field@Width=\dimen159
-\Fld@charsize=\dimen160
+\Field@Width=\dimen157
+\Fld@charsize=\dimen158
 Package hyperref Info: Hyper figures OFF on input line 6076.
 Package hyperref Info: Link nesting OFF on input line 6081.
 Package hyperref Info: Hyper index ON on input line 6084.
@@ -269,7 +263,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 ) (C:\Users\yacou\AppData\Roaming\MiKTeX\tex/latex/enumitem\enumitem.sty
 Package: enumitem 2019/06/20 v3.9 Customized lists
 \labelindent=\skip50
-\enit@outerparindent=\dimen161
+\enit@outerparindent=\dimen159
 \enit@toks=\toks20
 \enit@inbox=\box50
 \enit@count@id=\count289
@@ -309,7 +303,7 @@ Package: fcnumparser 2017/06/15
 (C:\Program Files\MiKTeX\tex/latex/amsmath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks23
-\ex@=\dimen162
+\ex@=\dimen160
 )
 \c@padzeroesN=\count294
 \fc@tmpcatcode=\count295
@@ -349,36 +343,36 @@ Package: titlesec 2021/07/05 v2.14 Sectioning titles
 \ttl@box=\box51
 \beforetitleunit=\skip51
 \aftertitleunit=\skip52
-\ttl@plus=\dimen163
-\ttl@minus=\dimen164
+\ttl@plus=\dimen161
+\ttl@minus=\dimen162
 \ttl@toksa=\toks26
-\titlewidth=\dimen165
-\titlewidthlast=\dimen166
-\titlewidthfirst=\dimen167
+\titlewidth=\dimen163
+\titlewidthlast=\dimen164
+\titlewidthfirst=\dimen165
 )
 (C:\Users\yacou\AppData\Roaming\MiKTeX\tex/latex/booktabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen168
-\lightrulewidth=\dimen169
-\cmidrulewidth=\dimen170
-\belowrulesep=\dimen171
-\belowbottomsep=\dimen172
-\aboverulesep=\dimen173
-\abovetopsep=\dimen174
-\cmidrulesep=\dimen175
-\cmidrulekern=\dimen176
-\defaultaddspace=\dimen177
+\heavyrulewidth=\dimen166
+\lightrulewidth=\dimen167
+\cmidrulewidth=\dimen168
+\belowrulesep=\dimen169
+\belowbottomsep=\dimen170
+\aboverulesep=\dimen171
+\abovetopsep=\dimen172
+\cmidrulesep=\dimen173
+\cmidrulekern=\dimen174
+\defaultaddspace=\dimen175
 \@cmidla=\count318
 \@cmidlb=\count319
-\@aboverulesep=\dimen178
-\@belowrulesep=\dimen179
+\@aboverulesep=\dimen176
+\@belowrulesep=\dimen177
 \@thisruleclass=\count320
 \@lastruleclass=\count321
-\@thisrulewidth=\dimen180
+\@thisrulewidth=\dimen178
 )
 (C:\Users\yacou\AppData\Roaming\MiKTeX\tex/latex/siunitx\siunitx.sty
 Package: siunitx 2021-08-27 v3.0.28 A comprehensive (SI) units package
-\l__siunitx_angle_tmp_dim=\dimen181
+\l__siunitx_angle_tmp_dim=\dimen179
 \l__siunitx_angle_marker_box=\box52
 \l__siunitx_angle_unit_box=\box53
 \l__siunitx_compound_count_int=\count322
@@ -404,14 +398,14 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: pdftex.def on input line 149.
 )
 \l__siunitx_table_tmp_box=\box54
-\l__siunitx_table_tmp_dim=\dimen182
-\l__siunitx_table_column_width_dim=\dimen183
+\l__siunitx_table_tmp_dim=\dimen180
+\l__siunitx_table_column_width_dim=\dimen181
 \l__siunitx_table_integer_box=\box55
 \l__siunitx_table_decimal_box=\box56
 \l__siunitx_table_before_box=\box57
 \l__siunitx_table_after_box=\box58
-\l__siunitx_table_before_dim=\dimen184
-\l__siunitx_table_carry_dim=\dimen185
+\l__siunitx_table_before_dim=\dimen182
+\l__siunitx_table_carry_dim=\dimen183
 \l__siunitx_unit_tmp_int=\count328
 \l__siunitx_unit_position_int=\count329
 \l__siunitx_unit_total_int=\count330
@@ -429,9 +423,9 @@ Package: l3keys2e 2021-08-04 LaTeX2e option processing using LaTeX3 keys
 )
 (C:\Program Files\MiKTeX\tex/latex/tools\array.sty
 Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
-\col@sep=\dimen186
+\col@sep=\dimen184
 \ar@mcellbox=\box60
-\extrarowheight=\dimen187
+\extrarowheight=\dimen185
 \NC@list=\toks27
 \extratabsurround=\skip53
 \backup@length=\skip54
@@ -446,6 +440,11 @@ Package: pgfplotstable 2021/05/15 v1.18.1 Table typesetting and Pretty-printing
 (C:\Program Files\MiKTeX\tex/generic/pgfplots\pgfplots.revision.tex)
 Package: pgfplots 2021/05/15 v1.18.1 Data Visualization (1.18.1)
 
+(C:\Program Files\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
+\Gin@req@height=\dimen186
+\Gin@req@width=\dimen187
+)
 (C:\Program Files\MiKTeX\tex/latex/pgf/frontendlayer\tikz.sty
 (C:\Program Files\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
 (C:\Program Files\MiKTeX\tex/latex/pgf/utilities\pgfrcs.sty
@@ -806,30 +805,85 @@ File: pgflibraryplotmarks.code.tex 2021/05/15 v3.1.9a (3.1.9a)
 )))
 (C:\Program Files\MiKTeX\tex/generic/pgfplots/numtable\pgfplotstable.code.tex
 (C:\Program Files\MiKTeX\tex/generic/pgfplots/numtable\pgfplotstable.coltype.co
-de.tex)))
+de.tex))) (C:\Program Files\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2021/04/20 v2.17j AMS math features
+\@mathmargin=\skip55
+
+For additional information on amsmath, use the `?' option.
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen308
+)
+(C:\Program Files\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count360
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count361
+\leftroot@=\count362
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count363
+\DOTSCASE@=\count364
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box74
+\strutbox@=\box75
+\big@size=\dimen309
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count365
+\c@MaxMatrixCols=\count366
+\dotsspace@=\muskip17
+\c@parentequation=\count367
+\dspbrk@lvl=\count368
+\tag@help=\toks44
+\row@=\count369
+\column@=\count370
+\maxfields@=\count371
+\andhelp@=\toks45
+\eqnshift@=\dimen310
+\alignsep@=\dimen311
+\tagshift@=\dimen312
+\tagwidth@=\dimen313
+\totwidth@=\dimen314
+\lineht@=\dimen315
+\@envbody=\toks46
+\multlinegap=\skip56
+\multlinetaggap=\skip57
+\mathdisplay@stack=\toks47
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+)
+(C:\Users\yacou\AppData\Roaming\MiKTeX\tex/latex/chngcntr\chngcntr.sty
+Package: chngcntr 2018/04/09 v1.1a change counter resetting
+Package chngcntr Info: \counterwithout already defined.
+(chngcntr)             Quitting chngcntr on input line 21.
+)
 Package translations Info: No language package found. I am going to use `englis
-h' as default language. on input line 31.
- (Thesis.aux)
+h' as default language. on input line 35.
+
+(Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 31.
-LaTeX Font Info:    ... okay on input line 31.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -867,17 +921,17 @@ LaTeX Font Info:    ... okay on input line 31.
 
 (C:\Program Files\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count360
-\scratchdimen=\dimen308
-\scratchbox=\box74
-\nofMPsegments=\count361
-\nofMParguments=\count362
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count363
-\MPscratchDim=\dimen309
-\MPnumerator=\count364
-\makeMPintoPDFobject=\count365
-\everyMPtoPDFconversion=\toks45
+\scratchcounter=\count372
+\scratchdimen=\dimen316
+\scratchbox=\box76
+\nofMPsegments=\count373
+\nofMParguments=\count374
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count375
+\MPscratchDim=\dimen317
+\MPnumerator=\count376
+\makeMPintoPDFobject=\count377
+\everyMPtoPDFconversion=\toks49
 ) (C:\Program Files\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -889,7 +943,7 @@ File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 31.
+Package hyperref Info: Link coloring OFF on input line 35.
 
 (C:\Program Files\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -901,11 +955,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 g.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count366
+\c@section@level=\count378
 )
-LaTeX Info: Redefining \ref on input line 31.
-LaTeX Info: Redefining \pageref on input line 31.
-LaTeX Info: Redefining \nameref on input line 31.
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \nameref on input line 35.
  (Thesis.out) (Thesis.out)
 \@outlinefile=\write4
 \openout4 = `Thesis.out'.
@@ -920,21 +974,19 @@ File: translations-basic-dictionary-english.trsl (english translation file `tra
 nslations-basic-dictionary')
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' f
-or `english'. on input line 31.
+or `english'. on input line 35.
 
 
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.18} into 
 your preamble.
- on input line 31.
+ on input line 35.
 
-<pics/AAU_Logo.jpg, id=62, 165.61874pt x 204.765pt>
+<pics/AAU_Logo.jpg, id=66, 165.61874pt x 204.765pt>
 File: pics/AAU_Logo.jpg Graphic file (type jpg)
 <use pics/AAU_Logo.jpg>
-Package pdftex.def Info: pics/AAU_Logo.jpg  used on input line 33.
+Package pdftex.def Info: pics/AAU_Logo.jpg  used on input line 37.
 (pdftex.def)             Requested size: 113.81102pt x 140.70996pt.
-LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <7> on input line 33.
 
 LaTeX Warning: No \author given.
 
@@ -946,11 +998,8 @@ LaTeX Warning: No \author given.
 ) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.57 	\newpage
-               [1] (Thesis.toc
-LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 2.
-)
+l.61 	\newpage
+               [1] (Thesis.toc)
 \tf@toc=\write5
 \openout5 = `Thesis.toc'.
 
@@ -963,63 +1012,224 @@ LaTeX Font Info:    External font `cmex7' loaded for size
 \openout7 = `Thesis.lot'.
 
  [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 75--75
+Underfull \hbox (badness 10000) in paragraph at lines 79--79
 []|\OT1/cmr/bx/n/14.4 H\OT1/cmr/m/n/14.4 ierarchical \OT1/cmr/bx/n/14.4 D\OT1/c
 mr/m/n/14.4 eep \OT1/cmr/bx/n/14.4 C\OT1/cmr/m/n/14.4 onvolutional
  []
 
 [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 103--106
+Underfull \hbox (badness 10000) in paragraph at lines 107--110
 
  []
 
 [1] [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 140--143
+Package epstopdf Info: Source file: <pics/Figures/Perceptron.eps>
+(epstopdf)                    date: 2022-01-11 19:12:22
+(epstopdf)                    size: 1585098 bytes
+(epstopdf)             Output file: <pics/Figures/Perceptron-eps-converted-to.p
+df>
+(epstopdf)             Command: <miktex-epstopdf --outfile=pics/Figures/Percept
+ron-eps-converted-to.pdf pics/Figures/Perceptron.eps>
+(epstopdf)             \includegraphics on input line 129.
+runsystem(miktex-epstopdf --outfile=pics/Figures/Perceptron-eps-converted-to.pd
+f pics/Figures/Perceptron.eps)...executed (allowed).
+
+Package epstopdf Info: Result file: <pics/Figures/Perceptron-eps-converted-to.p
+df>
+(epstopdf)                    date: 2022-01-11 19:12:36
+(epstopdf)                    size: 32959 bytes.
+
+
+pdfTeX warning: pdflatex.exe (file ./pics/Figures/Perceptron-eps-converted-to.p
+df): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<pics/Figures/Perceptron-eps-converted-to.pdf, id=168, 1040.88875pt x 523.9575p
+t>
+File: pics/Figures/Perceptron-eps-converted-to.pdf Graphic file (type pdf)
+<use pics/Figures/Perceptron-eps-converted-to.pdf>
+Package pdftex.def Info: pics/Figures/Perceptron-eps-converted-to.pdf  used on 
+input line 129.
+(pdftex.def)             Requested size: 330.42041pt x 166.32668pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 134--135
 
  []
 
-<pics/Figures/Age_Dist.png, id=136, 853.1875pt x 347.2975pt>
+[4 <./pics/Figures/Perceptron-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <pics/Figures/ANN.eps>
+(epstopdf)                    date: 2022-01-10 10:33:35
+(epstopdf)                    size: 1736802 bytes
+(epstopdf)             Output file: <pics/Figures/ANN-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-10 10:35:00
+(epstopdf)                    size: 50128 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=pics/Figures/ANN-eps
+-converted-to.pdf pics/Figures/ANN.eps>
+(epstopdf)             \includegraphics on input line 148.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./pics/Figures/ANN-eps-converted-to.pdf): PD
+F inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<pics/Figures/ANN-eps-converted-to.pdf, id=184, 908.39375pt x 625.33624pt>
+File: pics/Figures/ANN-eps-converted-to.pdf Graphic file (type pdf)
+<use pics/Figures/ANN-eps-converted-to.pdf>
+Package pdftex.def Info: pics/Figures/ANN-eps-converted-to.pdf  used on input l
+ine 148.
+(pdftex.def)             Requested size: 330.42041pt x 227.45862pt.
+Package epstopdf Info: Source file: <pics/Figures/Classifier_Block_Diagram.eps>
+
+(epstopdf)                    date: 2022-01-08 19:56:39
+(epstopdf)                    size: 1072742 bytes
+(epstopdf)             Output file: <pics/Figures/Classifier_Block_Diagram-eps-
+converted-to.pdf>
+(epstopdf)                    date: 2022-01-08 20:07:30
+(epstopdf)                    size: 16517 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=pics/Figures/Classif
+ier_Block_Diagram-eps-converted-to.pdf pics/Figures/Classifier_Block_Diagram.ep
+s>
+(epstopdf)             \includegraphics on input line 162.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./pics/Figures/Classifier_Block_Diagram-eps-
+converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version 
+<1.5> allowed
+<pics/Figures/Classifier_Block_Diagram-eps-converted-to.pdf, id=185, 1310.8975p
+t x 253.94875pt>
+File: pics/Figures/Classifier_Block_Diagram-eps-converted-to.pdf Graphic file (
+type pdf)
+<use pics/Figures/Classifier_Block_Diagram-eps-converted-to.pdf>
+Package pdftex.def Info: pics/Figures/Classifier_Block_Diagram-eps-converted-to
+.pdf  used on input line 162.
+(pdftex.def)             Requested size: 236.01561pt x 45.72041pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+Package epstopdf Info: Source file: <pics/Figures/Obj_Det_Block_Diagram.eps>
+(epstopdf)                    date: 2022-01-08 19:56:18
+(epstopdf)                    size: 1096126 bytes
+(epstopdf)             Output file: <pics/Figures/Obj_Det_Block_Diagram-eps-con
+verted-to.pdf>
+(epstopdf)                    date: 2022-01-08 20:09:34
+(epstopdf)                    size: 18066 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=pics/Figures/Obj_Det
+_Block_Diagram-eps-converted-to.pdf pics/Figures/Obj_Det_Block_Diagram.eps>
+(epstopdf)             \includegraphics on input line 170.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./pics/Figures/Obj_Det_Block_Diagram-eps-con
+verted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.
+5> allowed
+<pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf, id=186, 1310.8975pt x
+ 257.96375pt>
+File: pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf Graphic file (typ
+e pdf)
+<use pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf>
+Package pdftex.def Info: pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pd
+f  used on input line 170.
+(pdftex.def)             Requested size: 236.01561pt x 46.44327pt.
+[5 <./pics/Figures/ANN-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <pics/Figures/Hierarchical_Classifier_Block
+_Diagram.eps>
+(epstopdf)                    date: 2022-01-08 20:38:25
+(epstopdf)                    size: 2597302 bytes
+(epstopdf)             Output file: <pics/Figures/Hierarchical_Classifier_Block
+_Diagram-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-08 20:53:04
+(epstopdf)                    size: 19505 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=pics/Figures/Hierarc
+hical_Classifier_Block_Diagram-eps-converted-to.pdf pics/Figures/Hierarchical_C
+lassifier_Block_Diagram.eps>
+(epstopdf)             \includegraphics on input line 179.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./pics/Figures/Hierarchical_Classifier_Block
+_Diagram-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at 
+most version <1.5> allowed
+<pics/Figures/Hierarchical_Classifier_Block_Diagram-eps-converted-to.pdf, id=19
+9, 1762.585pt x 614.295pt>
+File: pics/Figures/Hierarchical_Classifier_Block_Diagram-eps-converted-to.pdf G
+raphic file (type pdf)
+<use pics/Figures/Hierarchical_Classifier_Block_Diagram-eps-converted-to.pdf>
+Package pdftex.def Info: pics/Figures/Hierarchical_Classifier_Block_Diagram-eps
+-converted-to.pdf  used on input line 179.
+(pdftex.def)             Requested size: 236.01561pt x 82.25136pt.
+[6 <./pics/Figures/Classifier_Block_Diagram-eps-converted-to.pdf> <./pics/Figur
+es/Obj_Det_Block_Diagram-eps-converted-to.pdf> <./pics/Figures/Hierarchical_Cla
+ssifier_Block_Diagram-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <pics/Figures/Hierarchical_Obj_Det_Block_Di
+agram.eps>
+(epstopdf)                    date: 2022-01-08 20:54:38
+(epstopdf)                    size: 2655818 bytes
+(epstopdf)             Output file: <pics/Figures/Hierarchical_Obj_Det_Block_Di
+agram-eps-converted-to.pdf>
+(epstopdf)                    date: 2022-01-08 20:54:48
+(epstopdf)                    size: 21450 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=pics/Figures/Hierarc
+hical_Obj_Det_Block_Diagram-eps-converted-to.pdf pics/Figures/Hierarchical_Obj_
+Det_Block_Diagram.eps>
+(epstopdf)             \includegraphics on input line 191.
+Package epstopdf Info: Output file is already uptodate.
+
+
+pdfTeX warning: pdflatex.exe (file ./pics/Figures/Hierarchical_Obj_Det_Block_Di
+agram-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at mos
+t version <1.5> allowed
+<pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf, id=251, 
+1754.555pt x 629.35126pt>
+File: pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf Grap
+hic file (type pdf)
+<use pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf>
+Package pdftex.def Info: pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-co
+nverted-to.pdf  used on input line 191.
+(pdftex.def)             Requested size: 236.01561pt x 84.65144pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 205--208
+
+ []
+
+<pics/Figures/Age_Dist.png, id=254, 853.1875pt x 347.2975pt>
 File: pics/Figures/Age_Dist.png Graphic file (type png)
 <use pics/Figures/Age_Dist.png>
-Package pdftex.def Info: pics/Figures/Age_Dist.png  used on input line 147.
+Package pdftex.def Info: pics/Figures/Age_Dist.png  used on input line 212.
 (pdftex.def)             Requested size: 472.03123pt x 192.14827pt.
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<pics/Figures/Avg_Age.png, id=138, 389.455pt x 289.08pt>
+[7 <./pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf>]
+<pics/Figures/Avg_Age.png, id=279, 389.455pt x 289.08pt>
 File: pics/Figures/Avg_Age.png Graphic file (type png)
 <use pics/Figures/Avg_Age.png>
-Package pdftex.def Info: pics/Figures/Avg_Age.png  used on input line 153.
+Package pdftex.def Info: pics/Figures/Avg_Age.png  used on input line 218.
 (pdftex.def)             Requested size: 236.01561pt x 175.18285pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[4] (Thesis.bbl [5 <./pics/Figures/Age_Dist.png> <./pics/Figures/Avg_Age.png>])
-[6] (Thesis.aux)
+[8 <./pics/Figures/Age_Dist.png> <./pics/Figures/Avg_Age.png>] [9] (Thesis.bbl
+[10]) [11] (Thesis.aux)
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A215A6D1674B3C5273AD331037AC5A9B;2001.
+(rerunfilecheck)             Checksum: 8FCB5A6B45130DCAF54792800807A98A;2081.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 27 (\begingroup)
+### semi simple group (level 1) entered at line 31 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 36113 strings out of 478868
- 866227 string characters out of 2858666
- 1267627 words of memory out of 3000000
- 53424 multiletter control sequences out of 15000+600000
- 412583 words of font info for 58 fonts, out of 8000000 for 9000
+ 36773 strings out of 478868
+ 875617 string characters out of 2858666
+ 1270615 words of memory out of 3000000
+ 54042 multiletter control sequences out of 15000+600000
+ 412550 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 114i,8n,117p,1012b,2715s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 114i,15n,117p,1012b,2724s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\yacou\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/
 ec/dpi600\tcrm1440.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
-:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Fil
-es/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fon
-ts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on Thesis.pdf (12 pages, 175043 bytes).
+mbx12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C
+:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Fi
+les/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/f
+onts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts
+/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.p
+fb>
+Output written on Thesis.pdf (17 pages, 378582 bytes).
 PDF statistics:
- 194 PDF objects out of 1000 (max. 8388607)
- 32 named destinations out of 1000 (max. 500000)
- 140 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 354 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 178 words of extra memory for PDF output out of 10000 (max. 10000000)
 
