@@ -7,7 +7,7 @@
 \contentsline {subsection}{\numberline {2.1}Artificial Neural Networks}{4}{subsection.2.1}%
 \contentsline {subsubsection}{\numberline {2.1.1}Convolutional Neural Networks}{5}{subsubsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.2}Computer Vision}{5}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Image Classification}{5}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.1}Image Classification}{6}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Object Detection}{6}{subsubsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.3}Hierarchy Classifier}{6}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Hierarchical Method}{7}{section.3}%
