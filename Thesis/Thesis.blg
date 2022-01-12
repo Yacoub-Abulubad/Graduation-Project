@@ -26,45 +26,45 @@ Warning--empty journal in healthline
 Warning--empty journal in CDC
 
 Done.
-You've used 12 entries,
+You've used 13 entries,
             4087 wiz_defined-function locations,
-            1419 strings with 19556 characters,
-and the built_in function-call counts, 7312 in all, are:
-= -- 560
-> -- 164
+            1423 strings with 19729 characters,
+and the built_in function-call counts, 7692 in all, are:
+= -- 585
+> -- 173
 < -- 45
-+ -- 90
-- -- 31
-* -- 340
-:= -- 1160
-add.period$ -- 26
-call.type$ -- 12
++ -- 94
+- -- 33
+* -- 353
+:= -- 1221
+add.period$ -- 28
+call.type$ -- 13
 change.case$ -- 10
 chr.to.int$ -- 108
-cite$ -- 15
-duplicate$ -- 544
-empty$ -- 643
-format.name$ -- 36
-if$ -- 1677
+cite$ -- 16
+duplicate$ -- 574
+empty$ -- 691
+format.name$ -- 39
+if$ -- 1768
 int.to.chr$ -- 0
-int.to.str$ -- 12
-missing$ -- 94
-newline$ -- 65
-num.names$ -- 12
-pop$ -- 238
+int.to.str$ -- 13
+missing$ -- 100
+newline$ -- 68
+num.names$ -- 13
+pop$ -- 258
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 564
+skip$ -- 597
 stack$ -- 0
 substring$ -- 266
-swap$ -- 394
+swap$ -- 410
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 12
+type$ -- 13
 warning$ -- 3
-while$ -- 29
-width$ -- 14
-write$ -- 131
+while$ -- 30
+width$ -- 15
+write$ -- 138
 (There were 3 error messages)

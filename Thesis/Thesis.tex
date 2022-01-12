@@ -18,6 +18,7 @@
 \usepackage{siunitx} % Formats the units and values
 \usepackage{pgfplotstable} % Generates table from .csv
 \usepackage{amsmath}
+\usepackage{bm}
 
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
@@ -92,7 +93,8 @@
 		\begin{tabular}{l l}
 			{Symbol} & {Name} \\
 			$b$ & bias\\
-			$w$ & weights
+			$w$ & weights\\
+			$\phi$ & activation function
 		\end{tabular}
 	\end{center}
 	
@@ -131,9 +133,9 @@
 		\label{fig:Perceptron}
 	\end{figure}
 	
-	The input for this perceptron is denoted as the input vector that is composed of numerical values representing different features of a single entry as seen below.\\
+	The input $\bm{x}$ of size $\bm{n}$ for this perceptron is denoted as the input vector that is composed of numerical values representing different features of a single entry as seen below.
 	\begin{align}
-	x &= \begin{bmatrix}
+	x &= \begin{bmatrix}\label{inputs}
 		x_1 \\
 		x_2 \\
 		\vdots \\
@@ -141,14 +143,49 @@
 	\end{bmatrix}
 	\end{align}
 
-	Depending on the features of a given model data, different features require different weights since one feature would have more effect on the final output more than a different kind of feature, thus an input must be multiplied with a weight to determine its importance to the final output. 
+	Depending on the features of a given model data, different features require different \emph{weights}, denoted as $\bm{w}$, since one feature would have more effect on the final output more than a different kind of feature, thus an input must be multiplied with a weight to determine its importance to the final output.\\
+	\begin{align}
+		w &= \begin{bmatrix}\label{weights}
+			w_1 \quad
+			w_2 \quad
+			\cdots \quad
+			w_n
+		\end{bmatrix}
+	\end{align}
 	
+	The above vector will differ based on the next layer's size, given that there is $\bm{m}$ number of neurons in the next layer, the \emph{weight's matrix} will have a size of $\bm{m \times n}$ as seen in \emph{Equation~\ref{weights_expanded}}. The weight vector is a \emph{row vector} due to the relationship it contains with the input as every $\bm{n^{th}}$ input, there's a $\bm{n^{th}}$ weight corresponding to it.\\[5mm]
+	After the input is multiplied with its assigned weight, it is now referred to as the \textbf{weighted input}, that weighted input is summed with the rest of the weighted inputs which then derives us the \textbf{weighted sum}. Then as all these inputs are summed, a \emph{bias} $\bm{b}$ is added which is an additional parameter that is used to adjust the \emph{output} of the perceptron as well as the weighted sum that is \emph{inputted} into the perceptron.\\[5mm]
+	\newpage
+	The output of the perceptron can be denoted as $\bm{y}$ and is calculated as follows:
+	\begin{equation}\label{output}
+		y = \phi{(z)},
+	\end{equation}
+	where
+	\begin{equation}\label{z}
+		z = b + \sum_{i}^{n} x_i w_i
+	\end{equation}
+	
+	The $\bm{\phi}$ is an arbitrary function known as the \textbf{activation function} which is responsible for causing the perceptron to \emph{fire} generating an output. This activation function is deduced by a threshold that is set based on the different types of activation functions alongside their different uses which can limit the output of reaching an undesired or unacceptable value \cite{siddique2013computational}.\\[5mm]
+	
+	The expansion from a single perceptron to multi perceptrons forms a \emph{single layered neural network} as seen in \emph{Figure~\ref{fig:ANN}}; using the input vector as seen in \emph{Equation \ref{inputs}} and defining the weights matrix 
+	\begin{align}
+		 w &= \begin{bmatrix}\label{weights_expanded}
+			w_{1,1}\quad w_{1,2} \quad \cdots \quad w_{1,n}\\
+			w_{2,1} \quad w_{2,2} \quad \cdots \quad w_{2,n}\\
+			\vdots \qquad \vdots \qquad \ddots \qquad \vdots\\
+			w_{m,1} \quad w_{m,2} \quad \cdots \quad w_{m,n}
+		\end{bmatrix}
+	\end{align}
+	where $\bm{m}$ is the number of perceptrons and $\bm{n}$ is the number of inputs
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.7\textwidth]{pics/Figures/ANN.eps}
 		\caption{\small{Artificial Neural Network Model \emph{(Single Layer)}}}
 		\label{fig:ANN}
 	\end{figure}
+	
+	\subsubsection{Multi Layer Perceptron}\label{MLP}
+	Some text about \emph{Multi Layer Perceptron} (MLP)
 	
 	
 	\subsubsection{Convolutional Neural Networks}\label{CNN}	
