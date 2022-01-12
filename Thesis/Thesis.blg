@@ -12,6 +12,11 @@ Reallocating 'wiz_functions' (item size: 4) to 6000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: IEEEabrv.bib
 Database file #2: myrefs.bib
+I was expecting a `,' or a `}'---line 115 of file myrefs.bib
+ :  
+ :  url={https://brilliant.org/wiki/backpropagation/}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -23,48 +28,55 @@ Too many commas in name 1 of "Ferlay J, Ervik M, Lam F, Colombet M, Mery L, Piñ
 while executing---line 2403 of file IEEEtran.bst
 Warning--empty journal in WHO_stats
 Warning--empty journal in healthline
+Too many commas in name 1 of "John McGonagle, George Shaikouski, Christopher Williams, Andrew Hsu, Jimin Khim, Aaron Miller" for entry backprop
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "John McGonagle, George Shaikouski, Christopher Williams, Andrew Hsu, Jimin Khim, Aaron Miller" for entry backprop
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "John McGonagle, George Shaikouski, Christopher Williams, Andrew Hsu, Jimin Khim, Aaron Miller" for entry backprop
+while executing---line 2403 of file IEEEtran.bst
+Warning--empty year in backprop
 Warning--empty journal in CDC
 
 Done.
-You've used 13 entries,
+You've used 14 entries,
             4087 wiz_defined-function locations,
-            1423 strings with 19729 characters,
-and the built_in function-call counts, 7692 in all, are:
-= -- 585
-> -- 173
+            1427 strings with 19858 characters,
+and the built_in function-call counts, 8013 in all, are:
+= -- 608
+> -- 177
 < -- 45
-+ -- 94
-- -- 33
-* -- 353
-:= -- 1221
-add.period$ -- 28
-call.type$ -- 13
-change.case$ -- 10
++ -- 96
+- -- 34
+* -- 366
+:= -- 1281
+add.period$ -- 30
+call.type$ -- 14
+change.case$ -- 11
 chr.to.int$ -- 108
-cite$ -- 16
-duplicate$ -- 574
-empty$ -- 691
-format.name$ -- 39
-if$ -- 1768
+cite$ -- 18
+duplicate$ -- 606
+empty$ -- 725
+format.name$ -- 40
+if$ -- 1838
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 100
-newline$ -- 68
-num.names$ -- 13
-pop$ -- 258
+int.to.str$ -- 14
+missing$ -- 105
+newline$ -- 71
+num.names$ -- 14
+pop$ -- 273
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 597
+skip$ -- 621
 stack$ -- 0
-substring$ -- 266
-swap$ -- 410
+substring$ -- 267
+swap$ -- 424
 text.length$ -- 9
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 13
-warning$ -- 3
-while$ -- 30
-width$ -- 15
-write$ -- 138
-(There were 3 error messages)
+type$ -- 14
+warning$ -- 4
+while$ -- 31
+width$ -- 16
+write$ -- 145
+(There were 7 error messages)

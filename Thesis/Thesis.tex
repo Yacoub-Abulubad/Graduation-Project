@@ -66,7 +66,7 @@
 	\listoftables
 	\newpage
 	\begin{center}
-		\LARGE{\textbf{Abstract}}\\ \vspace{1cm}
+		\LARGE{\textbf{Descriptive Abstract}}\\ \vspace{1cm}
 	\end{center}
 	Abstract goes here...\\
 	Keywords: \emph{Keyword1, Keyword2, ... , Keywordn}
@@ -135,7 +135,7 @@
 	
 	The input $\bm{x}$ of size $\bm{n}$ for this perceptron is denoted as the input vector that is composed of numerical values representing different features of a single entry as seen below.
 	\begin{align}
-	x &= \begin{bmatrix}\label{inputs}
+	\bm{x} &= \begin{bmatrix}\label{inputs}
 		x_1 \\
 		x_2 \\
 		\vdots \\
@@ -145,7 +145,7 @@
 
 	Depending on the features of a given model data, different features require different \emph{weights}, denoted as $\bm{w}$, since one feature would have more effect on the final output more than a different kind of feature, thus an input must be multiplied with a weight to determine its importance to the final output.\\
 	\begin{align}
-		w &= \begin{bmatrix}\label{weights}
+		\bm{w} &= \begin{bmatrix}\label{weights}
 			w_1 \quad
 			w_2 \quad
 			\cdots \quad
@@ -169,20 +169,41 @@
 	
 	The expansion from a single perceptron to multi perceptrons forms a \emph{single layered neural network} as seen in \emph{Figure~\ref{fig:ANN}}; using the input vector as seen in \emph{Equation \ref{inputs}} and defining the weights matrix 
 	\begin{align}
-		 w &= \begin{bmatrix}\label{weights_expanded}
+		 W &= \begin{bmatrix}\label{weights_expanded}
 			w_{1,1}\quad w_{1,2} \quad \cdots \quad w_{1,n}\\
 			w_{2,1} \quad w_{2,2} \quad \cdots \quad w_{2,n}\\
 			\vdots \qquad \vdots \qquad \ddots \qquad \vdots\\
 			w_{m,1} \quad w_{m,2} \quad \cdots \quad w_{m,n}
 		\end{bmatrix}
 	\end{align}
-	where $\bm{m}$ is the number of perceptrons and $\bm{n}$ is the number of inputs
+	where $\bm{m}$ is the number of perceptrons and $\bm{n}$ is the number of inputs. The weight responsible for the $\bm{n^{th}}$ input and $\bm{m^{th}}$ perceptron is written as $\bm{w_{m,n}}$. While the bias vector is defined as:
+	\begin{align}
+		\bm{b} &= \begin{bmatrix}\label{bias_vector}
+			b_1 \\
+			b_2 \\
+			\vdots \\
+			b_m
+		\end{bmatrix}
+	\end{align}
+
 	\begin{figure}[h]
-		\centering
-		\includegraphics[width=0.7\textwidth]{pics/Figures/ANN.eps}
-		\caption{\small{Artificial Neural Network Model \emph{(Single Layer)}}}
-		\label{fig:ANN}
+	\centering
+	\includegraphics[width=0.7\textwidth]{pics/Figures/ANN.eps}
+	\caption{\small{Artificial Neural Network Model \emph{(Single Layer)}}}
+	\label{fig:ANN}
 	\end{figure}
+
+	The \emph{multi-perceptron output} can be computed as:
+	\begin{equation}
+		\bm{\hat{y}} = \phi(\bm{b}+ W\bm{x})
+	\end{equation}
+	So far, this has been a \textbf{feed-forward} neural network without any kind of \emph{learning}, for the network to start learning there must be a \emph{weight update} algorithm which updates the weights regularly after every entry. This algorithm is known as \emph{Backpropagation} \cite{backprop}, this is the 
+	\begin{equation}
+		W^{t+1} = W^{t} - \eta\dfrac{E}{\Delta{W}}
+	\end{equation}
+	where $W^{t}$ denotes the weight at iteration $t$ of the gradient descent . 
+	
+
 	
 	\subsubsection{Multi Layer Perceptron}\label{MLP}
 	Some text about \emph{Multi Layer Perceptron} (MLP)
