@@ -38,45 +38,45 @@ Warning--empty year in backprop
 Warning--empty journal in CDC
 
 Done.
-You've used 14 entries,
+You've used 17 entries,
             4087 wiz_defined-function locations,
-            1427 strings with 19858 characters,
-and the built_in function-call counts, 8013 in all, are:
-= -- 608
-> -- 177
-< -- 45
-+ -- 96
-- -- 34
-* -- 366
-:= -- 1281
-add.period$ -- 30
-call.type$ -- 14
-change.case$ -- 11
-chr.to.int$ -- 108
-cite$ -- 18
-duplicate$ -- 606
-empty$ -- 725
-format.name$ -- 40
-if$ -- 1838
+            1442 strings with 20331 characters,
+and the built_in function-call counts, 10356 in all, are:
+= -- 804
+> -- 231
+< -- 69
++ -- 128
+- -- 42
+* -- 473
+:= -- 1625
+add.period$ -- 36
+call.type$ -- 17
+change.case$ -- 14
+chr.to.int$ -- 168
+cite$ -- 21
+duplicate$ -- 771
+empty$ -- 898
+format.name$ -- 50
+if$ -- 2385
 int.to.chr$ -- 0
-int.to.str$ -- 14
-missing$ -- 105
-newline$ -- 71
-num.names$ -- 14
-pop$ -- 273
+int.to.str$ -- 17
+missing$ -- 129
+newline$ -- 80
+num.names$ -- 17
+pop$ -- 327
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 621
+skip$ -- 804
 stack$ -- 0
-substring$ -- 267
-swap$ -- 424
-text.length$ -- 9
+substring$ -- 410
+swap$ -- 564
+text.length$ -- 13
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 14
+type$ -- 17
 warning$ -- 4
-while$ -- 31
-width$ -- 16
-write$ -- 145
+while$ -- 42
+width$ -- 19
+write$ -- 173
 (There were 7 error messages)

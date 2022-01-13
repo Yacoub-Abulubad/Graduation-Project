@@ -78,6 +78,10 @@ C.~Ledig, L.~Theis, F.~Husz{\'a}r, J.~Caballero, A.~Cunningham, A.~Acosta,
   \emph{Proceedings of the IEEE conference on computer vision and pattern
   recognition}, 2017, pp. 4681--4690.
 
+\bibitem{agarap2018deep}
+A.~F. Agarap, ``Deep learning using rectified linear units (relu),''
+  \emph{arXiv preprint arXiv:1803.08375}, 2018.
+
 \bibitem{siddique2013computational}
 N.~Siddique and H.~Adeli, \emph{Computational intelligence: synergies of fuzzy
   logic, neural networks and evolutionary computing}.\hskip 1em plus 0.5em
@@ -86,6 +90,16 @@ N.~Siddique and H.~Adeli, \emph{Computational intelligence: synergies of fuzzy
 \bibitem{backprop}
 C.~W. A. H. J. K. A.~M. John~McGonagle, George~Shaikouski, ``Backpropagation,''
   \emph{Brilliant.org}.
+
+\bibitem{qi2020mean}
+J.~Qi, J.~Du, S.~M. Siniscalchi, X.~Ma, and C.-H. Lee, ``On mean absolute error
+  for deep neural network based vector-to-vector regression,'' \emph{IEEE
+  Signal Processing Letters}, vol.~27, pp. 1485--1489, 2020.
+
+\bibitem{ho2019real}
+Y.~Ho and S.~Wookey, ``The real-world-weight cross-entropy loss function:
+  Modeling the costs of mislabeling,'' \emph{IEEE Access}, vol.~8, pp.
+  4806--4813, 2019.
 
 \bibitem{CDC}
 \BIBentryALTinterwordspacing

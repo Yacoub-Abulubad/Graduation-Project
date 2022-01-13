@@ -77,11 +77,15 @@
 			\multicolumn{1}{p{3cm}}{\large{\textbf{AI}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{A}rtificial \textbf{I}ntelligence}} \\
 			\multicolumn{1}{p{3cm}}{\large{\textbf{ANN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{A}rtificial \textbf{N}eural \textbf{N}etwork}} \\
 			\multicolumn{1}{p{3cm}}{\large{\textbf{CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
+			\multicolumn{1}{p{3cm}}{\large{\textbf{GPU}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{G}raphical \textbf{P}rpcessing \textbf{U}nit}}\\ 
 			\multicolumn{1}{p{3cm}}{\large{\textbf{HD-CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{H}ierarchical \textbf{D}eep \textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
-			\multicolumn{1}{p{3cm}}{\large{\textbf{HDD}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{H}ard \textbf{D}isk \textbf{D}rive}}\\ 
-			\multicolumn{1}{p{3cm}}{\large{\textbf{RAM}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{R}andom \textbf{A}ccess \textbf{M}emory}}\\ 
+			\multicolumn{1}{p{3cm}}{\large{\textbf{MAE}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{M}ean \textbf{A}bsolute \textbf{E}rror}}\\  
+			\multicolumn{1}{p{3cm}}{\large{\textbf{MLP}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{M}ulti\textbf{l}ayer \textbf{P}erceptron}}\\ 
 			\multicolumn{1}{p{3cm}}{\large{\textbf{CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
-			\multicolumn{1}{p{3cm}}{\large{\textbf{CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}
+			\multicolumn{1}{p{3cm}}{\large{\textbf{CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
+			\multicolumn{1}{p{3cm}}{\large{\textbf{CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\
+			\multicolumn{1}{p{3cm}}{\large{\textbf{HDD}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{H}ard \textbf{D}isk \textbf{D}rive}}\\ 
+			\multicolumn{1}{p{3cm}}{\large{\textbf{RAM}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{R}andom \textbf{A}ccess \textbf{M}emory}}
 			 
 		\end{tabular}
 	\end{center}
@@ -94,7 +98,8 @@
 			{Symbol} & {Name} \\
 			$b$ & bias\\
 			$w$ & weights\\
-			$\phi$ & activation function
+			$\phi$ & activation function\\
+			$\eta$ & cost function
 		\end{tabular}
 	\end{center}
 	
@@ -165,7 +170,11 @@
 		z = b + \sum_{i}^{n} x_i w_i
 	\end{equation}
 	
-	The $\bm{\phi}$ is an arbitrary function known as the \textbf{activation function} which is responsible for causing the perceptron to \emph{fire} generating an output. This activation function is deduced by a threshold that is set based on the different types of activation functions alongside their different uses which can limit the output of reaching an undesired or unacceptable value \cite{siddique2013computational}.\\[5mm]
+	The $\phi$ is an arbitrary function known as the \textbf{activation function} \cite{agarap2018deep} 
+	%Talk about relu
+	
+	
+	which is responsible for causing the perceptron to \emph{fire} generating an output. This activation function is deduced by a threshold that is set based on the different types of activation functions alongside their different uses which can limit the output of reaching an undesired or unacceptable value \cite{siddique2013computational}.\\[5mm]
 	
 	The expansion from a single perceptron to multi perceptrons forms a \emph{single layered neural network} as seen in \emph{Figure~\ref{fig:ANN}}; using the input vector as seen in \emph{Equation \ref{inputs}} and defining the weights matrix 
 	\begin{align}
@@ -193,20 +202,34 @@
 	\label{fig:ANN}
 	\end{figure}
 
-	The \emph{multi-perceptron output} can be computed as:
-	\begin{equation}
+	The \emph{multi-perceptron, single layer, output} can be computed as:
+	\begin{equation}\label{y_hat}
 		\bm{\hat{y}} = \phi(\bm{b}+ W\bm{x})
 	\end{equation}
-	So far, this has been a \textbf{feed-forward} neural network without any kind of \emph{learning}, for the network to start learning there must be a \emph{weight update} algorithm which updates the weights regularly after every entry. This algorithm is known as \emph{Backpropagation} \cite{backprop}, this is the 
-	\begin{equation}
+	So far, this has been a \textbf{feed-forward} neural network without any kind of \emph{learning}, for the network to start learning there must be a \emph{weight update} algorithm which updates the weights regularly after every entry. This algorithm is known as \emph{Backpropagation} \cite{backprop}, and the formula can be seen in \emph{Equation \ref{backprop}} below: 
+	\begin{equation}\label{backprop}
 		W^{t+1} = W^{t} - \eta\dfrac{E}{\Delta{W}}
 	\end{equation}
-	where $W^{t}$ denotes the weight at iteration $t$ of the gradient descent . 
-	
+	where $W^{t}$ denotes the weight at iteration $t$ of the gradient descent and $\eta$ is a \emph{cost function}.\\[5mm]
+	\textbf{Cost functions}, also technically known as \textbf{Loss functions}, vary depending on the faced problem and the desired output of the neural network, for instance, a \emph{Regression} problem will most likely use a \textbf{Mean Absolute Error} (MAE)\cite{qi2020mean} as a cost function which can be computed as:
+	\begin{equation}\label{MAE}
+		MAE = \dfrac{\sum_{1}^{n}|y_i-x_i|}{n}
+	\end{equation}
+	where $y_i$ is the predicted value, $x_i$ being the true value and $n$ the total number of data points. However, an \emph{Image Classification} problem will most likely use \textbf{Categorical Crossentropy}\cite{ho2019real} which quantifies the difference between probability distributions in a a multi-class classification problem and it can be computed as:
+	\begin{equation}\label{crossentro}
+		E = -\dfrac{\sum_{1}^{N}y_i\log(x_i)}{N}
+	\end{equation}
+	where $y_i$ is the predicted value, $x_i$ being the true value and $N$ the number of classes.
 
 	
-	\subsubsection{Multi Layer Perceptron}\label{MLP}
-	Some text about \emph{Multi Layer Perceptron} (MLP)
+	\subsubsection{Multilayer Perceptron}\label{MLP}
+	\emph{Multilayer Perceptron} (MLP) is one class of the \emph{feedfowrard} ANN where, at least, one \textbf{hidden layer} is present between the input layer and the output layer as seen in \emph{Figure~\ref{fig:MLP}}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\textwidth]{pics/Figures/MLP.eps}
+		\caption{\small{Multilayer Perceptron (MLP)}}
+		\label{fig:MLP}
+	\end{figure}
 	
 	
 	\subsubsection{Convolutional Neural Networks}\label{CNN}	
