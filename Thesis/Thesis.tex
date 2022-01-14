@@ -121,7 +121,7 @@
 	A key feature in making this quick and accurate detection is using two methods that fall under the \textbf{Artificial Intelligence (AI)} domain, \emph{Image Classification} and \emph{Object Detection}.
 	
 	\subsection{Objectives}\label{Obj}
-	The goal of this thesis is to compare and contrast the different results that could be obtained using different \emph{Convolutional Neural Network} (CNN) model structures. Applying \textbf{4 different concepts} to the same dataset but with different utilization of the data to measure the accuracy that might be obtained when manipulating the data differently. Due to the vast dataset that was obtained, one of the multiple hardware constraints were during loading the images from the \emph{Hard Disk Drive} (HDD) onto the \emph{Random Access Memory} (RAM), there was no enough memory to load the whole dataset to proceed with the model training. \\[5mm]
+	The goal of this thesis is to compare and contrast the different results that could be obtained using different \emph{Convolutional Neural Network (CNN)} model structures. Applying \textbf{4 different concepts} to the same dataset but with different utilization of the data to measure the accuracy that might be obtained when manipulating the data differently. Due to the vast dataset that was obtained, one of the multiple hardware constraints were during loading the images from the \emph{Hard Disk Drive (HDD)} onto the \emph{Random Access Memory (RAM)}, there was no enough memory to load the whole dataset to proceed with the model training. \\[5mm]
 	A different kind of hardware constraint that was faced is the absence of \emph{Graphical Processing Unit} (GPU), a GPU is crucial for \emph{Computer Vision} (CV) due to the enormous data stream that will take place during training \cite{GPU} \cite{GPU}.
 	\subsection{Organization}\label{Org}
 	The \emph{Literature Review} will be discussed in \emph{Section~\ref{Lit. Rev.}} alongside the essential background on the different kinds of Neural Networks with their diverse functionalities. A deeper dive into the application's functions will be thoroughly described in \emph{Section~\ref{CV}} and the two main techniques that will be implemented in this Thesis. In \emph{Section~\ref{Meth}}, there will be a detailed explanation on the \textbf{Hierarchical approach} that is applied to obtain the results as well as the methods that helped surpassed the constraints that were mentioned in \emph{Secion~\ref{Obj}}. Detailed dissection of the dataset will be in \emph{Section~\ref{Data}}.
@@ -129,7 +129,7 @@
 	\section{Background}\label{Lit. Rev.}
 	Lit. Rev. goes here
 	\subsection{Artificial Neural Networks}\label{ANN}
-	\emph{Artificial Neural Networks} (ANN) are a simplified mathematical models that mimic the functionality of a human brain and nervous system \cite{ANN, ANN2}. Just like humans, these networks were designed to solve more complex, \emph{non-linear}, highly stochastic and multi-variable problems that a traditional program could not. These problems span out to the fields of medicine, finance, security and many more \cite{ANN_funct}. \emph{ANNs} are designed to approximating any continuous function thus are used in a wide spectrum of applications such as object detection \cite{Objdet, Objdet2}, image classification \cite{classification}, image enhancement \cite{enhancement} as well as several more uses.\\[5mm]
+	\emph{Artificial Neural Networks (ANNs)} are a simplified mathematical models that mimic the functionality of a human brain and nervous system \cite{ANN, ANN2}. Just like humans, these networks were designed to solve more complex, \emph{non-linear}, highly stochastic and multi-variable problems that a traditional program could not. These problems span out to the fields of medicine, finance, security and many more \cite{ANN_funct}. \emph{ANNs} are designed to approximating any continuous function thus are used in a wide spectrum of applications such as object detection \cite{Objdet, Objdet2}, image classification \cite{classification}, image enhancement \cite{enhancement} as well as several more uses.\\[5mm]
 	The \emph{ANN} is originally compromised from multiple \emph{neurons}, or \emph{perceptron}, which can be demonstrated in \emph{Figure~\ref{fig:Perceptron}}, hence the \emph{perceptron} is the ground foundation of \emph{ANNs}.
 	\begin{figure}[h]
 		\centering
@@ -172,8 +172,8 @@
 	
 	The $\phi$ is an arbitrary function known as the \textbf{activation function} \cite{agarap2018deep} 
 	%Talk about relu
-	
-	
+	%
+	%
 	which is responsible for causing the perceptron to \emph{fire} generating an output. This activation function is deduced by a threshold that is set based on the different types of activation functions alongside their different uses which can limit the output of reaching an undesired or unacceptable value \cite{siddique2013computational}.\\[5mm]
 	
 	The expansion from a single perceptron to multi perceptrons forms a \emph{single layered neural network} as seen in \emph{Figure~\ref{fig:ANN}}; using the input vector as seen in \emph{Equation \ref{inputs}} and defining the weights matrix 
@@ -211,19 +211,19 @@
 		W^{t+1} = W^{t} - \eta\dfrac{E}{\Delta{W}}
 	\end{equation}
 	where $W^{t}$ denotes the weight at iteration $t$ of the gradient descent and $\eta$ is a \emph{cost function}.\\[5mm]
-	\textbf{Cost functions}, also technically known as \textbf{Loss functions}, vary depending on the faced problem and the desired output of the neural network, for instance, a \emph{Regression} problem will most likely use a \textbf{Mean Absolute Error} (MAE)\cite{qi2020mean} as a cost function which can be computed as:
+	\textbf{Cost functions}, also technically known as \textbf{Loss functions}, vary depending on the faced problem and the desired output of the neural network, for instance, a \emph{Regression} problem will most likely use a \textbf{Mean Absolute Error (MAE)}\cite{qi2020mean} as a cost function which can be computed as:
 	\begin{equation}\label{MAE}
 		MAE = \dfrac{\sum_{1}^{n}|y_i-x_i|}{n}
 	\end{equation}
 	where $y_i$ is the predicted value, $x_i$ being the true value and $n$ the total number of data points. However, an \emph{Image Classification} problem will most likely use \textbf{Categorical Crossentropy}\cite{ho2019real} which quantifies the difference between probability distributions in a a multi-class classification problem and it can be computed as:
 	\begin{equation}\label{crossentro}
-		E = -\dfrac{\sum_{1}^{N}y_i\log(x_i)}{N}
+		E = \dfrac{-(\sum_{1}^{N}y_i\log(x_i))}{N}
 	\end{equation}
 	where $y_i$ is the predicted value, $x_i$ being the true value and $N$ the number of classes.
 
 	
-	\subsubsection{Multilayer Perceptron}\label{MLP}
-	\emph{Multilayer Perceptron} (MLP) is one class of the \emph{feedfowrard} ANN where, at least, one \textbf{hidden layer} is present between the input layer and the output layer, a demonstrative diagram can be seen in \emph{Figure~\ref{fig:MLP}}, the hidden layers act like a \emph{black box} where the objective of this so called black box is to extract features from the input, the \emph{deeper} the network, the more features it will be able to extract. But having a \emph{Deep Neural Network} (DNN) could be troubling sometimes as there would be more than 2-3 layers which, in coherence to the more feature extraction, it also acts in a much more complex way which applies a lot of constraints in areas such as software and hardware. The reason for the software constraint with DNN is that it will require more data to learn unlike shallower models. As for hardware constraints, the process that is responsible for training DNN is known as \emph{Deep Learning}, Deep Learning requires advanced GPUs which could get costly for a user, the essence of a GPU is crucial due to the time constraint that might be present in the absence of a GPU \cite{GPU}. \\[5mm]
+	\subsubsection{Multilayer Perceptrons}\label{MLP}
+	\emph{Multilayer Perceptrons (MLPs)} is one class of the \emph{feedfowrard ANNs} where, at least, one \textbf{hidden layer} is present between the input layer and the output layer, a demonstrative diagram can be seen in \emph{Figure~\ref{fig:MLP}}, the hidden layers act like a \emph{black box} where the objective of this so called black box is to extract features from the input, the \emph{deeper} the network, the more features it will be able to extract. But having a \emph{Deep Neural Network (DNN)} could be troubling sometimes as there would be more than 2-3 layers which, in coherence to the more feature extraction, it also acts in a much more complex way which applies a lot of constraints in areas such as software and hardware. The reason for the software constraint with \emph{DNN} is that it will require more data to learn unlike shallower models. As for hardware constraints, the process that is responsible for training \emph{DNNs} is known as \emph{Deep Learning}, Deep Learning requires advanced \emph{GPUs} which could get costly for a user, the essence of a GPU is crucial due to the time constraint that might be present in the absence of a GPU \cite{GPU}. \\[5mm]
 	The \emph{black box} could be seen also in \emph{Figure~\ref{fig:MLP}} as a light gray box captioned \emph{Hidden Layers}. 
 	
 	\begin{figure}[h]
@@ -233,9 +233,27 @@
 		\label{fig:MLP}
 	\end{figure}
 	
+	However, each layer, of these hidden layers, is still computed as \emph{Equation~\ref{y_hat}}. Bare in mind that the input of the next layer would be the previous layer's computed $\bm{\hat{y}}$, using \emph{Equation~\ref{y_hat}} for the first layer and computing the output layer number $\bm{i}$ as:
+	\begin{equation}\label{ANN_y_hat}
+		^{(i)}\bm{\hat{y}} = \hspace{1mm} ^{(i)}\phi(^{(i)}\bm{b}+ ^{(i)}W^{(i-1)}\bm{\hat{y}})
+	\end{equation}
+	\emph{where $\bm{i \geq 2}$}\\
+	Moreover, layers where each perceptron is connected to every perceptron of the following layer, as seen in \emph{Figure~\ref{fig:MLP}}, are called \emph{dense} or \emph{fully connected} (FC) layers.
 	
 	\subsubsection{Convolutional Neural Networks}\label{CNN}	
-	Some text about \textbf{Convolutional Neural Networks (CNN)}
+	\emph{Section~\ref{MLP}} included an explanation on \emph{ANNs} and how it helps in learning more complex functions using deeper networks, however image inputs are not suitable for \emph{MLPs}, since \emph{MLP} networks handle vector inputs, hence requiring the image to be flattened leading to an extreme increase in number of trainable parameters. In other words, using an image of size (512x512) as an input to extract the features would lead to a single perceptron containing \textbf{262.144} trainable parameters (excluding bias) and increasing number of perceptrons in the first hidden layer to around 100, which is not convenient for the size of the image but just setting it as an example, would set the number of trainable parameters to an astonishing \textbf{26.214.400} just for the first layer. In addition, increasing the resolution of the image and using a three-channel \emph{RGB} image will also exceedingly increase the trainable parameters. Therefore, a different kind of architecture is needed to handle images, and that new architecture is called \emph{Convolutional Neural Network (CNN)}.\\[5mm]
+	As stated in \cite{DL}, ”Convolutional networks are simply neural networks that use convolution in place of general matrix multiplication in at least one of their layers”. For an input image $I$ and kernel (filter) $K$ , the discrete convolution operation is defined as \cite{DL}:
+	\begin{equation}\label{conv}
+		c_{i,j} = (I*K)_{i,j} = \sum_{m}\sum_{n}I_{m,n}K_{i-m,j-n}
+	\end{equation}
+	In general the convolution operation on these images would produce an output feature image which is produced by convolving the input image with the kernel, the kernel would be a set of weights (trainable parameters) which the size could be defined by a user.\\[5mm]
+	Although many implementations talk about convolution and applying \emph{Equation~\ref{conv}} to the "\emph{Convolutional} Neural Network", an alternative method is used which is called \emph{cross-correlation}. As we can see in \emph{Equation~\ref{conv}}, where $m$ and $n$ iterate over valid subscripts of both $I_{m,n}$ and $K_{i-m,j-n}$, the \emph{filter} $K$ is flipped thus producing a \textbf{flipped} output, since the filter would be sliding in the negative direction. Consequently, an alternative variant is introduced called \emph{cross-correlation} and it is computed as follows:
+	\begin{equation}\label{cross-corr}
+		c_{i,j} = (I*K)_{i,j} = \sum_{m}\sum_{n}I_{i+m,j+n}K_{i,j}
+	\end{equation}
+	Hence producing an output which is not flipped as seen in \emph{Figure~\ref{fig:cross-corr}}. 
+	
+	
 	\subsection{Computer Vision}\label{CV}
 	Some text about \textbf{Computer Vision (CV)}
 	\subsubsection{Image Classification}\label{Classification}

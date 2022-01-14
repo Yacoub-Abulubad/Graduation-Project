@@ -101,6 +101,11 @@ Y.~Ho and S.~Wookey, ``The real-world-weight cross-entropy loss function:
   Modeling the costs of mislabeling,'' \emph{IEEE Access}, vol.~8, pp.
   4806--4813, 2019.
 
+\bibitem{DL}
+I.~J. Goodfellow, Y.~Bengio, and A.~Courville, \emph{Deep Learning}.\hskip 1em
+  plus 0.5em minus 0.4em\relax Cambridge, MA, USA: MIT Press, 2016,
+  \url{http://www.deeplearningbook.org}.
+
 \bibitem{CDC}
 \BIBentryALTinterwordspacing
 B.~Lana, ``What is the link between age and breast cancer?'' 7 2019. [Online].
