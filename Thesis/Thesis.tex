@@ -122,7 +122,7 @@
 	
 	\subsection{Objectives}\label{Obj}
 	The goal of this thesis is to compare and contrast the different results that could be obtained using different \emph{Convolutional Neural Network} (CNN) model structures. Applying \textbf{4 different concepts} to the same dataset but with different utilization of the data to measure the accuracy that might be obtained when manipulating the data differently. Due to the vast dataset that was obtained, one of the multiple hardware constraints were during loading the images from the \emph{Hard Disk Drive} (HDD) onto the \emph{Random Access Memory} (RAM), there was no enough memory to load the whole dataset to proceed with the model training. \\[5mm]
-	A different kind of hardware constraint that was faced is the absence of \emph{Graphical Processing Unit} (GPU), a GPU is crucial for \emph{Computer Vision} (CV) due to the enormous data stream that will take place during training \cite{GPU}.
+	A different kind of hardware constraint that was faced is the absence of \emph{Graphical Processing Unit} (GPU), a GPU is crucial for \emph{Computer Vision} (CV) due to the enormous data stream that will take place during training \cite{GPU} \cite{GPU}.
 	\subsection{Organization}\label{Org}
 	The \emph{Literature Review} will be discussed in \emph{Section~\ref{Lit. Rev.}} alongside the essential background on the different kinds of Neural Networks with their diverse functionalities. A deeper dive into the application's functions will be thoroughly described in \emph{Section~\ref{CV}} and the two main techniques that will be implemented in this Thesis. In \emph{Section~\ref{Meth}}, there will be a detailed explanation on the \textbf{Hierarchical approach} that is applied to obtain the results as well as the methods that helped surpassed the constraints that were mentioned in \emph{Secion~\ref{Obj}}. Detailed dissection of the dataset will be in \emph{Section~\ref{Data}}.
 	\newpage
@@ -223,11 +223,13 @@
 
 	
 	\subsubsection{Multilayer Perceptron}\label{MLP}
-	\emph{Multilayer Perceptron} (MLP) is one class of the \emph{feedfowrard} ANN where, at least, one \textbf{hidden layer} is present between the input layer and the output layer as seen in \emph{Figure~\ref{fig:MLP}}
+	\emph{Multilayer Perceptron} (MLP) is one class of the \emph{feedfowrard} ANN where, at least, one \textbf{hidden layer} is present between the input layer and the output layer, a demonstrative diagram can be seen in \emph{Figure~\ref{fig:MLP}}, the hidden layers act like a \emph{black box} where the objective of this so called black box is to extract features from the input, the \emph{deeper} the network, the more features it will be able to extract. But having a \emph{Deep Neural Network} (DNN) could be troubling sometimes as there would be more than 2-3 layers which, in coherence to the more feature extraction, it also acts in a much more complex way which applies a lot of constraints in areas such as software and hardware. The reason for the software constraint with DNN is that it will require more data to learn unlike shallower models. As for hardware constraints, the process that is responsible for training DNN is known as \emph{Deep Learning}, Deep Learning requires advanced GPUs which could get costly for a user, the essence of a GPU is crucial due to the time constraint that might be present in the absence of a GPU \cite{GPU}. \\[5mm]
+	The \emph{black box} could be seen also in \emph{Figure~\ref{fig:MLP}} as a light gray box captioned \emph{Hidden Layers}. 
+	
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.7\textwidth]{pics/Figures/MLP.eps}
-		\caption{\small{Multilayer Perceptron (MLP)}}
+		\caption{\small{Three layer feedforward network}}
 		\label{fig:MLP}
 	\end{figure}
 	
