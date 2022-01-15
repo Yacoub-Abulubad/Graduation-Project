@@ -242,7 +242,8 @@
 	
 	\subsubsection{Convolutional Neural Networks}\label{CNN}	
 	\emph{Section~\ref{MLP}} included an explanation on \emph{ANNs} and how it helps in learning more complex functions using deeper networks, however image inputs are not suitable for \emph{MLPs}, since \emph{MLP} networks handle vector inputs, hence requiring the image to be flattened leading to an extreme increase in number of trainable parameters. In other words, using an image of size (512x512) as an input to extract the features would lead to a single perceptron containing \textbf{262.144} trainable parameters (excluding bias) and increasing number of perceptrons in the first hidden layer to around 100, which is not convenient for the size of the image but just setting it as an example, would set the number of trainable parameters to an astonishing \textbf{26.214.400} just for the first layer. In addition, increasing the resolution of the image and using a three-channel \emph{RGB} image will also exceedingly increase the trainable parameters. Therefore, a different kind of architecture is needed to handle images, and that new architecture is called \emph{Convolutional Neural Network (CNN)}.\\[5mm]
-	As stated in \cite{DL}, ”Convolutional networks are simply neural networks that use convolution in place of general matrix multiplication in at least one of their layers”. For an input image $I$ and kernel (filter) $K$ , the discrete convolution operation is defined as \cite{DL}:
+	As stated in \cite{DL}, ”Convolutional networks are simply neural networks that use convolution in place of general matrix multiplication in at least one of their layers”. For an input image $I$ and kernel (filter) $K$ , the discrete convolution operation is defined as \cite{DL}:
+
 	\begin{equation}\label{conv}
 		c_{i,j} = (I*K)_{i,j} = \sum_{m}\sum_{n}I_{m,n}K_{i-m,j-n}
 	\end{equation}
@@ -253,6 +254,36 @@
 	\end{equation}
 	Hence producing an output which is not flipped as seen in \emph{Figure~\ref{fig:cross-corr}}. 
 	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.8\textwidth]{pics/Figures/convolution.png}
+		\caption{\small{An illustration of \emph{Cross-Correlation}}}
+		\label{fig:cross-corr}
+	\end{figure}
+	The process can be seen as the summation of the element-wise product between the kernel and any spatial location of center $(i, j)$, then moving the kernel by the amount of \emph{stride }to another location until the whole image is covered. Additionally, for multi-channel input image the \emph{Equation~\ref{cross-corr}} can be expanded as follows:
+	\begin{equation}
+		c_{i,j} = (I*K)_{i,j} = \sum_{m}\sum_{n}\sum{d}I_{i+m,j+n,d}K_{i,j,d}
+	\end{equation}
+	where d iterates over valid subscripts of both $I_{i+m,j+n,d}$ and $K_{i,j,d}$. Note it is frequent to add bias to the equation. Multiple kernels can be applied to the same input image to obtain several feature maps. Thus, the output depth is equal to number of kernels / filters applied. One of the characteristics of a convolutional layer is \textbf{parameter sharing}; it is possible to assume that if a specific filter is useful in some region, then it is useful in other regions as well. Under this assumption, the parameters are shared along the depth \cite{par_share} reducing the number of learnable parameters. Moreover, it is frequent to apply an activation function to feature maps in order to obtain activation maps.\\[5mm]
+	Convolution reduces the size of the input image. For this reason, when several convolution layers are used, the image size decreases drastically. As a counter-measurement, an outer frame is added to the image, limiting the size reduction. This process is called \textbf{padding}. It is common to use zeros as values for the frame and this is called \emph{zero padding}, while reflecting values of rows and columns into the frame is named \emph{reflection padding}.\\[5mm]
+	For an image of height $(H_i)$ and width $(W_i)$, the size of the image post convolution is computed as:
+	\begin{equation}\label{width}
+		\hat{W}_i = \dfrac{W_i-k+2P_i}{s}+1
+	\end{equation}
+	\begin{equation}\label{height}
+		\hat{H}_i = \dfrac{H_i-k+2P_i}{s}+1
+	\end{equation}
+
+	where $\hat{W}_i$ and $\hat{H}_i$ are the new width and height, respectivelt, of post convolution process. $k$ is the kernel size, $s$ being the stride and the padding size denoted as $P_i$. 
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.8\textwidth]{pics/Figures/reverse_convolution.png}
+		\caption{\small{An illustration of \emph{Transposed Convolution}}}
+		\label{fig:T_Conv}
+	\end{figure}
+	
+	In a convolutional layer, the kernel defines a convolution that has a forward pass and backward pass. Flipping the passes would result in \emph{Transposed Convolution} or known as \emph{fractionally strided convolution} \cite{stride}, which is used for upsampling. Transposed Convolution can as well be visualized in \emph{Figure~\ref{fig:T_Conv}}.
 	
 	\subsection{Computer Vision}\label{CV}
 	Some text about \textbf{Computer Vision (CV)}
