@@ -125,6 +125,19 @@ T.-Y. Lin, P.~Goyal, R.~Girshick, K.~He, and P.~Doll{\'a}r, ``Focal loss for
   dense object detection,'' in \emph{Proceedings of the IEEE international
   conference on computer vision}, 2017, pp. 2980--2988.
 
+\bibitem{mammography}
+\BIBentryALTinterwordspacing
+N.~C. Institute, ``Mammograms,'' 9 2021. [Online]. Available:
+  \url{https://www.cancer.gov/types/breast/mammograms-fact-sheet}
+\BIBentrySTDinterwordspacing
+
+\bibitem{GJU}
+M.~I. Daoud, Y.~Alrahahleh, S.~Abdel-Rahman, B.~A. Alsaify, and R.~Alazrai,
+  ``Covid-19 diagnosis in chest x-ray images by combining pre-trained cnn
+  models with flat and hierarchical classification approaches,'' in \emph{2021
+  12th International Conference on Information and Communication Systems
+  (ICICS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2021, pp. 330--335.
+
 \bibitem{CDC}
 \BIBentryALTinterwordspacing
 B.~Lana, ``What is the link between age and breast cancer?'' 7 2019. [Online].

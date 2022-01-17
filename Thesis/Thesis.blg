@@ -32,48 +32,49 @@ while executing---line 2403 of file IEEEtran.bst
 Too many commas in name 1 of "John McGonagle, George Shaikouski, Christopher Williams, Andrew Hsu, Jimin Khim, Aaron Miller" for entry backprop
 while executing---line 2403 of file IEEEtran.bst
 Warning--empty year in backprop
+Warning--empty journal in mammography
 Warning--empty journal in CDC
 
 Done.
-You've used 22 entries,
+You've used 24 entries,
             4087 wiz_defined-function locations,
-            1471 strings with 21239 characters,
-and the built_in function-call counts, 13578 in all, are:
-= -- 1060
-> -- 326
-< -- 83
-+ -- 176
-- -- 62
-* -- 616
-:= -- 2104
-add.period$ -- 46
-call.type$ -- 22
-change.case$ -- 19
-chr.to.int$ -- 198
-cite$ -- 26
-duplicate$ -- 1023
-empty$ -- 1175
-format.name$ -- 75
-if$ -- 3146
+            1481 strings with 21668 characters,
+and the built_in function-call counts, 14920 in all, are:
+= -- 1161
+> -- 359
+< -- 92
++ -- 194
+- -- 68
+* -- 680
+:= -- 2307
+add.period$ -- 51
+call.type$ -- 24
+change.case$ -- 21
+chr.to.int$ -- 222
+cite$ -- 29
+duplicate$ -- 1121
+empty$ -- 1294
+format.name$ -- 82
+if$ -- 3458
 int.to.chr$ -- 0
-int.to.str$ -- 22
-missing$ -- 176
-newline$ -- 95
-num.names$ -- 22
-pop$ -- 450
+int.to.str$ -- 24
+missing$ -- 193
+newline$ -- 103
+num.names$ -- 24
+pop$ -- 495
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1063
+skip$ -- 1163
 stack$ -- 0
-substring$ -- 502
-swap$ -- 747
-text.length$ -- 17
+substring$ -- 560
+swap$ -- 820
+text.length$ -- 18
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 22
-warning$ -- 4
-while$ -- 52
-width$ -- 24
-write$ -- 217
+type$ -- 24
+warning$ -- 5
+while$ -- 58
+width$ -- 26
+write$ -- 236
 (There were 7 error messages)

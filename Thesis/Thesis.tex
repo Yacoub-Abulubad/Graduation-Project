@@ -63,7 +63,7 @@
 	
 	\tableofcontents
 	\listoffigures
-	\listoftables
+	%\listoftables
 	\newpage
 	\begin{center}
 		\LARGE{\textbf{Descriptive Abstract}}\\ \vspace{1cm}
@@ -160,7 +160,6 @@
 	
 	The above vector will differ based on the next layer's size, given that there is $\bm{m}$ number of neurons in the next layer, the \emph{weight's matrix} will have a size of $\bm{m \times n}$ as seen in \emph{Equation~\ref{weights_expanded}}. The weight vector is a \emph{row vector} due to the relationship it contains with the input as every $\bm{n^{th}}$ input, there's a $\bm{n^{th}}$ weight corresponding to it.\\[5mm]
 	After the input is multiplied with its assigned weight, it is now referred to as the \textbf{weighted input}, that weighted input is summed with the rest of the weighted inputs which then derives us the \textbf{weighted sum}. Then as all these inputs are summed, a \emph{bias} $\bm{b}$ is added which is an additional parameter that is used to adjust the \emph{output} of the perceptron as well as the weighted sum that is \emph{inputted} into the perceptron.\\[5mm]
-	\newpage
 	The output of the perceptron can be denoted as $\bm{y}$ and is calculated as follows:
 	\begin{equation}\label{output}
 		y = \phi{(z)},
@@ -288,7 +287,7 @@
 	\subsection{Computer Vision}\label{CV}
 	\emph{Human vision} is similar to \emph{Computer Vision (CV)}, with the exception that people have a head start. Human vision benefits from lifetimes of context to teach it how to distinguish objects apart, how far away they are, whether they are moving, and whether something is incorrect with an image. CV teaches computers to execute similar tasks, but using cameras, data, and algorithms rather than retinas, optic nerves, and a visual cortex, it must do it in a \textbf{fraction of the time}. Because a system trained to check items or monitor a production asset can assess hundreds of products or processes per minute, detecting faults or issues that are invisible to humans, it can swiftly \textbf{outperform humans}. The speed and the methods will be discussed in \emph{Section~\ref{Classification}} and \emph{Section~\ref{Obj Detection}}.
 	\subsubsection{Image Classification}\label{Classification}
-	Some text about \textbf{Image Classification}
+	
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.5\textwidth]{pics/Figures/Classifier_Block_Diagram.eps}
@@ -303,16 +302,18 @@
 		\caption{\small{Object Detection Diagram}}
 		\label{fig:Obj Detector}
 	\end{figure}
+	Unlike Image Classification, Object Detection is only responsible for detecting and localizing learned features no matter how many \emph{Classes'} features a detector learns. In instance when it comes to the two different kinds of object detectors, single and two stage detectors, this thesis will conduct the two stage object detector method as the results do not really rely on inference speed. And as discussed earlier, single stage object detectors would prioritize inference speed over accuracy as they would be widely used in real-time object detection. However, the dataset, which will be discussed in \emph{Section~\ref{Data}}, is not a live image but rather a static image which is processed after performing x-ray imaging \cite{mammography}.
 	
-	\subsection{Hierarchy Classifier}
-	An explanation on the Hierarchical approach.
+	\subsubsection{Hierarchy Classifier}
+	In \emph{Section~\ref{Classification}}, it has been explained that a classifier can classify between multiple classes, say there is three different classes $\bm{x}$ $\bm{y}$ and $\bm{z}$. These three classes have two classes which are quite similar, say that these similar classes are $\bm{x}$ and $\bm{y}$ sharing multiple features and are completely different from class $\bm{z}$ where they share no similar features. The classifier will be most likely to have a \textbf{larger error} when it comes to classifying between class $\bm{x}$ and $\bm{y}$, while it will be easier to classify class $\bm{z}$.\\[5mm]
+	This is where \textbf{Hierarchical Classification} comes into play, which could be graphically demonstrated in \emph{Figure \ref{fig:Hierarchical Classifier}}, as it will feature two separate classifiers, say one classifier to distinguish between two majorly different classes such as $\bm{\{x,y\}}$ and $\bm{z}$, this classifier will be denoted as \textbf{Classifier 1} which outputs \textbf{Class 1} that is a binary category on whether the input is classified as $\bm{z}$ or as $\bm{\{x,y\}}$. The reason that \textbf{Classifier 1} is set up is because it will be able to better distinguish between these two vastly different classes since it is easier to learn and distinguish their features, hence \textbf{Classifier 1} would be trained on the binary categorization, and if the output is classified as $\bm{\{x,y\}}$, then the same input will be taken to \textbf{Classifier 2}. \textbf{Classifier 2} is trained on discriminating between $\bm{x}$ and $\bm{y}$, and that is \textbf{Class 2}, which will give the classifier much better judgment over the two similar classes and have no third class interfere with the learning of the distinction between the two similar classes. This approach has been used in \cite{GJU}.
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.5\textwidth]{pics/Figures/Hierarchical_Classifier_Block_Diagram.eps}
+		\includegraphics[width=0.7\textwidth]{pics/Figures/Hierarchical_Classifier_Block_Diagram.eps}
 		\caption{\small{Hierarchical Classifier Diagram}}
 		\label{fig:Hierarchical Classifier}
 	\end{figure}
-	some basic explanation on \emph{Figure \ref{fig:Hierarchical Classifier}} which is a normal approach found in /ref{GJU paper}.
+	
 	\newpage
 	
 	
@@ -320,12 +321,12 @@
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=0.5\textwidth]{pics/Figures/Hierarchical_Obj_Det_Block_Diagram.eps}
+		\includegraphics[width=0.7\textwidth]{pics/Figures/Hierarchical_Obj_Det_Block_Diagram.eps}
 		\caption{\small{Object Detection Diagram}}
 		\label{fig:Hierarchical Obj Detector}
 	\end{figure}
 	some in depth explanation on \emph{Figure \ref{fig:Hierarchical Obj Detector}} alongside many more figures to explain the thought process 
-	\subsection{Dataset}\label{Data}
+	\section{Dataset}\label{Data}
 	
 	Choosing a dataset for this problem is crucial to many stages, first and foremost is the \emph{quality of the data}. Does the data clearly portray the goal that should be acquired? Secondly is the \emph{quantity of the dataset}, just like the quality, quantity is as important. \textbf{Neural Networks} require a lot of data, but the quantity mainly depends on the following:
 	\begin{itemize}
