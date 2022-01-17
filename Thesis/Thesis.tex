@@ -304,7 +304,6 @@
 		\label{fig:Obj Detector}
 	\end{figure}
 	Unlike Image Classification, Object Detection is only responsible for detecting and localizing learned features no matter how many \emph{Classes'} features a detector learns. In instance when it comes to the two different kinds of object detectors, single and two stage detectors, this thesis will conduct the two stage object detector method as the results do not really rely on inference speed. And as discussed earlier, single stage object detectors would prioritize inference speed over accuracy as they would be widely used in real-time object detection. However, the dataset, which will be discussed in \emph{Section~\ref{Data}}, is not a live image but rather a static image which is processed after performing x-ray imaging \cite{mammography}. An object detector learns by inputting a single object that is restrained by a bounding box or a mask. An image with a contour mask could be seen in \emph{Figure~\ref{fig:img_cont}}.
-	
 	\begin{figure}
 		\centering
 		\subfloat[\centering Image containing cancer cell]{{\includegraphics[width=4.5cm]{pics/Figures/cancer_img.jpg} }}%
