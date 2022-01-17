@@ -10,7 +10,7 @@
 \contentsline {subsection}{\numberline {2.2}Computer Vision}{13}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}Image Classification}{13}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Object Detection}{14}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Hierarchy Classifier}{14}{subsubsection.2.2.3}%
-\contentsline {section}{\numberline {3}Hierarchical Method}{16}{section.3}%
-\contentsline {section}{\numberline {4}Dataset}{16}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{18}{section.5}%
+\contentsline {subsubsection}{\numberline {2.2.3}Hierarchy Classifier}{15}{subsubsection.2.2.3}%
+\contentsline {section}{\numberline {3}Hierarchical Method}{17}{section.3}%
+\contentsline {section}{\numberline {4}Dataset}{17}{section.4}%
+\contentsline {section}{\numberline {5}Conclusion}{19}{section.5}%

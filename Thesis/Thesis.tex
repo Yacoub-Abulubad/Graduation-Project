@@ -19,6 +19,7 @@
 \usepackage{pgfplotstable} % Generates table from .csv
 \usepackage{amsmath}
 \usepackage{bm}
+\usepackage{subcaption}
 
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
@@ -302,7 +303,21 @@
 		\caption{\small{Object Detection Diagram}}
 		\label{fig:Obj Detector}
 	\end{figure}
-	Unlike Image Classification, Object Detection is only responsible for detecting and localizing learned features no matter how many \emph{Classes'} features a detector learns. In instance when it comes to the two different kinds of object detectors, single and two stage detectors, this thesis will conduct the two stage object detector method as the results do not really rely on inference speed. And as discussed earlier, single stage object detectors would prioritize inference speed over accuracy as they would be widely used in real-time object detection. However, the dataset, which will be discussed in \emph{Section~\ref{Data}}, is not a live image but rather a static image which is processed after performing x-ray imaging \cite{mammography}.
+	Unlike Image Classification, Object Detection is only responsible for detecting and localizing learned features no matter how many \emph{Classes'} features a detector learns. In instance when it comes to the two different kinds of object detectors, single and two stage detectors, this thesis will conduct the two stage object detector method as the results do not really rely on inference speed. And as discussed earlier, single stage object detectors would prioritize inference speed over accuracy as they would be widely used in real-time object detection. However, the dataset, which will be discussed in \emph{Section~\ref{Data}}, is not a live image but rather a static image which is processed after performing x-ray imaging \cite{mammography}. An object detector learns by inputting a single object that is restrained by a bounding box or a mask. An image with a contour mask could be seen in \emph{Figure~\ref{fig:img_cont}}.
+	
+	\begin{figure}
+		\centering
+		\subfloat[\centering Image containing cancer cell]{{\includegraphics[width=4.5cm]{pics/Figures/cancer_img.jpg} }}%
+		\qquad
+		\subfloat[\centering Contour Mask]{{\includegraphics[width=4.5cm]{pics/Figures/contour_img.jpg} }}%
+		\qquad
+		\subfloat[\centering Result Image]{{\includegraphics[width=4.5cm]{pics/Figures/result_img.jpg} }}%
+		\caption{An image and the mask of the cancerous cell to isolate the cell from the rest of the image so the object detector would be able to learn the features of given cell with the isolation procedure beginning with the mask filled with ones, then overlapping the original image which contains the cancerous cell, the two images are then multiplied by each other making everything black except for whatever is inside the mask as seen in the \emph{Result Image}}
+		\label{fig:img_cont}
+	\end{figure}
+	
+	There are three networks in the family of R-CNN object detector the original R-CNN \cite{RCNN}, Fast R-CNN \cite{Fast-RCNN} and Faster R-CNN \cite{Objdet} . In the original R-CNN network, selective search algorithm \cite{selective} is used to obtain region proposals. Afterwards, each proposal is fed into
+	
 	
 	\subsubsection{Hierarchy Classifier}
 	In \emph{Section~\ref{Classification}}, it has been explained that a classifier can classify between multiple classes, say there is three different classes $\bm{x}$ $\bm{y}$ and $\bm{z}$. These three classes have two classes which are quite similar, say that these similar classes are $\bm{x}$ and $\bm{y}$ sharing multiple features and are completely different from class $\bm{z}$ where they share no similar features. The classifier will be most likely to have a \textbf{larger error} when it comes to classifying between class $\bm{x}$ and $\bm{y}$, while it will be easier to classify class $\bm{z}$.\\[5mm]

@@ -5,7 +5,8 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces \small {An illustration of \emph {Transposed Convolution}}\relax }}{13}{figure.caption.5}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces \small {Classifier Diagram}\relax }}{13}{figure.caption.6}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces \small {Object Detection Diagram}\relax }}{14}{figure.caption.7}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces \small {Hierarchical Classifier Diagram}\relax }}{15}{figure.caption.8}%
-\contentsline {figure}{\numberline {3.1}{\ignorespaces \small {Object Detection Diagram}\relax }}{16}{figure.caption.9}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces \small {Age Distribution}\relax }}{17}{figure.caption.10}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \small {Average Age}\relax }}{17}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces An image and the mask of the cancerous cell to isolate the cell from the rest of the image so the object detector would be able to learn the features of given cell with the isolation procedure beginning with the mask filled with ones, then overlapping the original image which contains the cancerous cell, the two images are then multiplied by each other making everything black except for whatever is inside the mask as seen in the \emph {Result Image}\relax }}{15}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces \small {Hierarchical Classifier Diagram}\relax }}{16}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \small {Object Detection Diagram}\relax }}{17}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \small {Age Distribution}\relax }}{18}{figure.caption.11}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \small {Average Age}\relax }}{18}{figure.caption.12}%
