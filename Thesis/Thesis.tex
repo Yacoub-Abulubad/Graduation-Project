@@ -127,7 +127,7 @@
 	The \emph{Literature Review} will be discussed in \emph{Section~\ref{Lit. Rev.}} alongside the essential background on the different kinds of Neural Networks with their diverse functionalities. A deeper dive into the application's functions will be thoroughly described in \emph{Section~\ref{CV}} and the two main techniques that will be implemented in this Thesis. In \emph{Section~\ref{Meth}}, there will be a detailed explanation on the \textbf{Hierarchical approach} that is applied to obtain the results as well as the methods that helped surpassed the constraints that were mentioned in \emph{Secion~\ref{Obj}}. Detailed dissection of the dataset will be in \emph{Section~\ref{Data}}.
 	\newpage
 	\section{Background}\label{Lit. Rev.}
-	Lit. Rev. goes here
+	This thesis will focus on implementing a \emph{Hierarchical Object Detector with Classifier}. There has been previous implementations of Brest cancer detection using a \emph{one stage} object detection, which will be explained in \emph{Section~\ref{Obj Detection}}, as seen in \cite{one_shot}, but the gap remains with setting up a \emph{two stage} object detector to detect and classify these tumors. In other words, this is an application of \textbf{Hierarchical Deep Convolutional Neural Network} since it relies on \emph{Hierarchy}, which will be explained in \emph{Section~\ref{Meth}}.
 	\subsection{Artificial Neural Networks}\label{ANN}
 	\emph{Artificial Neural Networks (ANNs)} are a simplified mathematical models that mimic the functionality of a human brain and nervous system \cite{ANN, ANN2}. Just like humans, these networks were designed to solve more complex, \emph{non-linear}, highly stochastic and multi-variable problems that a traditional program could not. These problems span out to the fields of medicine, finance, security and many more \cite{ANN_funct}. \emph{ANNs} are designed to approximating any continuous function thus are used in a wide spectrum of applications such as object detection \cite{Objdet, Objdet2}, image classification \cite{classification}, image enhancement \cite{enhancement} as well as several more uses.\\[5mm]
 	The \emph{ANN} is originally compromised from multiple \emph{neurons}, or \emph{perceptron}, which can be demonstrated in \emph{Figure~\ref{fig:Perceptron}}, hence the \emph{perceptron} is the ground foundation of \emph{ANNs}.
@@ -148,7 +148,7 @@
 	\end{bmatrix}
 	\end{align}
 
-	Depending on the features of a given model data, different features require different \emph{weights}, denoted as $\bm{w}$, since one feature would have more effect on the final output more than a different kind of feature, thus an input must be multiplied with a weight to determine its importance to the final output.\\
+	Depending on the features of a given model data, different features require different \emph{weights}, denoted as $\bm{w}$, since one feature would have more effect on the final output more than a different kind of feature, thus an input must be multiplied with a weight to determine its importance to the final output.
 	\begin{align}
 		\bm{w} &= \begin{bmatrix}\label{weights}
 			w_1 \quad
@@ -264,7 +264,8 @@
 	\begin{equation}
 		c_{i,j} = (I*K)_{i,j} = \sum_{m}\sum_{n}\sum{d}I_{i+m,j+n,d}K_{i,j,d}
 	\end{equation}
-	where d iterates over valid subscripts of both $I_{i+m,j+n,d}$ and $K_{i,j,d}$. Note it is frequent to add bias to the equation. Multiple kernels can be applied to the same input image to obtain several feature maps. Thus, the output depth is equal to number of kernels / filters applied. One of the characteristics of a convolutional layer is \textbf{parameter sharing}; it is possible to assume that if a specific filter is useful in some region, then it is useful in other regions as well. Under this assumption, the parameters are shared along the depth \cite{par_share} reducing the number of learnable parameters. Moreover, it is frequent to apply an activation function to feature maps in order to obtain activation maps.\\[5mm]
+	where d iterates over valid subscripts of both $I_{i+m,j+n,d}$ and $K_{i,j,d}$. Note it is frequent to add bias to the equation. Multiple kernels can be applied to the same input image to obtain several feature maps. Thus, the output depth is equal to number of kernels / filters applied. One of the characteristics of a convolutional layer is \textbf{parameter sharing}; it is possible to assume that if a specific filter is useful in some region, then it is useful in other regions as well. Under this assumption, the parameters are shared along the depth \cite{par_share} reducing the number of learnable parameters. Moreover, it is frequent to apply an activation function to feature maps in order to obtain activation maps.
+\\[5mm]
 	Convolution reduces the size of the input image. For this reason, when several convolution layers are used, the image size decreases drastically. As a counter-measurement, an outer frame is added to the image, limiting the size reduction. This process is called \textbf{padding}. It is common to use zeros as values for the frame and this is called \emph{zero padding}, while reflecting values of rows and columns into the frame is named \emph{reflection padding}.\\[5mm]
 	For an image of height $(H_i)$ and width $(W_i)$, the size of the image post convolution is computed as:
 	\begin{equation}\label{width}
@@ -284,9 +285,8 @@
 	\end{figure}
 	
 	In a convolutional layer, the kernel defines a convolution that has a forward pass and backward pass. Flipping the passes would result in \emph{Transposed Convolution} or known as \emph{fractionally strided convolution} \cite{stride}, which is used for upsampling. Transposed Convolution can as well be visualized in \emph{Figure~\ref{fig:T_Conv}}.
-	
 	\subsection{Computer Vision}\label{CV}
-	Some text about \textbf{Computer Vision (CV)}
+	\emph{Human vision} is similar to \emph{Computer Vision (CV)}, with the exception that people have a head start. Human vision benefits from lifetimes of context to teach it how to distinguish objects apart, how far away they are, whether they are moving, and whether something is incorrect with an image. CV teaches computers to execute similar tasks, but using cameras, data, and algorithms rather than retinas, optic nerves, and a visual cortex, it must do it in a \textbf{fraction of the time}. Because a system trained to check items or monitor a production asset can assess hundreds of products or processes per minute, detecting faults or issues that are invisible to humans, it can swiftly \textbf{outperform humans}. The speed and the methods will be discussed in \emph{Section~\ref{Classification}} and \emph{Section~\ref{Obj Detection}}.
 	\subsubsection{Image Classification}\label{Classification}
 	Some text about \textbf{Image Classification}
 	\begin{figure}[h]

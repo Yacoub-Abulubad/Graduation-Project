@@ -44,6 +44,12 @@ Z.~Chen, J.~Wang, H.~He, and X.~Huang, ``A fast deep learning system using
   gpu,'' in \emph{2014 IEEE International Symposium on Circuits and Systems
   (ISCAS)}.\hskip 1em plus 0.5em minus 0.4em\relax IEEE, 2014, pp. 1552--1555.
 
+\bibitem{one_shot}
+H.~Jung, B.~Kim, I.~Lee, M.~Yoo, J.~Lee, S.~Ham, O.~Woo, and J.~Kang,
+  ``Detection of masses in mammograms using a one-stage object detector based
+  on a deep convolutional neural network,'' \emph{PloS one}, vol.~13, no.~9, p.
+  e0203355, 2018.
+
 \bibitem{ANN}
 B.~Yegnanarayana, \emph{Artificial neural networks}.\hskip 1em plus 0.5em minus
   0.4em\relax PHI Learning Pvt. Ltd., 2009.
@@ -113,6 +119,11 @@ K.~O'Shea and R.~Nash, ``An introduction to convolutional neural networks,''
 \bibitem{stride}
 V.~Dumoulin and F.~Visin, ``A guide to convolution arithmetic for deep
   learning,'' \emph{arXiv preprint arXiv:1603.07285}, 2016.
+
+\bibitem{Retina}
+T.-Y. Lin, P.~Goyal, R.~Girshick, K.~He, and P.~Doll{\'a}r, ``Focal loss for
+  dense object detection,'' in \emph{Proceedings of the IEEE international
+  conference on computer vision}, 2017, pp. 2980--2988.
 
 \bibitem{CDC}
 \BIBentryALTinterwordspacing
