@@ -6,7 +6,6 @@
 \usepackage{blindtext}
 \usepackage{setspace}
 \usepackage{graphics}
-%\usepackage{epstopdf}
 \usepackage{notoccite} %citation number ordering
 \usepackage{lscape} %landscape table
 \usepackage{caption} %add a newline in the table caption
@@ -20,6 +19,7 @@
 \usepackage{amsmath}
 \usepackage{bm}
 \usepackage{subcaption}
+\usepackage{colortbl}
 
 \usepackage{chngcntr}
 \counterwithin{figure}{section}
@@ -32,7 +32,7 @@
 
 \onehalfspace   % 1.5 line spacing
 
-\title{\includegraphics[width=4cm]{pics/AAU_Logo.jpg}\\\Large{\textbf{Breast Cancer and Benign Detection using Hierarchical Deep Convolutional Neural Networks}}
+\title{\includegraphics[width=4cm]{pics/AAU_Logo.jpg}\\\Large{\textbf{Breast Cancer and Benign Detection using Multi-Stage Deep Convolutional Neural Networks}}
 \date{}}
 \begin{document}
 	\clearpage\maketitle
@@ -63,8 +63,9 @@
 	\newpage
 	
 	\tableofcontents
+	\newpage
 	\listoffigures
-	%\listoftables
+	\listoftables
 	\newpage
 	\begin{center}
 		\LARGE{\textbf{Descriptive Abstract}}\\ \vspace{1cm}
@@ -78,13 +79,12 @@
 			\multicolumn{1}{p{3cm}}{\large{\textbf{AI}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{A}rtificial \textbf{I}ntelligence}} \\
 			\multicolumn{1}{p{3cm}}{\large{\textbf{ANN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{A}rtificial \textbf{N}eural \textbf{N}etwork}} \\
 			\multicolumn{1}{p{3cm}}{\large{\textbf{CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
-			\multicolumn{1}{p{3cm}}{\large{\textbf{GPU}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{G}raphical \textbf{P}rpcessing \textbf{U}nit}}\\ 
-			\multicolumn{1}{p{3cm}}{\large{\textbf{HD-CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{H}ierarchical \textbf{D}eep \textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
+			\multicolumn{1}{p{3cm}}{\large{\textbf{DNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{D}eep \textbf{N}eural \textbf{N}etwork}} \\
+			\multicolumn{1}{p{3cm}}{\large{\textbf{MS-DCNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{M}ulti-\textbf{S}tage \textbf{D}eep \textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
+			\multicolumn{1}{p{3cm}}{\large{\textbf{MSOD}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{M}ulti-\textbf{S}tage \textbf{O}bject \textbf{D}etector}}\\ 
 			\multicolumn{1}{p{3cm}}{\large{\textbf{MAE}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{M}ean \textbf{A}bsolute \textbf{E}rror}}\\  
 			\multicolumn{1}{p{3cm}}{\large{\textbf{MLP}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{M}ulti\textbf{l}ayer \textbf{P}erceptron}}\\ 
-			\multicolumn{1}{p{3cm}}{\large{\textbf{CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
-			\multicolumn{1}{p{3cm}}{\large{\textbf{CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
-			\multicolumn{1}{p{3cm}}{\large{\textbf{CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\
+			\multicolumn{1}{p{3cm}}{\large{\textbf{GPU}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{G}raphical \textbf{P}rpcessing \textbf{U}nit}}\\ 
 			\multicolumn{1}{p{3cm}}{\large{\textbf{HDD}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{H}ard \textbf{D}isk \textbf{D}rive}}\\ 
 			\multicolumn{1}{p{3cm}}{\large{\textbf{RAM}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{R}andom \textbf{A}ccess \textbf{M}emory}}
 			 
@@ -99,6 +99,7 @@
 			{Symbol} & {Name} \\
 			$b$ & bias\\
 			$w$ & weights\\
+			$E$ & some loss-function\\
 			$\phi$ & activation function\\
 			$\eta$ & cost function
 		\end{tabular}
@@ -125,10 +126,10 @@
 	The goal of this thesis is to compare and contrast the different results that could be obtained using different \emph{Convolutional Neural Network (CNN)} model structures. Applying \textbf{4 different concepts} to the same dataset but with different utilization of the data to measure the accuracy that might be obtained when manipulating the data differently. Due to the vast dataset that was obtained, one of the multiple hardware constraints were during loading the images from the \emph{Hard Disk Drive (HDD)} onto the \emph{Random Access Memory (RAM)}, there was no enough memory to load the whole dataset to proceed with the model training. \\[5mm]
 	A different kind of hardware constraint that was faced is the absence of \emph{Graphical Processing Unit} (GPU), a GPU is crucial for \emph{Computer Vision} (CV) due to the enormous data stream that will take place during training \cite{GPU} \cite{GPU}.
 	\subsection{Organization}\label{Org}
-	The \emph{Literature Review} will be discussed in \emph{Section~\ref{Lit. Rev.}} alongside the essential background on the different kinds of Neural Networks with their diverse functionalities. A deeper dive into the application's functions will be thoroughly described in \emph{Section~\ref{CV}} and the two main techniques that will be implemented in this Thesis. In \emph{Section~\ref{Meth}}, there will be a detailed explanation on the \textbf{Hierarchical approach} that is applied to obtain the results as well as the methods that helped surpassed the constraints that were mentioned in \emph{Secion~\ref{Obj}}. Detailed dissection of the dataset will be in \emph{Section~\ref{Data}}.
+	The \emph{Literature Review} will be discussed in \emph{Section~\ref{Lit. Rev.}} alongside the essential background on the different kinds of Neural Networks with their diverse functionalities. A deeper dive into the application's functions will be thoroughly described in \emph{Section~\ref{CV}} and the two main techniques that will be implemented in this Thesis. In \emph{Section~\ref{Meth}}, there will be a detailed explanation on the \textbf{Multi-Stage approach} that is applied to obtain the results as well as the methods that helped surpassed the constraints that were mentioned in \emph{Secion~\ref{Obj}}. Detailed dissection of the dataset will be in \emph{Section~\ref{Data}}.
 	\newpage
 	\section{Background}\label{Lit. Rev.}
-	This thesis will focus on implementing a \emph{Hierarchical Object Detector with Classifier}. There has been previous implementations of Brest cancer detection using a \emph{one stage} object detection, which will be explained in \emph{Section~\ref{Obj Detection}}, as seen in \cite{one_shot}, but the gap remains with setting up a \emph{two stage} object detector to detect and classify these tumors. In other words, this is an application of \textbf{Hierarchical Deep Convolutional Neural Network} since it relies on \emph{Hierarchy}, which will be explained in \emph{Section~\ref{Meth}}.
+	This thesis will focus on implementing a \emph{Multi-Stage Object Detector}. There has been previous implementations of Brest cancer detection using a \emph{one stage} object detection, which will be explained in \emph{Section~\ref{Obj Detection}}, as seen in \cite{one_shot}, but the gap remains with setting up a \emph{two stage} object detector to detect and classify these tumors. In other words, this is an application of \textbf{Multi-Stage Deep Convolutional Neural Network (MS-DCNN)} since it relies on \emph{two stage object detection}, which will be explained in \emph{Section~\ref{Meth}}.
 	\subsection{Artificial Neural Networks}\label{ANN}
 	\emph{Artificial Neural Networks (ANNs)} are a simplified mathematical models that mimic the functionality of a human brain and nervous system \cite{ANN, ANN2}. Just like humans, these networks were designed to solve more complex, \emph{non-linear}, highly stochastic and multi-variable problems that a traditional program could not. These problems span out to the fields of medicine, finance, security and many more \cite{ANN_funct}. \emph{ANNs} are designed to approximating any continuous function thus are used in a wide spectrum of applications such as object detection \cite{Objdet, Objdet2}, image classification \cite{classification}, image enhancement \cite{enhancement} as well as several more uses.\\[5mm]
 	The \emph{ANN} is originally compromised from multiple \emph{neurons}, or \emph{perceptron}, which can be demonstrated in \emph{Figure~\ref{fig:Perceptron}}, hence the \emph{perceptron} is the ground foundation of \emph{ANNs}.
@@ -170,12 +171,13 @@
 		z = b + \sum_{i}^{n} x_i w_i
 	\end{equation}
 	
-	The $\phi$ is an arbitrary function known as the \textbf{activation function} \cite{agarap2018deep} 
-	%Talk about relu
-	%
-	%
-	which is responsible for causing the perceptron to \emph{fire} generating an output. This activation function is deduced by a threshold that is set based on the different types of activation functions alongside their different uses which can limit the output of reaching an undesired or unacceptable value \cite{siddique2013computational}.\\[5mm]
-	
+	The $\phi$ is an arbitrary function known as the \textbf{activation function} which is responsible for causing the perceptron to \emph{fire} generating an output. This activation function is deduced by a threshold that is set based on the different types of activation functions alongside their different uses which can limit the output of reaching an undesired or unacceptable value \cite{siddique2013computational}.\\[5mm]
+	One of the most common activation functions is the \emph{Rectified Linear Unit (ReLU)}\cite{agarap2018deep} which is defined as:
+	\begin{equation}\label{ReLU}
+		\phi(z) = max(0,z)=\Bigg\{ {z \atop 0} {\quad \atop \quad} {z \atop z} {> \atop <} {0 \atop 0}
+	\end{equation}
+	and it is widely used in \emph{Neural Networks} as the \emph{hidden layer's} perceptrons', which is discussed in \emph{Section~\ref{MLP}}, activation function. 
+	\\[5mm]
 	The expansion from a single perceptron to multi perceptrons forms a \emph{single layered neural network} as seen in \emph{Figure~\ref{fig:ANN}}; using the input vector as seen in \emph{Equation \ref{inputs}} and defining the weights matrix 
 	\begin{align}
 		 W &= \begin{bmatrix}\label{weights_expanded}
@@ -223,13 +225,13 @@
 
 	
 	\subsubsection{Multilayer Perceptrons}\label{MLP}
-	\emph{Multilayer Perceptrons (MLPs)} is one class of the \emph{feedfowrard ANNs} where, at least, one \textbf{hidden layer} is present between the input layer and the output layer, a demonstrative diagram can be seen in \emph{Figure~\ref{fig:MLP}}, the hidden layers act like a \emph{black box} where the objective of this so called black box is to extract features from the input, the \emph{deeper} the network, the more features it will be able to extract. But having a \emph{Deep Neural Network (DNN)} could be troubling sometimes as there would be more than 2-3 layers which, in coherence to the more feature extraction, it also acts in a much more complex way which applies a lot of constraints in areas such as software and hardware. The reason for the software constraint with \emph{DNN} is that it will require more data to learn unlike shallower models. As for hardware constraints, the process that is responsible for training \emph{DNNs} is known as \emph{Deep Learning}, Deep Learning requires advanced \emph{GPUs} which could get costly for a user, the essence of a GPU is crucial due to the time constraint that might be present in the absence of a GPU \cite{GPU}. \\[5mm]
+	\emph{Multilayer Perceptrons (MLPs)} is one class of the \emph{feed-forward ANNs} where, at least, one \textbf{hidden layer} is present between the input layer and the output layer, a demonstrative diagram can be seen in \emph{Figure~\ref{fig:MLP}}, the hidden layers act like a \emph{black box} where the objective of this so called black box is to extract features from the input, the \emph{deeper} the network, the more features it will be able to extract. But having a \emph{Deep Neural Network (DNN)} could be troubling sometimes as there would be more than 2-3 layers which, in coherence to the more feature extraction, it also acts in a much more complex way which applies a lot of constraints in areas such as software and hardware. The reason for the software constraint with \emph{DNN} is that it will require more data to learn unlike shallower models. As for hardware constraints, the process that is responsible for training \emph{DNNs} is known as \emph{Deep Learning}, Deep Learning requires advanced \emph{GPUs} which could get costly for a user, the essence of a GPU is crucial due to the time constraint that might be present in the absence of a GPU \cite{GPU}. \\[5mm]
 	The \emph{black box} could be seen also in \emph{Figure~\ref{fig:MLP}} as a light gray box captioned \emph{Hidden Layers}. 
 	
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.7\textwidth]{pics/Figures/MLP.eps}
-		\caption{\small{Three layer feedforward network}}
+		\caption{\small{Three layer feed-forward network}}
 		\label{fig:MLP}
 	\end{figure}
 	
@@ -265,7 +267,7 @@
 		c_{i,j} = (I*K)_{i,j} = \sum_{m}\sum_{n}\sum{d}I_{i+m,j+n,d}K_{i,j,d}
 	\end{equation}
 	where d iterates over valid subscripts of both $I_{i+m,j+n,d}$ and $K_{i,j,d}$. Note it is frequent to add bias to the equation. Multiple kernels can be applied to the same input image to obtain several feature maps. Thus, the output depth is equal to number of kernels / filters applied. One of the characteristics of a convolutional layer is \textbf{parameter sharing}; it is possible to assume that if a specific filter is useful in some region, then it is useful in other regions as well. Under this assumption, the parameters are shared along the depth \cite{par_share} reducing the number of learnable parameters. Moreover, it is frequent to apply an activation function to feature maps in order to obtain activation maps.
-\\[5mm]
+	\\[5mm]
 	Convolution reduces the size of the input image. For this reason, when several convolution layers are used, the image size decreases drastically. As a counter-measurement, an outer frame is added to the image, limiting the size reduction. This process is called \textbf{padding}. It is common to use zeros as values for the frame and this is called \emph{zero padding}, while reflecting values of rows and columns into the frame is named \emph{reflection padding}.\\[5mm]
 	For an image of height $(H_i)$ and width $(W_i)$, the size of the image post convolution is computed as:
 	\begin{equation}\label{width}
@@ -275,7 +277,7 @@
 		\hat{H}_i = \dfrac{H_i-k+2P_i}{s}+1
 	\end{equation}
 
-	where $\hat{W}_i$ and $\hat{H}_i$ are the new width and height, respectivelt, of post convolution process. $k$ is the kernel size, $s$ being the stride and the padding size denoted as $P_i$. 
+	where $\hat{W}_i$ and $\hat{H}_i$ are the new width and height, respectively, of post convolution process. $k$ is the kernel size, $s$ being the stride and the padding size denoted as $P_i$. 
 	
 	\begin{figure}[h]
 		\centering
@@ -288,7 +290,23 @@
 	\subsection{Computer Vision}\label{CV}
 	\emph{Human vision} is similar to \emph{Computer Vision (CV)}, with the exception that people have a head start. Human vision benefits from lifetimes of context to teach it how to distinguish objects apart, how far away they are, whether they are moving, and whether something is incorrect with an image. CV teaches computers to execute similar tasks, but using cameras, data, and algorithms rather than retinas, optic nerves, and a visual cortex, it must do it in a \textbf{fraction of the time}. Because a system trained to check items or monitor a production asset can assess hundreds of products or processes per minute, detecting faults or issues that are invisible to humans, it can swiftly \textbf{outperform humans}. The speed and the methods will be discussed in \emph{Section~\ref{Classification}} and \emph{Section~\ref{Obj Detection}}.
 	\subsubsection{Image Classification}\label{Classification}
-	
+	\emph{Image Classification} tasks are generally easy to grasp, it is simply the discrimination between classes, whether \emph{Binary} or \emph{Multi-Class} classification, a classifier's task will be to pick up on the features of each class and \emph{learn} them to be able to label input data. Binary Classification and Multi-Class Classification is displayed clearly in \emph{Figure~\ref{fig:class}}.
+	\begin{figure}
+		\centering
+		\subfloat[\centering Binary Classification \cite{TensorFlow_PL}]{{\includegraphics[width=6cm]{pics/Figures/Classification.png} }}%
+		\qquad
+		\subfloat[\centering Multi-Class Classification \cite{Multi_class}]{{\includegraphics[width=6cm]{pics/Figures/Multi_Class.png} }}%
+		\caption{Displaying the difference between binary and multi-class classification}
+		\label{fig:class}
+	\end{figure}
+	Knowing that a classifier can classify multiple classes and not necessarily just a binary classification, this also means that it can classify up to $\bm{n}$ numbers of classes. A good example of multi-class classification is the MNIST hand-written digit classification \cite{mnist}, this problem hosts \textbf{60.000} hand-written \textbf{labeled} digits, as seen in \emph{Figure~\ref{fig:MNIST_img}}, where $\bm{n = 10}$ as we have 10 numerical digits. 
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.7\textwidth]{pics/Figures/mnist.png}
+		\caption{\small{MNIST dataset with each class represented above the image respectively}}
+		\label{fig:MNIST_img}
+	\end{figure}
+	This sort of dataset is fed into an Image Classifier which then develops an understanding of the differences each hand-written digit contains, this classifier then outputs the estimated label of the digit. A classifiers flow is seen in in \emph{Figure~\ref{fig:Classifier}}.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.5\textwidth]{pics/Figures/Classifier_Block_Diagram.eps}
@@ -315,33 +333,47 @@
 		\label{fig:img_cont}
 	\end{figure}
 	
-	There are three networks in the family of R-CNN object detector the original R-CNN \cite{RCNN}, Fast R-CNN \cite{Fast-RCNN} and Faster R-CNN \cite{Objdet} . In the original R-CNN network, selective search algorithm \cite{selective} is used to obtain region proposals. Afterwards, each proposal is fed into
+	%There are three networks in the family of R-CNN object detector the original R-CNN \cite{RCNN}, Fast R-CNN \cite{Fast-RCNN} and Faster R-CNN \cite{Objdet} . In the original R-CNN network, selective search algorithm \cite{selective} is used to obtain region proposals. Afterwards, each proposal is fed into a \emph{CNN feature extractor} to obtain feature maps. In the last stage, the feature maps are input to \emph{support vector machines (SVM)} to obtain the class and bounding box of the proposed region. This approach is very time-consuming as it requires classifying a great amount of region proposals for each image. Therefore, \emph{Fast R-CNN} works on enhancing the inference speed. First features maps are produced by inputting the image into a \emph{CNN} feature extractor, then region proposals are created using the selective search algorithm. Afterwards, RoI pooling layer is used to reshape the proposal into a shape suitable for the \emph{FC} layers used for classification and bounding box regression.
 	
-	
-	\subsubsection{Hierarchy Classifier}
+	\subsubsection{Hierarchy Classifier}\label{Hierarchy_Class}
 	In \emph{Section~\ref{Classification}}, it has been explained that a classifier can classify between multiple classes, say there is three different classes $\bm{x}$ $\bm{y}$ and $\bm{z}$. These three classes have two classes which are quite similar, say that these similar classes are $\bm{x}$ and $\bm{y}$ sharing multiple features and are completely different from class $\bm{z}$ where they share no similar features. The classifier will be most likely to have a \textbf{larger error} when it comes to classifying between class $\bm{x}$ and $\bm{y}$, while it will be easier to classify class $\bm{z}$.\\[5mm]
-	This is where \textbf{Hierarchical Classification} comes into play, which could be graphically demonstrated in \emph{Figure \ref{fig:Hierarchical Classifier}}, as it will feature two separate classifiers, say one classifier to distinguish between two majorly different classes such as $\bm{\{x,y\}}$ and $\bm{z}$, this classifier will be denoted as \textbf{Classifier 1} which outputs \textbf{Class 1} that is a binary category on whether the input is classified as $\bm{z}$ or as $\bm{\{x,y\}}$. The reason that \textbf{Classifier 1} is set up is because it will be able to better distinguish between these two vastly different classes since it is easier to learn and distinguish their features, hence \textbf{Classifier 1} would be trained on the binary categorization, and if the output is classified as $\bm{\{x,y\}}$, then the same input will be taken to \textbf{Classifier 2}. \textbf{Classifier 2} is trained on discriminating between $\bm{x}$ and $\bm{y}$, and that is \textbf{Class 2}, which will give the classifier much better judgment over the two similar classes and have no third class interfere with the learning of the distinction between the two similar classes. This approach has been used in \cite{GJU}.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.7\textwidth]{pics/Figures/Hierarchical_Classifier_Block_Diagram.eps}
 		\caption{\small{Hierarchical Classifier Diagram}}
 		\label{fig:Hierarchical Classifier}
 	\end{figure}
+	This is where \textbf{Hierarchical Classification} comes into play, which could be graphically demonstrated in \emph{Figure \ref{fig:Hierarchical Classifier}}, as it will feature two separate classifiers, say one classifier to distinguish between two majorly different classes such as $\bm{\{x,y\}}$ and $\bm{z}$, this classifier will be denoted as \textbf{Classifier 1} which outputs \textbf{Class 1} that is a binary category on whether the input is classified as $\bm{z}$ or as $\bm{\{x,y\}}$. The reason that \textbf{Classifier 1} is set up is because it will be able to better distinguish between these two vastly different classes since it is easier to learn and distinguish their features, hence \textbf{Classifier 1} would be trained on the binary categorization, and if the output is classified as $\bm{\{x,y\}}$, then the same input will be taken to \textbf{Classifier 2}. \textbf{Classifier 2} is trained on discriminating between $\bm{x}$ and $\bm{y}$, and that is \textbf{Class 2}, which will give the classifier much better judgment over the two similar classes and have no third class interfere with the learning of the distinction between the two similar classes. This approach has been used in \cite{GJU} for x-ray image classification of patients with Pneumonia, Covid-19 \emph{(Unhealthy)} or Neither \emph{(Healthy)}. This Hierarchy can be seen in \emph{Figure~\ref{fig:GJU}}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\textwidth]{pics/Figures/GJU_H.eps}
+		\caption{\small{Hierarchical Classifier Flowchart}}
+		\label{fig:GJU}
+	\end{figure}
+	
 	
 	\newpage
 	
 	
-	\section{Hierarchical Method}\label{Meth}
-	
+	\section{Multi-Stage Object Detector}\label{Meth}
+	\emph{Single-Stage} object detectors work with having the classification process happen at the end of the detector since that is the quicker method, hence the name given to it is the \emph{"Single-Stage"}. However, in \emph{Two-Stage} object detectors, the object detector works on a single model and then if a detector detects an object, it is passed to another model and that is the second stage which is a classifier, hence the name \emph{"Two-Stage"} object detector is given and is also called the \textbf{Multi-Stage Object Detector (MSOD)}, this can be clearly seen on how insignificant it is in regards to inference speed in comparison to the Single-Stage object detector.\\[5mm]
+	\emph{Figure \ref{fig:Multi-Stage Obj Detector}} shows the work-flow of a \emph{MSOD}.\\[5mm]
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.7\textwidth]{pics/Figures/Hierarchical_Obj_Det_Block_Diagram.eps}
-		\caption{\small{Object Detection Diagram}}
-		\label{fig:Hierarchical Obj Detector}
+		\caption{\small{Multi-Stage Object Detection Diagram}}
+		\label{fig:Multi-Stage Obj Detector}
 	\end{figure}
-	some in depth explanation on \emph{Figure \ref{fig:Hierarchical Obj Detector}} alongside many more figures to explain the thought process 
+	The importance of using a \emph{MSOD} rather than a Single-Stage object detector is mainly due to the higher accuracy that will be acquired by the model since the object detector is separated from the classifier and each carries out a different task, the detector focusing on the features of the tumor and detecting the tumor, no matter which \emph{Class} said tumor is given to, while the classifier would receive an image solely of the tumor rather than the whole raw image, as would the second classifier from the \emph{Hierarchical Classifiers} in \emph{Section~\ref{Hierarchy_Class}} receive and that being the whole image. \emph{Figure~\ref{fig:cropped}} shows the cropped image of the tumor entering the classifier in the \emph{MSOD} model as a product from \emph{Figure~\ref{fig:img_cont}}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\textwidth]{pics/Figures/cropped.jpg}
+		\caption{\small{Cropped input for \emph{MSOD} Classifier}}
+		\label{fig:cropped}
+	\end{figure}
+	Having a cropped image of the tumor as an input for a classifier would help focus all the attention on the features of the two different kinds of tumors, thus improving the learned features, while correspondingly reducing the amount of learning parameters as the input size would be smaller hence reducing computational effort and time.
+	\newpage
 	\section{Dataset}\label{Data}
-	
 	Choosing a dataset for this problem is crucial to many stages, first and foremost is the \emph{quality of the data}. Does the data clearly portray the goal that should be acquired? Secondly is the \emph{quantity of the dataset}, just like the quality, quantity is as important. \textbf{Neural Networks} require a lot of data, but the quantity mainly depends on the following:
 	\begin{itemize}
 		\item features that must be extracted from the data
@@ -352,7 +384,48 @@
 	With that being said, the data is a vital part of this project, and to be able to achieve high accuracy and precision of detecting the cancerous cells, it is a must to obtain high grade dataset. 
 	The most common age for the diagnosis of breast cancer is \emph{over 50} years of age. This has been conducted by the National Cancer Institute that the median age of breast cancer patients is between the age of \emph{55} to \emph{64} \cite{CDC}. 
 	\\[5mm]
-	
+	\subsection{Data collection and statistics}
+	In this Thesis, the procedure for \emph{data collection} was straight-forward as there is an already published dataset \cite{Dataset} with the purpose of research that was used in this Thesis. There is quite astonishing remarks regarding the dataset as it holds data for \textbf{1.952} patients with \textbf{4 images per patient}, two views per breast, which sets the total number of data to \textbf{7.808 images} in possession for processing, analyzing and configuring.\\[5mm]
+	Some constraints and observations were met regarding the labeling of the data where a patient is diagnosed as \emph{Cancer} or \emph{Benign} based on the presence of the tumor in at least one of their breast. While that could be true for the case of the patient, however, it is false labeling when it comes to the methodology this Thesis follows as a breast which does not contain any tumor cannot be labeled as not \emph{Normal}, this case could be seen in \emph{Table~\ref{data_label}}.
+	\begin{center}
+	% Please add the following required packages to your document preamble:
+	% \usepackage[table,xcdraw]{xcolor}
+	% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+	\begin{table}[]
+		\begin{tabular}{llllll}
+			\hline
+			\cellcolor[HTML]{222A35}{\color[HTML]{E7E6E6} fileName} & \cellcolor[HTML]{333F50}{\color[HTML]{E7E6E6} View} & \cellcolor[HTML]{8497B0}{\color[HTML]{E7E6E6} Side} & \cellcolor[HTML]{8994A1}{\color[HTML]{E7E6E6} Status} & \cellcolor[HTML]{8A9A8F}{\color[HTML]{E7E6E6} Age} & \cellcolor[HTML]{717F74}{\color[HTML]{E7E6E6} Tumour\_Contour} \\ \hline
+			\rowcolor[HTML]{D0CECE} 
+			C\_0236\_1.LEFT\_CC.png                                 & CC                                                  & LEFT                                                & Benign                                                & 67                                                 & -                                                              \\
+			\rowcolor[HTML]{D0CECE} 
+			C\_0236\_1.LEFT\_MLO.png                                & MLO                                                 & LEFT                                                & Benign                                                & 67                                                 & -                                                              \\
+			\rowcolor[HTML]{D0CECE} 
+			C\_0236\_1.RIGHT\_CC.png                                & CC                                                  & RIGHT                                               & Benign                                                & 67                                                 & RIGHT\_CC\_Mask.png                                            \\
+			\rowcolor[HTML]{D0CECE} 
+			C\_0236\_1.RIGHT\_MLO.png                               & MLO                                                 & RIGHT                                               & Benign                                                & 67                                                 & RIGHT\_MLO\_Mask.png                                           \\
+			\rowcolor[HTML]{F2F2F2} 
+			B\_3008\_1.LEFT\_CC.png                                 & CC                                                  & LEFT                                                & Cancer                                                & 53                                                 & -                                                              \\
+			\rowcolor[HTML]{F2F2F2} 
+			B\_3008\_1.LEFT\_MLO.png                                & MLO                                                 & LEFT                                                & Cancer                                                & 53                                                 & -                                                              \\
+			\rowcolor[HTML]{F2F2F2} 
+			B\_3008\_1.RIGHT\_CC.png                                & CC                                                  & RIGHT                                               & Cancer                                                & 53                                                 & RIGHT\_CC\_Mask.png                                            \\
+			\rowcolor[HTML]{F2F2F2} 
+			B\_3008\_1.RIGHT\_MLO.png                               & MLO                                                 & RIGHT                                               & Cancer                                                & 53                                                 & RIGHT\_MLO\_Mask.png                                           \\
+			\rowcolor[HTML]{D0CECE} 
+			A\_0218\_1.LEFT\_CC.png                                 & CC                                                  & LEFT                                                & Normal                                                & 59                                                 & -                                                              \\
+			\rowcolor[HTML]{D0CECE} 
+			A\_0218\_1.LEFT\_MLO.png                                & MLO                                                 & LEFT                                                & Normal                                                & 59                                                 & -                                                              \\
+			\rowcolor[HTML]{D0CECE} 
+			A\_0218\_1.RIGHT\_CC.png                                & CC                                                  & RIGHT                                               & Normal                                                & 59                                                 & -                                                              \\
+			\rowcolor[HTML]{D0CECE} 
+			A\_0218\_1.RIGHT\_MLO.png                               & MLO                                                 & RIGHT                                               & Normal                                                & 59                                                 & -                                                              \\ \hline
+		\end{tabular}
+	\end{table}
+	\end{center}
+	Hence, all the patients that were diagnosed with a tumor in a single breast would be automatically diagnosed the same status in the other breast even though it is clear that the second breast does not contain any tumor as seen in \emph{Table~\ref{data_label}}, patient \emph{No. 0236} where only their right breast contains \emph{Benign} cells but their left breast did not contain any tumors. Taking pictures individually with the patient's label is a wrong approach to training an \emph{Image Classifier} as it will \emph{"confuse"} the model and stray it off and the model will start learning the wrong features.\\[5mm]
+	Some other special cases where found such as a patient containing multiple tumors in one breast, containing tumors in both their breasts and in very rare occasions only having the tumor detected in one view rather as in both views.\\[5mm]
+	These ordinary and extra ordinary cases will be taken care off so that there will not be any case of \textbf{miss-labeling} of any data.\\[5mm]
+	Some statistics regarding patients is shown in \emph{Figure~\ref{fig:Age_Dist}} and \emph{Figure~\ref{fig:Avg_Age}}.
 	
 	\begin{figure}[h]
 		\centering
@@ -369,7 +442,7 @@
 	
 	\newpage	
 	\section{Conclusion}
-	Conclusion goes here
+	In conclusion, in this thesis, the main objective will be to undergo several cases which were listed in \emph{Section~\ref{CV}} and end the Thesis with the chosen method which is a \emph{Multi-Stage Object Detector (Two-Stage object detector)}, this focuses on bridging the gap in paper \cite{one_shot} where the chosen approach was a \emph{Single-Stage object detector}. In theory, this should improve the results since it is known that Two-Stage object detection prioritizes accuracy over inference speed while Single-Stage object detectors rather sacrifice accuracy for inference speed (as used in \cite{one_shot}). 
 	\newpage
 
 	\bibliographystyle{IEEEtran}

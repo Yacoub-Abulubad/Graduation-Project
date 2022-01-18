@@ -84,14 +84,14 @@ C.~Ledig, L.~Theis, F.~Husz{\'a}r, J.~Caballero, A.~Cunningham, A.~Acosta,
   \emph{Proceedings of the IEEE conference on computer vision and pattern
   recognition}, 2017, pp. 4681--4690.
 
-\bibitem{agarap2018deep}
-A.~F. Agarap, ``Deep learning using rectified linear units (relu),''
-  \emph{arXiv preprint arXiv:1803.08375}, 2018.
-
 \bibitem{siddique2013computational}
 N.~Siddique and H.~Adeli, \emph{Computational intelligence: synergies of fuzzy
   logic, neural networks and evolutionary computing}.\hskip 1em plus 0.5em
   minus 0.4em\relax John Wiley \& Sons, 2013.
+
+\bibitem{agarap2018deep}
+A.~F. Agarap, ``Deep learning using rectified linear units (relu),''
+  \emph{arXiv preprint arXiv:1803.08375}, 2018.
 
 \bibitem{backprop}
 C.~W. A. H. J. K. A.~M. John~McGonagle, George~Shaikouski, ``Backpropagation,''
@@ -120,6 +120,24 @@ K.~O'Shea and R.~Nash, ``An introduction to convolutional neural networks,''
 V.~Dumoulin and F.~Visin, ``A guide to convolution arithmetic for deep
   learning,'' \emph{arXiv preprint arXiv:1603.07285}, 2016.
 
+\bibitem{TensorFlow_PL}
+\BIBentryALTinterwordspacing
+TensorFlow, ``Tensorflow playground.'' [Online]. Available:
+  \url{https://playground.tensorflow.org}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Multi_class}
+\BIBentryALTinterwordspacing
+V.~Malhotra, ``Intro to multi-class classification,'' 10 2020. [Online].
+  Available:
+  \url{https://medium.com/analytics-vidhya/ml06-intro-to-multi-class-classification-e61eb7492ffd}
+\BIBentrySTDinterwordspacing
+
+\bibitem{mnist}
+L.~Deng, ``The mnist database of handwritten digit images for machine learning
+  research,'' \emph{IEEE Signal Processing Magazine}, vol.~29, no.~6, pp.
+  141--142, 2012.
+
 \bibitem{Retina}
 T.-Y. Lin, P.~Goyal, R.~Girshick, K.~He, and P.~Doll{\'a}r, ``Focal loss for
   dense object detection,'' in \emph{Proceedings of the IEEE international
@@ -143,5 +161,10 @@ M.~I. Daoud, Y.~Alrahahleh, S.~Abdel-Rahman, B.~A. Alsaify, and R.~Alazrai,
 B.~Lana, ``What is the link between age and breast cancer?'' 7 2019. [Online].
   Available: \url{https://gco.iarc.fr/today}
 \BIBentrySTDinterwordspacing
+
+\bibitem{Dataset}
+C.~D. Lekamlage, F.~Afzal, E.~Westerberg, and A.~Cheddad, ``Mini-ddsm:
+  Mammography-based automatic age estimation,'' in \emph{2020 3rd International
+  Conference on Digital Medicine and Image Processing}, 2020, pp. 1--6.
 
 \end{thebibliography}

@@ -8,9 +8,10 @@
 \contentsline {subsubsection}{\numberline {2.1.1}Multilayer Perceptrons}{8}{subsubsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.2}Convolutional Neural Networks}{10}{subsubsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.2}Computer Vision}{13}{subsection.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.1}Image Classification}{13}{subsubsection.2.2.1}%
-\contentsline {subsubsection}{\numberline {2.2.2}Object Detection}{14}{subsubsection.2.2.2}%
-\contentsline {subsubsection}{\numberline {2.2.3}Hierarchy Classifier}{15}{subsubsection.2.2.3}%
-\contentsline {section}{\numberline {3}Hierarchical Method}{17}{section.3}%
-\contentsline {section}{\numberline {4}Dataset}{17}{section.4}%
-\contentsline {section}{\numberline {5}Conclusion}{19}{section.5}%
+\contentsline {subsubsection}{\numberline {2.2.1}Image Classification}{14}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}Object Detection}{15}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}Hierarchy Classifier}{17}{subsubsection.2.2.3}%
+\contentsline {section}{\numberline {3}Multi-Stage Object Detector}{19}{section.3}%
+\contentsline {section}{\numberline {4}Dataset}{21}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Data collection and statistics}{21}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Conclusion}{24}{section.5}%
