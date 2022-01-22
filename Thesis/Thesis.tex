@@ -56,11 +56,11 @@
 	% % Start roman numbering
 	\setcounter{page}{1}
 	%%% CONTENT HERE %%%%
-	\begin{center}
-	\Large{\textbf{Acknowledgments}}\\ \vspace{1cm}
-	\end{center}
-	Acknowledgment Goes Here...
-	\newpage
+	%j\begin{center}
+	%\Large{\textbf{Acknowledgments}}\\ \vspace{1cm}
+	%\end{center}
+	%Acknowledgment Goes Here...
+	%\newpage
 	
 	\tableofcontents
 	\newpage
@@ -68,10 +68,10 @@
 	\listoftables
 	\newpage
 	\begin{center}
-		\LARGE{\textbf{Descriptive Abstract}}\\ \vspace{1cm}
+		\LARGE{\textbf{Abstract}}\\ \vspace{1cm}
 	\end{center}
-	Abstract goes here...\\
-	Keywords: \emph{Keyword1, Keyword2, ... , Keywordn}
+	The implementation of Computer Vision in the prediction of breast cancer is a necessity since it cuts down a lot of costs, with the main cost in this problem is time. This Thesis will discuss the different approaches towards using \emph{Artificial Intelligence (AI)} in detecting of these cancerous and non-cancerous (benign) tumors using \emph{Image Classification} and \emph{Object Detection}. The main goal is to reduce the time taken for a result to be in the reach of a professional, from weeks to matter of \textbf{seconds}. Reducing the time will not be the only goal of this thesis, but also the need for a radiologist profession will be optional, given the circumstances of the radiologist being busy or on vacation or having a shortage of staff. This will be possible by cutting the process of waiting for a call after a screening session to only be tested again for diagnostics of the abnormality, but rather have the diagnostics appear during the screening session, cutting down the time to detect and helping out the present radiologist in highlighting the work.\\[10mm]
+	Keywords: \emph{Breast Cancer\quad Classification\quad Detection}
 	\newpage
 	\LARGE{\textbf{List of Abbreviations}}\\ \vspace{1cm}
 	\begin{center}
@@ -124,7 +124,7 @@
 	
 	\subsection{Objectives}\label{Obj}
 	The goal of this thesis is to compare and contrast the different results that could be obtained using different \emph{Convolutional Neural Network (CNN)} model structures. Applying \textbf{4 different concepts} to the same dataset but with different utilization of the data to measure the accuracy that might be obtained when manipulating the data differently. Due to the vast dataset that was obtained, one of the multiple hardware constraints were during loading the images from the \emph{Hard Disk Drive (HDD)} onto the \emph{Random Access Memory (RAM)}, there was no enough memory to load the whole dataset to proceed with the model training. \\[5mm]
-	A different kind of hardware constraint that was faced is the absence of \emph{Graphical Processing Unit} (GPU), a GPU is crucial for \emph{Computer Vision} (CV) due to the enormous data stream that will take place during training \cite{GPU} \cite{GPU}.
+	A different kind of hardware constraint that was faced is the absence of \emph{Graphical Processing Unit} (GPU), a GPU is crucial for \emph{Computer Vision} (CV) due to the enormous data stream that will take place during training \cite{GPU}.
 	\subsection{Organization}\label{Org}
 	The \emph{Literature Review} will be discussed in \emph{Section~\ref{Lit. Rev.}} alongside the essential background on the different kinds of Neural Networks with their diverse functionalities. A deeper dive into the application's functions will be thoroughly described in \emph{Section~\ref{CV}} and the two main techniques that will be implemented in this Thesis. In \emph{Section~\ref{Meth}}, there will be a detailed explanation on the \textbf{Multi-Stage approach} that is applied to obtain the results as well as the methods that helped surpassed the constraints that were mentioned in \emph{Secion~\ref{Obj}}. Detailed dissection of the dataset will be in \emph{Section~\ref{Data}}.
 	\newpage
@@ -392,8 +392,10 @@
 	% \usepackage[table,xcdraw]{xcolor}
 	% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
 	\begin{table}[]
+		\caption{A preview for the labeling of the dataset}
 		\begin{tabular}{llllll}
 			\hline
+			\label{data_label}
 			\cellcolor[HTML]{222A35}{\color[HTML]{E7E6E6} fileName} & \cellcolor[HTML]{333F50}{\color[HTML]{E7E6E6} View} & \cellcolor[HTML]{8497B0}{\color[HTML]{E7E6E6} Side} & \cellcolor[HTML]{8994A1}{\color[HTML]{E7E6E6} Status} & \cellcolor[HTML]{8A9A8F}{\color[HTML]{E7E6E6} Age} & \cellcolor[HTML]{717F74}{\color[HTML]{E7E6E6} Tumour\_Contour} \\ \hline
 			\rowcolor[HTML]{D0CECE} 
 			C\_0236\_1.LEFT\_CC.png                                 & CC                                                  & LEFT                                                & Benign                                                & 67                                                 & -                                                              \\
