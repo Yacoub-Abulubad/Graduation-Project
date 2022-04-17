@@ -1,6 +1,6 @@
 from tensorflow.keras.preprocessing.image import load_img
 from tensorflow.keras.utils import Sequence
-#from imgaug import augmenters as iaa
+from imgaug import augmenters as iaa
 from PIL import ImageOps
 from math import ceil
 import pandas as pd
@@ -72,7 +72,8 @@ class DataSequenceLoader(Sequence):
             print("Converting path to list!")
         x_paths = []
         y_paths = []
-        sheet = pd.read_csv(self.path + r"\Dataset.csv")
+        sheet = pd.read_csv(self.path + r"/Dataset.csv")
+        self.sheet = sheet
         if not self.is_val:
             for i in range(0, int(len(sheet) * self.train_size)):
                 x_paths.append(self.path + sheet['fullPath'][i])
@@ -141,22 +142,23 @@ class DataSequenceLoader(Sequence):
                    d_height - pad_height)
         return ImageOps.expand(image, padding)
 
-    #def DataAugmentation(
-    #        self,
-    #        images):  #input should be a list of numpy arrays (list of images)
-    #    """Perform image augmentation on the data
+    def DataAugmentation(
+            self,
+            images):  #input should be a list of numpy arrays (list of images)
+        """Perform image augmentation on the data
 
 
-#        Args:
-#           images (list): list of numpy arrays (list of images)
+        Args:
+           images (list): list of numpy arrays (list of images)
 
-#      Returns:
-#         array: numpy array
-#    """
-#    Auge = iaa.RandAugment(n=(1, 5), m=(3, 15))
-#    Auge = iaa.RandAugment(n=(1, 5), m=(10))
-#    out = Auge(images=images)
-#    return np.array(out)
+      Returns:
+         array: numpy array
+    """
+
+        Auge = iaa.RandAugment(n=(1, 5), m=(3, 15))
+        Auge = iaa.RandAugment(n=(1, 5), m=(10))
+        out = Auge(images=images)
+        return np.array(out)
 
     def vectorize(self, Y):
         """To vectorize (one hot encode) the labels
