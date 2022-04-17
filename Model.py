@@ -6,8 +6,11 @@ from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras.layers import Input, Dense, MaxPooling2D, Flatten, Dropout, BatchNormalization
 
 class EFFNET:
+    """A class to create a pretrained model
+    """
     def __init__(self):
-
+        """initialization to create a model class
+        """
         input_img = Input(shape=(252,252,3))
         Backbone = Effnet(include_top=False, weights= 'imagenet', input_tensor=input_img)
         Backbone.trainable = False
@@ -23,19 +26,31 @@ class EFFNET:
         self.model= Model(inputs= input_img, outputs=[xFC])
     
     def fix_Backbone_weights(self):
-
-      for i,layer in enumerate(self.model.layer):
-        if layer.name == 'BN_CL' or layer.name == "FC" or layer.name == "avg_pool":
-          self.model.layers[i].trainable= True
-        else:
-          self.model.layers[i].trainable= False
+        """To fix the backbone weights
+        """
+        for i,layer in enumerate(self.model.layer):
+            if layer.name == 'BN_CL' or layer.name == "FC" or layer.name == "avg_pool":
+                self.model.layers[i].trainable= True
+            else:
+                self.model.layers[i].trainable= False
 
     def unfix_layers_Backbone_weights(self, Nlayer=3):
+        """To unfix the backbone weights
 
+        Args:
+            Nlayer (int, optional): the amount of layers to unfix from the end. Defaults to 3.
+        """
         for i,_ in enumerate(self.model.layers[-5-Nlayer:]):
             self.model.layers[i].trainable= True
 
     def train_Classifier_only(self,trainGen,valGen,Nepoch=1):
+        """To only train the FC layer of the network
+
+        Args:
+            trainGen (class): class of training data
+            valGen (class): class of validation data
+            Nepoch (int, optional): for how many epochs to iterrate. Defaults to 1.
+        """
         callBack= EarlyStopping(
                                   monitor="val_recall",
                                   min_delta=0,
@@ -51,6 +66,14 @@ class EFFNET:
         self.FC_history = self.model.fit(trainGen,validation_data=valGen,epochs=Nepoch,callbacks=[callBack,rlrop])
 
     def train_Classifier_withBackbone(self,trainGen,valGen,Nepoch=30,Nlayers=3):
+        """To train FC with the backbone
+
+        Args:
+            trainGen (class): class of training data
+            valGen (class): class of validation data
+            Nepoch (int, optional): for how many epochs to iterrate. Defaults to 1.
+            Nlayer (int, optional): the amount of layers to unfix from the end. Defaults to 3.
+        """
         self.unfix_layers_Backbone_weights(Nlayer= Nlayers)
 
         callBack= EarlyStopping(
@@ -68,10 +91,28 @@ class EFFNET:
         self.FC_B_history = self.model.fit(trainGen,validation_data =valGen,epochs=Nepoch,callbacks=[callBack,rlrop])
       
     def save_model(self,path,modelname="Effnet_Model"):
+        """To save the whole model
+
+        Args:
+            path (str): the path to where the model should be saved
+            modelname (str, optional): The model name. Defaults to "Effnet_Model".
+        """
         self.model.save(os.path.join(path,modelname)+".h5")
 
-    def save_weights(self,path,modelname="Effnet_Model_weights"):
-        self.model.save_weights(os.path.join(path,modelname)+".h5")
+    def save_weights(self,path,checkpoint="Effnet_Model_weights"):
+        """To save the model weights
+
+        Args:
+            path (str): the path to where the weights should be saved
+            checkpoint (str, optional): The checkpoint name. Defaults to "Effnet_Model_weights".
+        """
+        self.model.save_weights(os.path.join(path,checkpoint)+".h5")
 
     def load_weights(self,path,checkpoint="Effnet_Model_weights"):
+        """To load the saved weights
+
+        Args:
+            path (str): the path from where the weights should be loaded
+            checkpoint (str, optional): The checkpoint name. Defaults to "Effnet_Model_weights".
+        """
         self.model.load_weights(os.path.join(path,checkpoint)+".h5")
