@@ -72,7 +72,11 @@ class DataSequenceLoader(Sequence):
             print("Converting path to list!")
         x_paths = []
         y_paths = []
-        sheet = pd.read_csv(self.path + r"/Dataset.csv")
+        sheet = pd.read_csv(self.path + r"/Dataset_Full.csv")
+        try:
+            sheet = sheet.loc[:, ~sheet.columns.str.contains('^Unnamed')]
+        except:
+            pass
         self.sheet = sheet
         if not self.is_val:
             for i in range(0, int(len(sheet) * self.train_size)):
