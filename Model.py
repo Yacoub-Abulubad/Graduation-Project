@@ -47,7 +47,7 @@ class EFFNET:
         for i, _ in enumerate(self.model.layers[-5 - Nlayer:]):
             self.model.layers[i].trainable = True
 
-    def train_Classifier_only(self, trainGen, valGen, Nepoch=1):
+    def train_Classifier_only(self, trainGen, valGen, batch_size, Nepoch=1):
         """To only train the FC layer of the network
 
         Args:
@@ -76,6 +76,7 @@ class EFFNET:
                            loss={"FC": 'categorical_crossentropy'},
                            metrics={"FC": [Precision(), Recall()]})
         self.FC_history = self.model.fit(trainGen,
+                                         batch_size=batch_size,
                                          validation_data=valGen,
                                          epochs=Nepoch,
                                          callbacks=[callBack, rlrop])
