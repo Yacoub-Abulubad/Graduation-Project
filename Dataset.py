@@ -59,13 +59,6 @@ class DataSequenceLoader(Sequence):
         """Measure the length of the dataset in batches"""
         return int(ceil(len(self.idxList) / self.batch_size))
 
-    def on_epoch_end(self):
-        """Shuffle the list of paths after every epoch"""
-        temp_list = list(zip(self.x_path, self.y_path))
-        np.random.shuffle(temp_list)
-        self.x_path, self.y_path = zip(*temp_list)
-        print("Shuffle done!")
-
     def pathtolist(self):
         """Convert the path to a set of paths to each image"""
         if self.verbose:
