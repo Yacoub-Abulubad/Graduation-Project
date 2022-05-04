@@ -125,7 +125,7 @@ class DataSequenceLoader(Sequence):
         if self.verbose:
             print('Preprocessing images!')
 
-        return x_batch
+        return np.asarray(x_batch)
 
     def resize_with_padding(self, image, desired_size=(252, 252)):
         """to resize images to desired size and add padding
