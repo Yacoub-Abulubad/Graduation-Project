@@ -19,6 +19,7 @@ model = EFFNET()
 
 #%%
 model.train_Classifier_only(trainGen=DataSequenceLoader(path, 1),
-                            valGen=DataSequenceLoader(path, 1, is_val=True))
+                            valGen=DataSequenceLoader(path, 1, is_val=True),
+                            batch_size=1)
 
 # %%

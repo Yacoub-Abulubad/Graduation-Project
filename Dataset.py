@@ -180,10 +180,10 @@ class DataSequenceLoader(Sequence):
         batch_size = self.ending - self.start
         for i in range(batch_size):
             if Y[i] == 'Normal':
-                classes.append([1, 0, 0])
+                classes.append(np.asarray([1, 0, 0]))
             elif Y[i] == 'Benign':
-                classes.append([0, 1, 0])
+                classes.append(np.asarray([0, 1, 0]))
             else:
-                classes.append([0, 0, 1])
+                classes.append(np.asarray([0, 0, 1]))
 
         return classes
