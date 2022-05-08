@@ -1,6 +1,6 @@
 import pandas as pd
 
-path = r"/home/abulubad/Graduation-Project/Data/Data-MoreThanTwoMasks.xlsx"
+path = r"/home/abulubad/Downloads/DataWMask.xlsx"
 
 sheet = pd.read_excel(path)
 
@@ -9,4 +9,4 @@ for i in range(len(sheet)):
     sheet.loc[i, ('fileName')] = '/' + sheet['fileName'][i].replace("\\", "/")
 
 #sheet.replace(r'^\\.$', '/')
-sheet.to_csv('/home/abulubad/Graduation-Project/Data/Dataset_Full.csv')
+sheet.to_csv('/home/abulubad/Graduation-Project/Data/Dataset_Full_Full.csv')

@@ -65,7 +65,7 @@ class DataSequenceLoader(Sequence):
             print("Converting path to list!")
         x_paths = []
         y_paths = []
-        sheet = pd.read_csv(self.path + r"/Dataset_Full.csv")
+        sheet = pd.read_csv(self.path + r"/Dataset_Full_Full.csv")
         try:
             sheet = sheet.loc[:, ~sheet.columns.str.contains('^Unnamed')]
         except:
@@ -78,6 +78,7 @@ class DataSequenceLoader(Sequence):
                     y_paths.append(sheet['Status'][i])
                 else:
                     y_paths.append('Normal')
+                    self.sheet['Status'][i] = 'Normal'
             self.y_path = y_paths
             self.x_path = x_paths
 
@@ -89,6 +90,7 @@ class DataSequenceLoader(Sequence):
                     y_paths.append(sheet['Status'][val_start + i])
                 else:
                     y_paths.append('Normal')
+                    self.sheet['Status'][i] = 'Normal'
             self.y_path = y_paths
             self.x_path = x_paths
 
