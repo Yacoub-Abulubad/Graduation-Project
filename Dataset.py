@@ -84,10 +84,13 @@ class DataSequenceLoader(Sequence):
 
         else:
             val_start = int(len(sheet) * self.train_size)
-            for i in range(0, int(len(sheet) * (1 - self.train_size))):
-                x_paths.append(self.path + sheet['fullPath'][val_start + i])
-                if sheet['Tumour_Contour'][val_start + i] != '-':
-                    y_paths.append(sheet['Status'][val_start + i])
+            print(
+                f"the length of the sheet is {len(sheet)}\nthe starting point of validation data is {val_start}"
+            )
+            for i in range(val_start, int(len(sheet))):
+                x_paths.append(self.path + sheet['fullPath'][i])
+                if sheet['Tumour_Contour'][i] != '-':
+                    y_paths.append(sheet['Status'][i])
                 else:
                     y_paths.append('Normal')
                     self.sheet['Status'][i] = 'Normal'
