@@ -1,4 +1,5 @@
 from tensorflow.keras.preprocessing.image import load_img
+from imblearn.under_sampling import RandomUnderSampler
 from tensorflow.keras.utils import Sequence
 from imgaug import augmenters as iaa
 from PIL import ImageOps
@@ -65,28 +66,31 @@ class DataSequenceLoader(Sequence):
             print("Converting path to list!")
         x_paths = []
         y_paths = []
-        sheet = pd.read_csv(self.path + r"/Dataset_Full_Full.csv")
+        sheet = pd.read_csv(self.path + r"/Dataset_Full_Full_Shuffled.csv")
         try:
             sheet = sheet.loc[:, ~sheet.columns.str.contains('^Unnamed')]
         except:
             pass
         self.sheet = sheet
+        count = 0
         if not self.is_val:
             for i in range(0, int(len(sheet) * self.train_size)):
-                x_paths.append(self.path + sheet['fullPath'][i])
                 if sheet['Tumour_Contour'][i] != '-':
                     y_paths.append(sheet['Status'][i])
+                    x_paths.append(self.path + sheet['fullPath'][i])
                 else:
-                    y_paths.append('Normal')
-                    self.sheet['Status'][i] = 'Normal'
+                    count = count + 1
+                    if count == 4:
+                        x_paths.append(self.path + sheet['fullPath'][i])
+                        y_paths.append('Normal')
+                        self.sheet['Status'][i] = 'Normal'
+                        count = 0
+
             self.y_path = y_paths
             self.x_path = x_paths
 
         else:
             val_start = int(len(sheet) * self.train_size)
-            print(
-                f"the length of the sheet is {len(sheet)}\nthe starting point of validation data is {val_start}"
-            )
             for i in range(val_start, int(len(sheet))):
                 x_paths.append(self.path + sheet['fullPath'][i])
                 if sheet['Tumour_Contour'][i] != '-':
