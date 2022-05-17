@@ -18,6 +18,7 @@ class DataSequenceLoader(Sequence):
     def __init__(self,
                  path,
                  batch_size=10,
+                 data_size=0.5,
                  train_size=0.8,
                  is_val=False,
                  verbose=False):
@@ -26,10 +27,12 @@ class DataSequenceLoader(Sequence):
         Args:
             path (str): a string containing the location of the whole dataset dir
             batch_size (int): an integer to determine the batch size of the Data Sequence that will be input to the model for training
+            data_size (float): a float between 1-0 determining the size of the data to use for training/validating
             train_size (float): a float between 1-0 determining the size of the training data to be used
             is_val (bool): a boolean to decide whether the needed data is for training or for validation
         """
         self.path = path
+        self.data_size = data_size
         self.train_size = train_size
         self.batch_size = batch_size
         self.is_val = is_val
@@ -74,7 +77,8 @@ class DataSequenceLoader(Sequence):
         self.sheet = sheet
         count = 0
         if not self.is_val:
-            for i in range(0, int(len(sheet) * self.train_size)):
+            for i in range(0,
+                           int(len(sheet) * self.data_size * self.train_size)):
                 if sheet['Tumour_Contour'][i] != '-':
                     y_paths.append(sheet['Status'][i])
                     x_paths.append(self.path + sheet['fullPath'][i])
@@ -90,8 +94,8 @@ class DataSequenceLoader(Sequence):
             self.x_path = x_paths
 
         else:
-            val_start = int(len(sheet) * self.train_size)
-            for i in range(val_start, int(len(sheet))):
+            val_start = int(len(sheet) * self.data_size * self.train_size)
+            for i in range(val_start, int(len(sheet) * self.data_size)):
                 x_paths.append(self.path + sheet['fullPath'][i])
                 if sheet['Tumour_Contour'][i] != '-':
                     y_paths.append(sheet['Status'][i])
