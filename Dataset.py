@@ -125,6 +125,8 @@ class DataSequenceLoader(Sequence):
             print('Generating and resizing images!')
         for i in range(len(x_batch)):
             temp = self.resize_with_padding(load_img(x_batch[i]))
+            if not self.is_val:
+                temp = self.DataAug(temp)
             x_batch[i] = np.asarray(temp)
         #if not self.is_val:
         #    x_batch = self.DataAugmentation(x_batch)
@@ -152,7 +154,7 @@ class DataSequenceLoader(Sequence):
                    d_height - pad_height)
         return ImageOps.expand(image, padding)
 
-    def DataAugmentation(
+    def DataAug(
             self,
             images):  #input should be a list of numpy arrays (list of images)
         """Perform image augmentation on the data
@@ -165,8 +167,8 @@ class DataSequenceLoader(Sequence):
          array: numpy array
     """
 
-        Auge = iaa.RandAugment(n=(1, 5), m=(3, 15))
-        Auge = iaa.RandAugment(n=(1, 5), m=(10))
+        #Auge = iaa.RandAugment(n=(1, 5), m=(3, 15))
+        Auge = iaa.RandAugment(n=(1, 2), m=(1, 2))
         out = Auge(images=images)
         return np.array(out)
 
