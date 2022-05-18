@@ -40,7 +40,8 @@ class DataSequenceLoader(Sequence):
         self.pathtolist()
         random = np.random.random_integers(0, 5000)
         self.idxList = [
-            i for i in range(random, random + len(self.x_path) * data_size)
+            i
+            for i in range(random, random + int(len(self.x_path) * data_size))
         ]
 
     def __getitem__(self, index):
@@ -84,31 +85,67 @@ class DataSequenceLoader(Sequence):
             pass
         self.sheet = sheet
         count = 0
+        self.Cancer = pd.DataFrame()
+        self.Benign = pd.DataFrame()
+        self.Normal = pd.DataFrame()
+
         if not self.is_val:
             for i in range(0, int(len(sheet) * self.train_size)):
-                if sheet['Tumour_Contour'][i] != '-':
+                if sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
+                        i] == 'Cancer':
                     y_paths.append(sheet['Status'][i])
-                    x_paths.append(self.path + sheet['fullPath'][i])
+                    self.Cancer = self.Cancer.append(sheet.loc[i])
+                elif sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
+                        i] == 'Benign':
+                    y_paths.append(sheet['Status'][i])
+                    self.Benign = self.Benign.append(sheet.loc[i])
                 else:
                     count = count + 1
                     if count == 4:
-                        x_paths.append(self.path + sheet['fullPath'][i])
                         y_paths.append('Normal')
                         self.sheet['Status'][i] = 'Normal'
+                        self.Normal = self.Normal.append(sheet.loc[i])
                         count = 0
+
+            for i in range(0, int(len(sheet) / 3 * self.train_size)):
+                x_paths.append(self.Cancer['fullPath'][i])
+                x_paths.append(self.Benign['fullPath'][i])
+                x_paths.append(self.Normal['fullPath'][i])
 
             self.y_path = y_paths
             self.x_path = x_paths
 
         else:
-            val_start = int(len(sheet) * self.train_size)
-            for i in range(val_start, int(len(sheet))):
+            val_start = int(len(sheet) * self.data_size)
+
+            for i in range(
+                    val_start,
+                    int(len(sheet) * (self.data_size +
+                                      (1 - self.train_size)))):
+
                 x_paths.append(self.path + sheet['fullPath'][i])
-                if sheet['Tumour_Contour'][i] != '-':
+                if sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
+                        i] == 'Cancer':
                     y_paths.append(sheet['Status'][i])
+                    self.Cancer = self.Cancer.append(sheet.loc[i])
+                elif sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
+                        i] == 'Benign':
+                    y_paths.append(sheet['Status'][i])
+                    self.Benign = self.Benign.append(sheet.loc[i])
                 else:
                     y_paths.append('Normal')
                     self.sheet['Status'][i] = 'Normal'
+                    self.Normal = self.Normal.append(sheet.loc[i])
+
+            for i in range(
+                    val_start,
+                    int(
+                        len(sheet) / 3 * (self.data_size +
+                                          (1 - self.train_size)))):
+                x_paths.append(self.Cancer['fullPath'][i])
+                x_paths.append(self.Benign['fullPath'][i])
+                x_paths.append(self.Normal['fullPath'][i])
+
             self.y_path = y_paths
             self.x_path = x_paths
 
@@ -133,7 +170,7 @@ class DataSequenceLoader(Sequence):
         for i in range(len(x_batch)):
             temp = self.resize_with_padding(load_img(x_batch[i]))
             if not self.is_val:
-                temp = self.DataAug(temp)
+                temp = self.dataaug(temp)
             x_batch[i] = np.asarray(temp)
         #if not self.is_val:
         #    x_batch = self.DataAugmentation(x_batch)
@@ -161,7 +198,7 @@ class DataSequenceLoader(Sequence):
                    d_height - pad_height)
         return ImageOps.expand(image, padding)
 
-    def DataAug(
+    def dataaug(
             self,
             images):  #input should be a list of numpy arrays (list of images)
         """Perform image augmentation on the data
@@ -188,9 +225,6 @@ class DataSequenceLoader(Sequence):
         Returns:
             array: an array of vectors representing different classes
         """
-        ###############################
-        #Problem here
-        ###############################
         classes = []
         batch_size = self.ending - self.start
         for i in range(batch_size):
