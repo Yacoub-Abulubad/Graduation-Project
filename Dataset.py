@@ -38,7 +38,10 @@ class DataSequenceLoader(Sequence):
         self.is_val = is_val
         self.verbose = verbose
         self.pathtolist()
-        self.idxList = [i for i in range(len(self.x_path))]
+        random = np.random.random_integers(0, 5000)
+        self.idxList = [
+            i for i in range(random, random + len(self.x_path) * data_size)
+        ]
 
     def __getitem__(self, index):
         """Load and pass one batch of images at a time per epoch to the model
@@ -63,13 +66,18 @@ class DataSequenceLoader(Sequence):
         """Measure the length of the dataset in batches"""
         return int(ceil(len(self.idxList) / self.batch_size))
 
+    def on_epoch_end(self):
+        np.random.seed(20)
+        np.random.shuffle(self.idxList)
+        print("shuffle done!")
+
     def pathtolist(self):
         """Convert the path to a set of paths to each image"""
         if self.verbose:
             print("Converting path to list!")
         x_paths = []
         y_paths = []
-        sheet = pd.read_csv(self.path + r"/Dataset_Full_Full_Shuffled.csv")
+        sheet = pd.read_csv(self.path + r"/Dataset_Full_Full.csv")
         try:
             sheet = sheet.loc[:, ~sheet.columns.str.contains('^Unnamed')]
         except:
@@ -77,8 +85,7 @@ class DataSequenceLoader(Sequence):
         self.sheet = sheet
         count = 0
         if not self.is_val:
-            for i in range(0,
-                           int(len(sheet) * self.data_size * self.train_size)):
+            for i in range(0, int(len(sheet) * self.train_size)):
                 if sheet['Tumour_Contour'][i] != '-':
                     y_paths.append(sheet['Status'][i])
                     x_paths.append(self.path + sheet['fullPath'][i])
@@ -94,8 +101,8 @@ class DataSequenceLoader(Sequence):
             self.x_path = x_paths
 
         else:
-            val_start = int(len(sheet) * self.data_size * self.train_size)
-            for i in range(val_start, int(len(sheet) * self.data_size)):
+            val_start = int(len(sheet) * self.train_size)
+            for i in range(val_start, int(len(sheet))):
                 x_paths.append(self.path + sheet['fullPath'][i])
                 if sheet['Tumour_Contour'][i] != '-':
                     y_paths.append(sheet['Status'][i])
