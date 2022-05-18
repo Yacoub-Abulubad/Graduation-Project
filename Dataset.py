@@ -107,6 +107,10 @@ class DataSequenceLoader(Sequence):
                         self.Normal = self.Normal.append(sheet.loc[i])
                         count = 0
 
+            self.Cancer = self.Cancer.reset_index(drop=True)
+            self.Benign = self.Benign.reset_index(drop=True)
+            self.Normal = self.Normal.reset_index(drop=True)
+
             for i in range(0, int(len(sheet) / 3 * self.train_size)):
                 x_paths.append(self.Cancer['fullPath'][i])
                 x_paths.append(self.Benign['fullPath'][i])
@@ -136,6 +140,10 @@ class DataSequenceLoader(Sequence):
                     y_paths.append('Normal')
                     self.sheet['Status'][i] = 'Normal'
                     self.Normal = self.Normal.append(sheet.loc[i])
+
+            self.Cancer = self.Cancer.reset_index(drop=True)
+            self.Benign = self.Benign.reset_index(drop=True)
+            self.Normal = self.Normal.reset_index(drop=True)
 
             for i in range(
                     val_start,
