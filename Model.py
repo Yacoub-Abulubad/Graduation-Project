@@ -7,6 +7,24 @@ from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras.layers import Input, Dense, MaxPooling2D, Flatten, Dropout, BatchNormalization
 
 
+class Hierarchy:
+
+    def __init__(self):
+        pass
+
+
+class OD:
+
+    def __init__(self):
+        pass
+
+
+class MSOD:
+
+    def __init__(self):
+        pass
+
+
 class EFFNET:
     """A class to create a pretrained model
     """
