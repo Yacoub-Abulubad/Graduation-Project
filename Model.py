@@ -1,5 +1,6 @@
 import os
 from tensorflow.keras import Model
+from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.metrics import Precision, Recall
 from tensorflow.keras.applications import EfficientNetB0 as Effnet
 from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
@@ -22,9 +23,7 @@ class EFFNET:
         x = MaxPooling2D((2, 2), padding='valid')(Backbone.output)
         x = Flatten(name="avg_pool")(x)
         x = BatchNormalization(name='BN_CL')(x)
-        #x = Dense(640, activation = 'relu')(x) #Added Dense Layer
-        #x = Dense(300, activation = 'relu')(x) #Added Dense Layer
-        x = Dense(10, activation='relu')(x)  #Added Dense Layer
+        x = Dense(10, activation='relu')(x)
         x = Dropout(0.2)(x)
         xFC = Dense(3, activation='softmax', name="FC")(x)
         self.model = Model(inputs=input_img, outputs=[xFC])
@@ -85,7 +84,8 @@ class EFFNET:
                                       trainGen,
                                       valGen,
                                       Nepoch=30,
-                                      Nlayers=3):
+                                      Nlayers=3,
+                                      lr=0.0005):
         """To train FC with the backbone
 
         Args:
@@ -113,7 +113,8 @@ class EFFNET:
                                   verbose=1,
                                   min_delta=0.05)
         self.model.summary()
-        self.model.compile(optimizer='adam',
+        optimizer = Adam(lr=lr)
+        self.model.compile(optimizer=optimizer,
                            loss={"FC": 'categorical_crossentropy'},
                            metrics={"FC": [Precision(), Recall()]})
         self.FC_B_history = self.model.fit(trainGen,

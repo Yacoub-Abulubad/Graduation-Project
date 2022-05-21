@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.16)  23 JAN 2022 10:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.16)  21 MAY 2022 18:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -917,6 +917,31 @@ Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
 \everycr=\toks46
 \minrowclearance=\skip62
 )
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count372
+\lst@gtempboxa=\box71
+\lst@token=\toks47
+\lst@length=\count373
+\lst@currlwidth=\dimen319
+\lst@column=\count374
+\lst@pos=\count375
+\lst@lostspace=\dimen320
+\lst@width=\dimen321
+\lst@newlines=\count376
+\lst@lineno=\count377
+\lst@maxwidth=\dimen322
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2019/09/10 1.8c (Carsten Heinz)
+\c@lstnumber=\count378
+\lst@skipnumbers=\count379
+\lst@framebox=\box72
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2019/09/10 1.8c listings configuration
+))
+Package: listings 2019/09/10 1.8c (Carsten Heinz)
+
 (/usr/share/texlive/texmf-dist/tex/latex/chngcntr/chngcntr.sty
 Package: chngcntr 2018/04/09 v1.1a change counter resetting
 Package chngcntr Info: \counterwithout already defined.
@@ -924,22 +949,22 @@ Package chngcntr Info: \counterwithout already defined.
 ) (./Thesis.aux)
 \openout1 = `Thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 64.
+LaTeX Font Info:    ... okay on input line 64.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -977,17 +1002,17 @@ LaTeX Font Info:    ... okay on input line 37.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count372
-\scratchdimen=\dimen319
-\scratchbox=\box71
-\nofMPsegments=\count373
-\nofMParguments=\count374
-\everyMPshowfont=\toks47
-\MPscratchCnt=\count375
-\MPscratchDim=\dimen320
-\MPnumerator=\count376
-\makeMPintoPDFobject=\count377
-\everyMPtoPDFconversion=\toks48
+\scratchcounter=\count380
+\scratchdimen=\dimen323
+\scratchbox=\box73
+\nofMPsegments=\count381
+\nofMParguments=\count382
+\everyMPshowfont=\toks48
+\MPscratchCnt=\count383
+\MPscratchDim=\dimen324
+\MPnumerator=\count384
+\makeMPintoPDFobject=\count385
+\everyMPtoPDFconversion=\toks49
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -999,9 +1024,10 @@ e
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box72
-Package hyperref Info: Link coloring OFF on input line 37.
+\AtBeginShipoutBox=\box74
+Package hyperref Info: Link coloring OFF on input line 64.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -1012,11 +1038,11 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count378
+\c@section@level=\count386
 )
-LaTeX Info: Redefining \ref on input line 37.
-LaTeX Info: Redefining \pageref on input line 37.
-LaTeX Info: Redefining \nameref on input line 37.
+LaTeX Info: Redefining \ref on input line 64.
+LaTeX Info: Redefining \pageref on input line 64.
+LaTeX Info: Redefining \nameref on input line 64.
 
 (./Thesis.out) (./Thesis.out)
 \@outlinefile=\write4
@@ -1038,12 +1064,13 @@ ABD: EveryShipout initializing macros
 Package pgfplots Warning: running in backwards compatibility mode (unsuitable t
 ick labels; missing features). Consider writing \pgfplotsset{compat=1.16} into 
 your preamble.
- on input line 37.
+ on input line 64.
 
-<pics/AAU_Logo.jpg, id=75, 165.61874pt x 204.765pt>
+\c@lstlisting=\count387
+<pics/AAU_Logo.jpg, id=91, 165.61874pt x 204.765pt>
 File: pics/AAU_Logo.jpg Graphic file (type jpg)
 <use pics/AAU_Logo.jpg>
-Package pdftex.def Info: pics/AAU_Logo.jpg  used on input line 39.
+Package pdftex.def Info: pics/AAU_Logo.jpg  used on input line 66.
 (pdftex.def)             Requested size: 113.81102pt x 140.70996pt.
 
 LaTeX Warning: No \author given.
@@ -1056,7 +1083,7 @@ X warning (ext4): destination with the same identifier (name{page.i}) has been
 already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.69 	\newpage
+l.96 	\newpage
                [1] (./Thesis.toc)
 \tf@toc=\write5
 \openout5 = `Thesis.toc'.
@@ -1065,19 +1092,24 @@ l.69 	\newpage
 \tf@lof=\write6
 \openout6 = `Thesis.lof'.
 
- (./Thesis.lot)
-\tf@lot=\write7
-\openout7 = `Thesis.lot'.
+ (./Thesis.lol)
+\tf@lol=\write7
+\openout7 = `Thesis.lol'.
 
- [3]
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
+
+(./Thesis.lot)
+\tf@lot=\write8
+\openout8 = `Thesis.lot'.
+
+ [3] [4]
+Underfull \hbox (badness 10000) in paragraph at lines 111--111
 []|\OT1/cmr/bx/n/14.4 M\OT1/cmr/m/n/14.4 ulti-\OT1/cmr/bx/n/14.4 S\OT1/cmr/m/n/
 14.4 tage \OT1/cmr/bx/n/14.4 D\OT1/cmr/m/n/14.4 eep \OT1/cmr/bx/n/14.4 C\OT1/cm
 r/m/n/14.4 onvolutional
  []
 
-[4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 115--118
+[5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 144--147
 
  []
 
@@ -1091,19 +1123,19 @@ df>
 (epstopdf)                    size: 32959 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/Perceptron-ep
 s-converted-to.pdf pics/Figures/Perceptron.eps>
-(epstopdf)             \includegraphics on input line 137.
+(epstopdf)             \includegraphics on input line 166.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./pics/Figures/Perceptron-eps-converted
 -to.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> all
 owed
-<pics/Figures/Perceptron-eps-converted-to.pdf, id=206, 1040.88875pt x 523.9575p
+<pics/Figures/Perceptron-eps-converted-to.pdf, id=246, 1040.88875pt x 523.9575p
 t>
 File: pics/Figures/Perceptron-eps-converted-to.pdf Graphic file (type pdf)
 <use pics/Figures/Perceptron-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/Perceptron-eps-converted-to.pdf  used on 
-input line 137.
+input line 166.
 (pdftex.def)             Requested size: 330.42041pt x 166.32668pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1112,7 +1144,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 176.
+(amsmath)                 on input line 205.
 
 [6]
 Package epstopdf Info: Source file: <pics/Figures/ANN.eps>
@@ -1123,17 +1155,17 @@ Package epstopdf Info: Source file: <pics/Figures/ANN.eps>
 (epstopdf)                    size: 50108 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/ANN-eps-conve
 rted-to.pdf pics/Figures/ANN.eps>
-(epstopdf)             \includegraphics on input line 201.
+(epstopdf)             \includegraphics on input line 230.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./pics/Figures/ANN-eps-converted-to.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<pics/Figures/ANN-eps-converted-to.pdf, id=250, 908.39375pt x 625.33624pt>
+<pics/Figures/ANN-eps-converted-to.pdf, id=291, 908.39375pt x 625.33624pt>
 File: pics/Figures/ANN-eps-converted-to.pdf Graphic file (type pdf)
 <use pics/Figures/ANN-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/ANN-eps-converted-to.pdf  used on input l
-ine 201.
+ine 230.
 (pdftex.def)             Requested size: 330.42041pt x 227.45862pt.
 [7 <./pics/Figures/ANN-eps-converted-to.pdf>] [8]
 Package epstopdf Info: Source file: <pics/Figures/MLP.eps>
@@ -1144,47 +1176,47 @@ Package epstopdf Info: Source file: <pics/Figures/MLP.eps>
 (epstopdf)                    size: 45576 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/MLP-eps-conve
 rted-to.pdf pics/Figures/MLP.eps>
-(epstopdf)             \includegraphics on input line 232.
+(epstopdf)             \includegraphics on input line 261.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./pics/Figures/MLP-eps-converted-to.pdf
 ): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
-<pics/Figures/MLP-eps-converted-to.pdf, id=280, 976.64874pt x 815.045pt>
+<pics/Figures/MLP-eps-converted-to.pdf, id=321, 976.64874pt x 815.045pt>
 File: pics/Figures/MLP-eps-converted-to.pdf Graphic file (type pdf)
 <use pics/Figures/MLP-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/MLP-eps-converted-to.pdf  used on input l
-ine 232.
+ine 261.
 (pdftex.def)             Requested size: 330.42041pt x 275.7436pt.
 [9 <./pics/Figures/MLP-eps-converted-to.pdf>] [10]
-<pics/Figures/convolution.png, id=309, 661.87276pt x 307.74976pt>
+<pics/Figures/convolution.png, id=349, 661.87276pt x 307.74976pt>
 File: pics/Figures/convolution.png Graphic file (type png)
 <use pics/Figures/convolution.png>
-Package pdftex.def Info: pics/Figures/convolution.png  used on input line 260.
+Package pdftex.def Info: pics/Figures/convolution.png  used on input line 289.
 (pdftex.def)             Requested size: 377.62642pt x 175.58823pt.
  [11 <./pics/Figures/convolution.png>] [12]
-<pics/Figures/reverse_convolution.png, id=327, 667.89525pt x 280.04625pt>
+<pics/Figures/reverse_convolution.png, id=368, 667.89525pt x 280.04625pt>
 File: pics/Figures/reverse_convolution.png Graphic file (type png)
 <use pics/Figures/reverse_convolution.png>
 Package pdftex.def Info: pics/Figures/reverse_convolution.png  used on input li
-ne 283.
+ne 312.
 (pdftex.def)             Requested size: 377.62642pt x 158.34178pt.
  [13 <./pics/Figures/reverse_convolution.png>]
-<pics/Figures/Classification.png, id=341, 352.31625pt x 352.31625pt>
+<pics/Figures/Classification.png, id=381, 352.31625pt x 352.31625pt>
 File: pics/Figures/Classification.png Graphic file (type png)
 <use pics/Figures/Classification.png>
-Package pdftex.def Info: pics/Figures/Classification.png  used on input line 29
-5.
+Package pdftex.def Info: pics/Figures/Classification.png  used on input line 32
+4.
 (pdftex.def)             Requested size: 170.71652pt x 170.71727pt.
-<pics/Figures/Multi_Class.png, id=344, 210.7875pt x 210.7875pt>
+<pics/Figures/Multi_Class.png, id=384, 210.7875pt x 210.7875pt>
 File: pics/Figures/Multi_Class.png Graphic file (type png)
 <use pics/Figures/Multi_Class.png>
-Package pdftex.def Info: pics/Figures/Multi_Class.png  used on input line 297.
+Package pdftex.def Info: pics/Figures/Multi_Class.png  used on input line 326.
 (pdftex.def)             Requested size: 170.71652pt x 170.72086pt.
-<pics/Figures/mnist.png, id=349, 853.1875pt x 621.32124pt>
+<pics/Figures/mnist.png, id=389, 853.1875pt x 621.32124pt>
 File: pics/Figures/mnist.png Graphic file (type png)
 <use pics/Figures/mnist.png>
-Package pdftex.def Info: pics/Figures/mnist.png  used on input line 304.
+Package pdftex.def Info: pics/Figures/mnist.png  used on input line 333.
 (pdftex.def)             Requested size: 330.42041pt x 240.62677pt.
 Package epstopdf Info: Source file: <pics/Figures/Classifier_Block_Diagram.eps>
 
@@ -1196,20 +1228,20 @@ converted-to.pdf>
 (epstopdf)                    size: 16517 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/Classifier_Bl
 ock_Diagram-eps-converted-to.pdf pics/Figures/Classifier_Block_Diagram.eps>
-(epstopdf)             \includegraphics on input line 311.
+(epstopdf)             \includegraphics on input line 340.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./pics/Figures/Classifier_Block_Diagram
 -eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most ver
 sion <1.5> allowed
-<pics/Figures/Classifier_Block_Diagram-eps-converted-to.pdf, id=351, 1310.8975p
+<pics/Figures/Classifier_Block_Diagram-eps-converted-to.pdf, id=391, 1310.8975p
 t x 253.94875pt>
 File: pics/Figures/Classifier_Block_Diagram-eps-converted-to.pdf Graphic file (
 type pdf)
 <use pics/Figures/Classifier_Block_Diagram-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/Classifier_Block_Diagram-eps-converted-to
-.pdf  used on input line 311.
+.pdf  used on input line 340.
 (pdftex.def)             Requested size: 236.01561pt x 45.72041pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1226,35 +1258,35 @@ verted-to.pdf>
 (epstopdf)                    size: 18066 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/Obj_Det_Block
 _Diagram-eps-converted-to.pdf pics/Figures/Obj_Det_Block_Diagram.eps>
-(epstopdf)             \includegraphics on input line 319.
+(epstopdf)             \includegraphics on input line 348.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./pics/Figures/Obj_Det_Block_Diagram-ep
 s-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but at most versio
 n <1.5> allowed
-<pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf, id=356, 1310.8975pt x
+<pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf, id=396, 1310.8975pt x
  257.96375pt>
 File: pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf Graphic file (typ
 e pdf)
 <use pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pd
-f  used on input line 319.
+f  used on input line 348.
 (pdftex.def)             Requested size: 236.01561pt x 46.44327pt.
-<pics/Figures/cancer_img.jpg, id=360, 1465.475pt x 2300.595pt>
+<pics/Figures/cancer_img.jpg, id=400, 1465.475pt x 2300.595pt>
 File: pics/Figures/cancer_img.jpg Graphic file (type jpg)
 <use pics/Figures/cancer_img.jpg>
-Package pdftex.def Info: pics/Figures/cancer_img.jpg  used on input line 326.
+Package pdftex.def Info: pics/Figures/cancer_img.jpg  used on input line 355.
 (pdftex.def)             Requested size: 128.0374pt x 200.97159pt.
-<pics/Figures/contour_img.jpg, id=361, 1465.475pt x 2300.595pt>
+<pics/Figures/contour_img.jpg, id=401, 1465.475pt x 2300.595pt>
 File: pics/Figures/contour_img.jpg Graphic file (type jpg)
 <use pics/Figures/contour_img.jpg>
-Package pdftex.def Info: pics/Figures/contour_img.jpg  used on input line 328.
+Package pdftex.def Info: pics/Figures/contour_img.jpg  used on input line 357.
 (pdftex.def)             Requested size: 128.0374pt x 200.97159pt.
-<pics/Figures/result_img.jpg, id=362, 351.714pt x 552.1428pt>
+<pics/Figures/result_img.jpg, id=402, 351.714pt x 552.1428pt>
 File: pics/Figures/result_img.jpg Graphic file (type jpg)
 <use pics/Figures/result_img.jpg>
-Package pdftex.def Info: pics/Figures/result_img.jpg  used on input line 330.
+Package pdftex.def Info: pics/Figures/result_img.jpg  used on input line 359.
 (pdftex.def)             Requested size: 128.0374pt x 201.00389pt.
 [14 <./pics/Figures/Classification.png> <./pics/Figures/Multi_Class.png>]
 
@@ -1273,15 +1305,15 @@ _Diagram-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/Hierarchical_
 Classifier_Block_Diagram-eps-converted-to.pdf pics/Figures/Hierarchical_Classif
 ier_Block_Diagram.eps>
-(epstopdf)             \includegraphics on input line 341.
+(epstopdf)             \includegraphics on input line 370.
 Package epstopdf Info: Output file is already uptodate.
-<pics/Figures/Hierarchical_Classifier_Block_Diagram-eps-converted-to.pdf, id=39
+<pics/Figures/Hierarchical_Classifier_Block_Diagram-eps-converted-to.pdf, id=43
 5, 1744.5175pt x 614.295pt>
 File: pics/Figures/Hierarchical_Classifier_Block_Diagram-eps-converted-to.pdf G
 raphic file (type pdf)
 <use pics/Figures/Hierarchical_Classifier_Block_Diagram-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/Hierarchical_Classifier_Block_Diagram-eps
--converted-to.pdf  used on input line 341.
+-converted-to.pdf  used on input line 370.
 (pdftex.def)             Requested size: 330.42041pt x 116.34232pt.
 Package epstopdf Info: Source file: <pics/Figures/GJU_H.eps>
 (epstopdf)                    date: 2022-01-18 16:24:53
@@ -1291,13 +1323,13 @@ Package epstopdf Info: Source file: <pics/Figures/GJU_H.eps>
 (epstopdf)                    size: 16635 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/GJU_H-eps-con
 verted-to.pdf pics/Figures/GJU_H.eps>
-(epstopdf)             \includegraphics on input line 348.
+(epstopdf)             \includegraphics on input line 377.
 Package epstopdf Info: Output file is already uptodate.
-<pics/Figures/GJU_H-eps-converted-to.pdf, id=399, 317.185pt x 476.78125pt>
+<pics/Figures/GJU_H-eps-converted-to.pdf, id=439, 317.185pt x 476.78125pt>
 File: pics/Figures/GJU_H-eps-converted-to.pdf Graphic file (type pdf)
 <use pics/Figures/GJU_H-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/GJU_H-eps-converted-to.pdf  used on input
- line 348.
+ line 377.
 (pdftex.def)             Requested size: 236.01561pt x 354.77687pt.
  [16 <./pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf> <./pics/Figure
 s/cancer_img.jpg> <./pics/Figures/contour_img.jpg> <./pics/Figures/result_img.j
@@ -1314,71 +1346,105 @@ agram-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/Hierarchical_
 Obj_Det_Block_Diagram-eps-converted-to.pdf pics/Figures/Hierarchical_Obj_Det_Bl
 ock_Diagram.eps>
-(epstopdf)             \includegraphics on input line 362.
+(epstopdf)             \includegraphics on input line 391.
 Package epstopdf Info: Output file is already uptodate.
 
 
 pdfTeX warning: /usr/bin/pdflatex (file ./pics/Figures/Hierarchical_Obj_Det_Blo
 ck_Diagram-eps-converted-to.pdf): PDF inclusion: found PDF version <1.7>, but a
 t most version <1.5> allowed
-<pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf, id=444, 
+<pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf, id=485, 
 1754.555pt x 629.35126pt>
 File: pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf Grap
 hic file (type pdf)
 <use pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-co
-nverted-to.pdf  used on input line 362.
+nverted-to.pdf  used on input line 391.
 (pdftex.def)             Requested size: 330.42041pt x 118.52164pt.
-<pics/Figures/cropped.jpg, id=448, 94.6737pt x 87.2058pt>
+<pics/Figures/cropped.jpg, id=489, 94.6737pt x 87.2058pt>
 File: pics/Figures/cropped.jpg Graphic file (type jpg)
 <use pics/Figures/cropped.jpg>
-Package pdftex.def Info: pics/Figures/cropped.jpg  used on input line 369.
+Package pdftex.def Info: pics/Figures/cropped.jpg  used on input line 398.
 (pdftex.def)             Requested size: 236.01561pt x 217.40181pt.
 [19 <./pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf>]
+<pics/Figures/1st_stage_conf_matrix.png, id=512, 403.5075pt x 322.20375pt>
+File: pics/Figures/1st_stage_conf_matrix.png Graphic file (type png)
+<use pics/Figures/1st_stage_conf_matrix.png>
+Package pdftex.def Info: pics/Figures/1st_stage_conf_matrix.png  used on input 
+line 409.
+(pdftex.def)             Requested size: 283.22162pt x 226.15564pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [20 <./pics/Figures/cropped.jpg>]
-Underfull \hbox (badness 10000) in paragraph at lines 383--386
+Underfull \hbox (badness 10000) in paragraph at lines 415--416
 
  []
 
-[21]
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2019/09/10 1.8c listings language file
+)
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
+nput line 417.
+ [21 <./pics/Figures/1st_stage_conf_matrix.png>] [22] [23] [24] [25]
+Underfull \hbox (badness 10000) in paragraph at lines 561--564
+
+ []
+
+[26]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 393.
+               Default added (so using `tbp') on input line 571.
 
-[22]
-<pics/Figures/Age_Dist.png, id=491, 853.1875pt x 347.2975pt>
+[27]
+<pics/Figures/Age_Dist.png, id=672, 853.1875pt x 347.2975pt>
 File: pics/Figures/Age_Dist.png Graphic file (type png)
 <use pics/Figures/Age_Dist.png>
-Package pdftex.def Info: pics/Figures/Age_Dist.png  used on input line 433.
+Package pdftex.def Info: pics/Figures/Age_Dist.png  used on input line 611.
 (pdftex.def)             Requested size: 472.03123pt x 192.14827pt.
-<pics/Figures/Avg_Age.png, id=492, 419.5675pt x 275.0275pt>
+<pics/Figures/Avg_Age.png, id=673, 419.5675pt x 275.0275pt>
 File: pics/Figures/Avg_Age.png Graphic file (type png)
 <use pics/Figures/Avg_Age.png>
-Package pdftex.def Info: pics/Figures/Avg_Age.png  used on input line 439.
+Package pdftex.def Info: pics/Figures/Avg_Age.png  used on input line 617.
 (pdftex.def)             Requested size: 236.01561pt x 154.70677pt.
- [23 <./pics/Figures/Age_Dist.png> <./pics/Figures/Avg_Age.png>] [24]
-(./Thesis.bbl [25] [26] [27]) [28]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 453.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 453.
+ [28 <./pics/Figures/Age_Dist.png> <./pics/Figures/Avg_Age.png>]
+<pics/Figures/Train_imbalance.png, id=682, 403.5075pt x 289.08pt>
+File: pics/Figures/Train_imbalance.png Graphic file (type png)
+<use pics/Figures/Train_imbalance.png>
+Package pdftex.def Info: pics/Figures/Train_imbalance.png  used on input line 6
+26.
+(pdftex.def)             Requested size: 236.01561pt x 169.08685pt.
+ [29 <./pics/Figures/Train_imbalance.png>]
+<pics/Figures/Train_balance.png, id=702, 403.5075pt x 289.08pt>
+File: pics/Figures/Train_balance.png Graphic file (type png)
+<use pics/Figures/Train_balance.png>
+Package pdftex.def Info: pics/Figures/Train_balance.png  used on input line 655
+.
+(pdftex.def)             Requested size: 236.01561pt x 169.08685pt.
+ [30 <./pics/Figures/Train_balance.png>]
+(./Thesis.bbl [31] [32] [33]) [34]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 668.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 668.
  (./Thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 453.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 453.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 668.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 668.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: B4C0CAEEDFF40F27DD641F65AD09CD68;1131.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 453.
+(rerunfilecheck)             Checksum: 99F54D75CB5DCB0CDCB69E6FDA12812D;1406.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 668.
  )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 33 (\begingroup)
+### semi simple group (level 1) entered at line 60 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 33285 strings out of 481239
- 802946 string characters out of 5920377
- 1180574 words of memory out of 5000000
- 47808 multiletter control sequences out of 15000+600000
+ 35294 strings out of 481239
+ 829384 string characters out of 5920377
+ 1492289 words of memory out of 5000000
+ 49651 multiletter control sequences out of 15000+600000
  550291 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,17n,102p,1440b,2581s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,17n,102p,1440b,4402s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</u
 sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/te
@@ -1388,13 +1454,15 @@ dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mti12.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on Thesis.pdf (34 pages, 1281492 bytes).
+msfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmt
+i10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></us
+r/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb>
+Output written on Thesis.pdf (41 pages, 1358734 bytes).
 PDF statistics:
- 600 PDF objects out of 1000 (max. 8388607)
- 496 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 500000)
- 249 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 849 PDF objects out of 1000 (max. 8388607)
+ 727 compressed objects within 8 object streams
+ 257 named destinations out of 1000 (max. 500000)
+ 296 words of extra memory for PDF output out of 10000 (max. 10000000)
 

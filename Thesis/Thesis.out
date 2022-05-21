@@ -12,6 +12,10 @@
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Object Detection}{subsection.2.2}% 12
 \BOOKMARK [3][-]{subsubsection.2.2.3}{Hierarchy Classifier}{subsection.2.2}% 13
 \BOOKMARK [1][-]{section.3}{Multi-Stage Object Detector}{}% 14
-\BOOKMARK [1][-]{section.4}{Dataset}{}% 15
-\BOOKMARK [2][-]{subsection.4.1}{Data collection and statistics}{section.4}% 16
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 17
+\BOOKMARK [2][-]{subsection.3.1}{Image Classifier}{section.3}% 15
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Transfer Learning}{subsection.3.1}% 16
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Training}{subsection.3.1}% 17
+\BOOKMARK [1][-]{section.4}{Dataset}{}% 18
+\BOOKMARK [2][-]{subsection.4.1}{Data collection and statistics}{section.4}% 19
+\BOOKMARK [2][-]{subsection.4.2}{Data imbalance}{section.4}% 20
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 21

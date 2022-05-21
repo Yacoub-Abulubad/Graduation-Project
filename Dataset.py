@@ -78,7 +78,7 @@ class DataSequenceLoader(Sequence):
             print("Converting path to list!")
         x_paths = []
         y_paths = []
-        sheet = pd.read_csv(self.path + r"/Dataset_Full_Full.csv")
+        sheet = pd.read_csv(self.path + r"/Dataset_Full_Full_Shuffled.csv")
         try:
             sheet = sheet.loc[:, ~sheet.columns.str.contains('^Unnamed')]
         except:
@@ -110,8 +110,8 @@ class DataSequenceLoader(Sequence):
             self.Cancer = self.Cancer.reset_index(drop=True)
             self.Benign = self.Benign.reset_index(drop=True)
             self.Normal = self.Normal.reset_index(drop=True)
-
-            for i in range(0, int(len(sheet) / 3 * self.train_size)):
+            # int(len(sheet) / 3 * self.train_size) = 853
+            for i in range(0, 853):
                 x_paths.append(self.Cancer['fullPath'][i])
                 x_paths.append(self.Benign['fullPath'][i])
                 x_paths.append(self.Normal['fullPath'][i])
@@ -182,6 +182,9 @@ class DataSequenceLoader(Sequence):
             x_batch[i] = np.asarray(temp)
         #if not self.is_val:
         #    x_batch = self.DataAugmentation(x_batch)
+        if not self.is_val:
+            return self.dataaug(x_batch)
+
         if self.verbose:
             print('Preprocessing images!')
 
@@ -219,8 +222,7 @@ class DataSequenceLoader(Sequence):
          array: numpy array
     """
 
-        #Auge = iaa.RandAugment(n=(1, 5), m=(3, 15))
-        Auge = iaa.RandAugment(n=(1, 2), m=(1, 2))
+        Auge = iaa.Sequential([iaa.Fliplr(0.5), iaa.Flipud(0.5)])
         out = Auge(images=images)
         return np.array(out)
 

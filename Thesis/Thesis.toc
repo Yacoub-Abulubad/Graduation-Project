@@ -12,6 +12,10 @@
 \contentsline {subsubsection}{\numberline {2.2.2}Object Detection}{15}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}Hierarchy Classifier}{17}{subsubsection.2.2.3}%
 \contentsline {section}{\numberline {3}Multi-Stage Object Detector}{19}{section.3}%
-\contentsline {section}{\numberline {4}Dataset}{21}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Data collection and statistics}{21}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Conclusion}{24}{section.5}%
+\contentsline {subsection}{\numberline {3.1}Image Classifier}{20}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Transfer Learning}{21}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}Training}{23}{subsubsection.3.1.2}%
+\contentsline {section}{\numberline {4}Dataset}{26}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Data collection and statistics}{26}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Data imbalance}{29}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Conclusion}{30}{section.5}%

@@ -12,5 +12,8 @@
 \contentsline {figure}{\numberline {2.12}{\ignorespaces \small {Hierarchical Classifier Flowchart}\relax }}{18}{figure.caption.12}%
 \contentsline {figure}{\numberline {3.1}{\ignorespaces \small {Multi-Stage Object Detection Diagram}\relax }}{19}{figure.caption.13}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces \small {Cropped input for \emph {MSOD} Classifier}\relax }}{20}{figure.caption.14}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces \small {Age Distribution}\relax }}{23}{figure.caption.16}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces \small {Average Age}\relax }}{23}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces \small {Confusion matrix of the first stage Classifier}\relax }}{21}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \small {Age Distribution}\relax }}{28}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \small {Average Age}\relax }}{28}{figure.caption.18}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \small {Visualization of imbalanced dataset}\relax }}{29}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \small {Visualization of resolved imbalance}\relax }}{30}{figure.caption.20}%
