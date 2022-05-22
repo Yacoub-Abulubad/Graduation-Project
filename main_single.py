@@ -6,17 +6,17 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-from Dataset import DataSequenceLoader
-from Model import EFFNET
+from Dataset import SingleSequenceLoader
+from Model import Single_CLassifier
 from Utils import plotting
 
 import numpy as np
 
 path = "/home/abulubad/Graduation-Project/Data"
-model = EFFNET()
-batch_size = 8
-model.train_Classifier_only(trainGen=DataSequenceLoader(path, batch_size, 0.1),
-                            valGen=DataSequenceLoader(path,
+model = Single_CLassifier()
+batch_size = 1
+model.train_Classifier_only(trainGen=SingleSequenceLoader(path, batch_size, 0.1),
+                            valGen=SingleSequenceLoader(path,
                                                       batch_size,
                                                       0.1,
                                                       is_val=True),

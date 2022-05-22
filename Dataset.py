@@ -21,7 +21,7 @@ class ODSequenceLoader(Sequence):
 
 
 class HierarchySequenceLoader(Sequence):
-    """A data loader responsible for loading, preprocessing and feeding a batch of the data into the model
+    """A data loader responsible for loading, preprocessing and feeding a batch of the data into the hierarchy model
 
     Args:
         Sequence (class): inherting class
@@ -90,9 +90,11 @@ class HierarchySequenceLoader(Sequence):
         """Convert the path to a set of paths to each image"""
         if self.verbose:
             print("Converting path to list!")
-        x_paths = []
-        y_paths = []
-        sheet = pd.read_csv(self.path + r"/Dataset_Full_Full_Shuffled.csv")
+        first_x_paths = []
+        first_y_paths = []
+        second_x_paths = []
+        second_y_paths = []
+        sheet = pd.read_csv(self.path + r"/Dataset_Full_Shuffled.csv")
         try:
             sheet = sheet.loc[:, ~sheet.columns.str.contains('^Unnamed')]
         except:
@@ -107,16 +109,18 @@ class HierarchySequenceLoader(Sequence):
             for i in range(0, int(len(sheet) * self.train_size)):
                 if sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
                         i] == 'Cancer':
-                    y_paths.append(sheet['Status'][i])
+                    first_y_paths.append('Tumor')
+                    second_y_paths.append('Cancer')
                     self.Cancer = self.Cancer.append(sheet.loc[i])
                 elif sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
                         i] == 'Benign':
-                    y_paths.append(sheet['Status'][i])
+                    first_y_paths.append('Tumor')
+                    second_y_paths.append('Benign')
                     self.Benign = self.Benign.append(sheet.loc[i])
                 else:
                     count = count + 1
-                    if count == 4:
-                        y_paths.append('Normal')
+                    if count == 2:
+                        first_y_paths.append('Normal')
                         self.sheet['Status'][i] = 'Normal'
                         self.Normal = self.Normal.append(sheet.loc[i])
                         count = 0
@@ -124,14 +128,20 @@ class HierarchySequenceLoader(Sequence):
             self.Cancer = self.Cancer.reset_index(drop=True)
             self.Benign = self.Benign.reset_index(drop=True)
             self.Normal = self.Normal.reset_index(drop=True)
-            # int(len(sheet) / 3 * self.train_size) = 853
-            for i in range(0, 853):
-                x_paths.append(self.Cancer['fullPath'][i])
-                x_paths.append(self.Benign['fullPath'][i])
-                x_paths.append(self.Normal['fullPath'][i])
-
-            self.y_path = y_paths
-            self.x_path = x_paths
+            balance_size = min(len(self.Cancer), len(self.Benign),
+                               len(self.Normal))
+            for i in range(0, balance_size):
+                first_x_paths.append(self.path + self.Cancer['fullPath'][i])
+                first_x_paths.append(self.path + self.Benign['fullPath'][i])
+                first_x_paths.append(self.path + self.Normal['fullPath'][i])
+                second_x_paths.append(self.path + self.Cancer['fullPath'][i])
+                second_x_paths.append(self.path + self.Benign['fullPath'][i])
+            if self.first_classifier:
+                self.y_path = first_y_paths
+                self.x_path = first_x_paths
+            else:
+                self.y_path = second_y_paths
+                self.x_path = second_x_paths
 
         else:
             val_start = int(len(sheet) * self.data_size)
@@ -141,35 +151,45 @@ class HierarchySequenceLoader(Sequence):
                     int(len(sheet) * (self.data_size +
                                       (1 - self.train_size)))):
 
-                x_paths.append(self.path + sheet['fullPath'][i])
+                first_x_paths.append(self.path + sheet['fullPath'][i])
+                second_x_paths.append(self.path + sheet['fullPath'][i])
+                print(first_x_paths[i - val_start])
                 if sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
                         i] == 'Cancer':
-                    y_paths.append(sheet['Status'][i])
-                    self.Cancer = self.Cancer.append(sheet.loc[i])
+                    first_y_paths.append('Tumor')
+                    second_y_paths.append('Cancer')
+                    #self.Cancer = self.Cancer.append(sheet.loc[i])
                 elif sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
                         i] == 'Benign':
-                    y_paths.append(sheet['Status'][i])
-                    self.Benign = self.Benign.append(sheet.loc[i])
+                    first_y_paths.append('Tumor')
+                    second_y_paths.append('Benign')
+                    #self.Benign = self.Benign.append(sheet.loc[i])
                 else:
-                    y_paths.append('Normal')
+                    first_y_paths.append('Normal')
                     self.sheet['Status'][i] = 'Normal'
-                    self.Normal = self.Normal.append(sheet.loc[i])
+                    #self.Normal = self.Normal.append(sheet.loc[i])
 
-            self.Cancer = self.Cancer.reset_index(drop=True)
-            self.Benign = self.Benign.reset_index(drop=True)
-            self.Normal = self.Normal.reset_index(drop=True)
+            #self.Cancer = self.Cancer.reset_index(drop=True)
+            #self.Benign = self.Benign.reset_index(drop=True)
+            #self.Normal = self.Normal.reset_index(drop=True)
 
-            for i in range(
-                    val_start,
-                    int(
-                        len(sheet) / 3 * (self.data_size +
-                                          (1 - self.train_size)))):
-                x_paths.append(self.Cancer['fullPath'][i])
-                x_paths.append(self.Benign['fullPath'][i])
-                x_paths.append(self.Normal['fullPath'][i])
+            #for i in range(
+            #        val_start,
+            #        int(
+            #            len(sheet) / 3 * (self.data_size +
+            #                              (1 - self.train_size)))):
+            #    x_paths.append(self.Cancer['fullPath'][i])
+            #    x_paths.append(self.Benign['fullPath'][i])
+            #    x_paths.append(self.Normal['fullPath'][i])
 
-            self.y_path = y_paths
-            self.x_path = x_paths
+            if self.first_classifier:
+                self.y_path = first_y_paths
+                self.x_path = first_x_paths
+                print(self.y_path)
+                print(self.x_path)
+            else:
+                self.y_path = second_y_paths
+                self.x_path = second_x_paths
 
         if self.verbose:
             print("Path to list conversion complete!")
@@ -191,8 +211,6 @@ class HierarchySequenceLoader(Sequence):
             print('Generating and resizing images!')
         for i in range(len(x_batch)):
             temp = self.resize_with_padding(load_img(x_batch[i]))
-            if not self.is_val:
-                temp = self.dataaug(temp)
             x_batch[i] = np.asarray(temp)
         #if not self.is_val:
         #    x_batch = self.DataAugmentation(x_batch)
@@ -267,7 +285,7 @@ class HierarchySequenceLoader(Sequence):
             return second_classes
 
 
-class DataSequenceLoader(Sequence):
+class SingleSequenceLoader(Sequence):
     """A data loader responsible for loading, preprocessing and feeding a batch of the data into the model
 
     Args:
@@ -369,8 +387,9 @@ class DataSequenceLoader(Sequence):
             self.Cancer = self.Cancer.reset_index(drop=True)
             self.Benign = self.Benign.reset_index(drop=True)
             self.Normal = self.Normal.reset_index(drop=True)
-            # int(len(sheet) / 3 * self.train_size) = 853
-            for i in range(0, 853):
+            balance_size = min(len(self.Cancer), len(self.Benign),
+                               len(self.Normal))
+            for i in range(0, balance_size):
                 x_paths.append(self.Cancer['fullPath'][i])
                 x_paths.append(self.Benign['fullPath'][i])
                 x_paths.append(self.Normal['fullPath'][i])
@@ -400,18 +419,18 @@ class DataSequenceLoader(Sequence):
                     self.sheet['Status'][i] = 'Normal'
                     self.Normal = self.Normal.append(sheet.loc[i])
 
-            self.Cancer = self.Cancer.reset_index(drop=True)
-            self.Benign = self.Benign.reset_index(drop=True)
-            self.Normal = self.Normal.reset_index(drop=True)
+            #self.Cancer = self.Cancer.reset_index(drop=True)
+            #self.Benign = self.Benign.reset_index(drop=True)
+            #self.Normal = self.Normal.reset_index(drop=True)
 
-            for i in range(
-                    val_start,
-                    int(
-                        len(sheet) / 3 * (self.data_size +
-                                          (1 - self.train_size)))):
-                x_paths.append(self.Cancer['fullPath'][i])
-                x_paths.append(self.Benign['fullPath'][i])
-                x_paths.append(self.Normal['fullPath'][i])
+            #for i in range(
+            #        val_start,
+            #        int(
+            #            len(sheet) / 3 * (self.data_size +
+            #                              (1 - self.train_size)))):
+            #    x_paths.append(self.Cancer['fullPath'][i])
+            #    x_paths.append(self.Benign['fullPath'][i])
+            #    x_paths.append(self.Normal['fullPath'][i])
 
             self.y_path = y_paths
             self.x_path = x_paths
@@ -436,8 +455,6 @@ class DataSequenceLoader(Sequence):
             print('Generating and resizing images!')
         for i in range(len(x_batch)):
             temp = self.resize_with_padding(load_img(x_batch[i]))
-            if not self.is_val:
-                temp = self.dataaug(temp)
             x_batch[i] = np.asarray(temp)
         #if not self.is_val:
         #    x_batch = self.DataAugmentation(x_batch)
