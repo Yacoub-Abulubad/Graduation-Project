@@ -9,6 +9,7 @@ from tensorflow.keras.layers import Input, Dense, MaxPooling2D, Flatten, Dropout
 
 
 def hierarchy_pred(model_1, model_2, dataGen):
+    # pred(model_1 + model_2)
     pass
 
 

@@ -11,11 +11,14 @@
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Image Classification}{subsection.2.2}% 11
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Object Detection}{subsection.2.2}% 12
 \BOOKMARK [3][-]{subsubsection.2.2.3}{Hierarchy Classifier}{subsection.2.2}% 13
-\BOOKMARK [1][-]{section.3}{Multi-Stage Object Detector}{}% 14
-\BOOKMARK [2][-]{subsection.3.1}{Image Classifier}{section.3}% 15
-\BOOKMARK [3][-]{subsubsection.3.1.1}{Transfer Learning}{subsection.3.1}% 16
-\BOOKMARK [3][-]{subsubsection.3.1.2}{Training}{subsection.3.1}% 17
-\BOOKMARK [1][-]{section.4}{Dataset}{}% 18
-\BOOKMARK [2][-]{subsection.4.1}{Data collection and statistics}{section.4}% 19
-\BOOKMARK [2][-]{subsection.4.2}{Data imbalance}{section.4}% 20
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 21
+\BOOKMARK [1][-]{section.3}{Design}{}% 14
+\BOOKMARK [2][-]{subsection.3.1}{Methodology}{section.3}% 15
+\BOOKMARK [2][-]{subsection.3.2}{Preprocessing of Dataset}{section.3}% 16
+\BOOKMARK [2][-]{subsection.3.3}{Multi-Stage Object Detector}{section.3}% 17
+\BOOKMARK [2][-]{subsection.3.4}{Image Classifier}{section.3}% 18
+\BOOKMARK [3][-]{subsubsection.3.4.1}{Transfer Learning}{subsection.3.4}% 19
+\BOOKMARK [3][-]{subsubsection.3.4.2}{Training}{subsection.3.4}% 20
+\BOOKMARK [1][-]{section.4}{Dataset}{}% 21
+\BOOKMARK [2][-]{subsection.4.1}{Data collection and statistics}{section.4}% 22
+\BOOKMARK [2][-]{subsection.4.2}{Data imbalance}{section.4}% 23
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 24

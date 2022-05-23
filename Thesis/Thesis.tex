@@ -381,9 +381,13 @@
 	
 	
 	\newpage
+	\section{Design}
 	
+	\subsection{Methodology}
 	
-	\section{Multi-Stage Object Detector}\label{Meth}
+	\subsection{Preprocessing of Dataset}
+	
+	\subsection{Multi-Stage Object Detector}\label{Meth}
 	\emph{Single-Stage} object detectors work with having the classification process happen at the end of the detector since that is the quicker method, hence the name given to it is the \emph{"Single-Stage"}. However, in \emph{Two-Stage} object detectors, the object detector works on a single model and then if a detector detects an object, it is passed to another model and that is the second stage which is a classifier, hence the name \emph{"Two-Stage"} object detector is given and is also called the \textbf{Multi-Stage Object Detector (MSOD)}, this can be clearly seen on how insignificant it is in regards to inference speed in comparison to the Single-Stage object detector.\\[5mm]
 	\emph{Figure \ref{fig:Multi-Stage Obj Detector}} shows the work-flow of a \emph{MSOD}.\\[5mm]
 	\begin{figure}[h]
@@ -400,6 +404,9 @@
 		\label{fig:cropped}
 	\end{figure}
 	Having a cropped image of the tumor as an input for a classifier would help focus all the attention on the features of the two different kinds of tumors, thus improving the learned features, while correspondingly reducing the amount of learning parameters as the input size would be smaller hence reducing computational effort and time. 
+	
+	
+	
 	
 	\subsection{Image Classifier}
 	The first approach to creating the MSOD model is to create the initial classifier which will be a broader approach to detecting whether the patient is diagnosed with \emph{Cancer}, \emph{Benign} or has no Tumor \emph{(Normal)}. Unfortunately, during training, the whole image is passed which could be seen in \emph{Figure~\ref{fig:img_cont} (a)}, and that contains many unwanted features that will reduce the performance of the trained model. With transfer learning using the \textbf{Efficient Net b-0}, the accuracy of 46.8\% was achieved.\\

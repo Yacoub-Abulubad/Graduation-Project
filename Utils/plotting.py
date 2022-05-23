@@ -60,7 +60,7 @@ def scoring_system(y_pred_dec, y_true_dec, length, classes_list):
     sn.heatmap(df,
                annot=True,
                fmt="d",
-               cmap='Greens',
+               cmap='Blues',
                linecolor='black',
                linewidths=1)
     plt.ylabel('Actual', rotation=0, va='center')
