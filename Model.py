@@ -8,6 +8,10 @@ from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from tensorflow.keras.layers import Input, Dense, MaxPooling2D, Flatten, Dropout, BatchNormalization
 
 
+def hierarchy_pred(model_1, model_2, dataGen):
+    pass
+
+
 class Hierarchy:
     """Hierarchy classifier
     """
