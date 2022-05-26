@@ -14,7 +14,7 @@ def hierarchy_pred(model_1, model_2, dataGen):
     for XX, YY in dataGen:
         YY_true.append(YY)
         YY_preds_first = model_1.model.predict(XX)
-        if YY_preds_first[1] > YY_preds_first[0]:
+        if YY_preds_first[0][1] > YY_preds_first[0][0]:
             YY_preds_second = model_2.model.predict(XX)
             Classes.append(YY_preds_second)
             Classes.insert(0, 0)
