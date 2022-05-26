@@ -393,7 +393,7 @@ class HierarchySequenceLoader(Sequence):
         first_y_paths = []
         second_x_paths = []
         second_y_paths = []
-        sheet = pd.read_csv(self.path + r"/Dataset_Full_Shuffled.csv")
+        sheet = pd.read_csv(self.path + r"/Dataset_Full_Full_Shuffled.csv")
         try:
             sheet = sheet.loc[:, ~sheet.columns.str.contains('^Unnamed')]
         except:
@@ -451,7 +451,7 @@ class HierarchySequenceLoader(Sequence):
                                       (1 - self.train_size)))):
 
                 first_x_paths.append(self.path + sheet['fullPath'][i])
-                second_x_paths.append(self.path + sheet['fullPath'][i]))
+                second_x_paths.append(self.path + sheet['fullPath'][i])
                 if sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
                         i] == 'Cancer':
                     first_y_paths.append('Tumor')
