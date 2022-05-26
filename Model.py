@@ -9,8 +9,19 @@ from tensorflow.keras.layers import Input, Dense, MaxPooling2D, Flatten, Dropout
 
 
 def hierarchy_pred(model_1, model_2, dataGen):
-    # pred(model_1 + model_2)
-    pass
+    Classes = []
+    YY_true = []
+    for XX, YY in dataGen:
+        YY_true.append(YY)
+        YY_preds_first = model_1.model.predict(XX)
+        if YY_preds_first[1] > YY_preds_first[0]:
+            YY_preds_second = model_2.model.predict(XX)
+            Classes.append(YY_preds_second)
+            Classes.insert(0, 0)
+        else:
+            Classes.append([0, 0])
+            Classes.insert(0, 1)
+    return Classes, YY_true
 
 
 class Hierarchy:

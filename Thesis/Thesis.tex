@@ -363,7 +363,7 @@
 	
 	%There are three networks in the family of R-CNN object detector the original R-CNN \cite{RCNN}, Fast R-CNN \cite{Fast-RCNN} and Faster R-CNN \cite{Objdet} . In the original R-CNN network, selective search algorithm \cite{selective} is used to obtain region proposals. Afterwards, each proposal is fed into a \emph{CNN feature extractor} to obtain feature maps. In the last stage, the feature maps are input to \emph{support vector machines (SVM)} to obtain the class and bounding box of the proposed region. This approach is very time-consuming as it requires classifying a great amount of region proposals for each image. Therefore, \emph{Fast R-CNN} works on enhancing the inference speed. First features maps are produced by inputting the image into a \emph{CNN} feature extractor, then region proposals are created using the selective search algorithm. Afterwards, RoI pooling layer is used to reshape the proposal into a shape suitable for the \emph{FC} layers used for classification and bounding box regression.
 	
-	\subsubsection{Hierarchy Classifier}\label{Hierarchy_Class}
+	\subsubsection{Hierarchy Classification}\label{Hierarchy_Class}
 	In \emph{Section~\ref{Classification}}, it has been explained that a classifier can classify between multiple classes, say there is three different classes $\bm{x}$ $\bm{y}$ and $\bm{z}$. These three classes have two classes which are quite similar, say that these similar classes are $\bm{x}$ and $\bm{y}$ sharing multiple features and are completely different from class $\bm{z}$ where they share no similar features. The classifier will be most likely to have a \textbf{larger error} when it comes to classifying between class $\bm{x}$ and $\bm{y}$, while it will be easier to classify class $\bm{z}$.\\[5mm]
 	\begin{figure}[h]
 		\centering
@@ -378,14 +378,6 @@
 		\caption{\small{Hierarchical Classifier Flowchart}}
 		\label{fig:GJU}
 	\end{figure}
-	
-	
-	\newpage
-	\section{Design}
-	
-	\subsection{Methodology}
-	
-	\subsection{Preprocessing of Dataset}
 	
 	\subsection{Multi-Stage Object Detector}\label{Meth}
 	\emph{Single-Stage} object detectors work with having the classification process happen at the end of the detector since that is the quicker method, hence the name given to it is the \emph{"Single-Stage"}. However, in \emph{Two-Stage} object detectors, the object detector works on a single model and then if a detector detects an object, it is passed to another model and that is the second stage which is a classifier, hence the name \emph{"Two-Stage"} object detector is given and is also called the \textbf{Multi-Stage Object Detector (MSOD)}, this can be clearly seen on how insignificant it is in regards to inference speed in comparison to the Single-Stage object detector.\\[5mm]
@@ -405,160 +397,14 @@
 	\end{figure}
 	Having a cropped image of the tumor as an input for a classifier would help focus all the attention on the features of the two different kinds of tumors, thus improving the learned features, while correspondingly reducing the amount of learning parameters as the input size would be smaller hence reducing computational effort and time. 
 	
-	
-	
-	
-	
-	\subsection{Image Classifier}
-	The first approach to creating the MSOD model is to create the initial classifier which will be a broader approach to detecting whether the patient is diagnosed with \emph{Cancer}, \emph{Benign} or has no Tumor \emph{(Normal)}. Unfortunately, during training, the whole image is passed which could be seen in \emph{Figure~\ref{fig:img_cont} (a)}, and that contains many unwanted features that will reduce the performance of the trained model. With transfer learning using the \textbf{Efficient Net b-0}, the accuracy of 46.8\% was achieved.\\
-	In the figure below, the confusion matrix is shown for the first stage image classifier which was discussed in \emph{Section~\ref{Classification}}.
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=0.6\textwidth]{pics/Figures/1st_stage_conf_matrix.png}
-		\caption{\small{Confusion matrix of the first stage Classifier}}
-		\label{fig:conf-mat-first}
-	\end{figure}
-	Some quick analysis from this Confusion Matrix is that the model has learned to classify the Normal vs Tumor in an almost efficient way. But given that the labels are not \emph{`Normal`, `Tumor`} but rather \emph{`Normal`, `Benign`, `Cancer`}, the model had a hard time differentiating between the two tumor classes. Which is why the \textbf{Hierarchy Classifier}, which was discussed in \emph{Section~\ref{Hierarchy_Class}}, will achieve better results given that the first stage classifier will predict the two classes \emph{`Normal`, `Tumor`} and the second classifier will have the task of differentiating between \emph{`Benign`, `Cancer`}.
-	\subsubsection{Transfer Learning}
-	In transfer learning, it is crucial to keep the \emph{pre-trained weights} intact, at least most of them from the upmost layers, because they are the most important weights when it comes to feature extraction. This is why in \emph{Listing~\ref{Effnet-Model} line 9}, we have set that the \emph{Backbone's}, which corresponds to the pre-trained model, weights to be untrainable. This helps preserve the weights and not tamper with them during following training.\\
-	
-	\begin{lstlisting}[language=Python, caption=Efficient Net Model python code, label=Effnet-Model]
-		from tensorflow.keras import Model
-		from tensorflow.keras.applications import EfficientNetB0 as Effnet
-		from tensorflow.keras.layers import Input, Dense, MaxPooling2D, Flatten, Dropout, BatchNormalization
-		
-		input_img = Input(shape=(252, 252, 3))
-		Backbone = Effnet(include_top=False,
-		weights='imagenet',
-		input_tensor=input_img)
-		Backbone.trainable = False
-		
-		#Custom tail
-		x = MaxPooling2D((2, 2), padding='valid')(Backbone.output)
-		x = Flatten(name="avg_pool")(x)
-		x = BatchNormalization(name='BN_CL')(x)
-		x = Dense(10, activation='relu')(x)
-		x = Dropout(0.2)(x)
-		xFC = Dense(3, activation='softmax', name="FC")(x)
-		
-		#Assembling
-		self.model = Model(inputs=input_img, outputs=[xFC])
-	\end{lstlisting}
-	
-	After successfully training the \emph{Fully Connected} (FC) layers using the function from \emph{Listing~\ref{FC_training}}, right after training the fully connected layers only, we will then begin to unlock just a few of the tailing layers from the backbone as seen in the function constructed in \emph{Listing~\ref{unlock}}. This function is automatically called from the function that is responsible for training the classifier with some $\textbf{N}$ layers of the backbone which can be seen in \emph{Listing~\ref{back_training}}
-	
-	
-	
-	\begin{lstlisting}[language=Python, caption=Backbone layer unlocking function, label=unlock]
-	def unfix_layers_Backbone_weights(self, Nlayer=3):
-		"""To unfix the backbone weights
-	
-		Args:
-		Nlayer (int, optional): the amount of layers to unfix from the end. Defaults to 3.
-		"""
-		for i, _ in enumerate(self.model.layers[-5 - Nlayer:]):
-		self.model.layers[i].trainable = True
-	\end{lstlisting}
-
-	
-	
-	This allows the last 3 layers of the backbone to unlock and be able to \emph{fine-tune} to our own custom dataset.
-	
-	\subsubsection{Training}
-	Some text about training 
-	
-		\begin{lstlisting}[language=Python, caption=Classifier with Backbone training function, label=FC_training]
-		def train_Classifier_only(self, trainGen, valGen, batch_size, Nepoch=1):
-			"""To only train the FC layer of the network
-		
-			Args:
-			trainGen (class): class of training data
-			valGen (class): class of validation data
-			Nepoch (int, optional): for how many epochs to iterrate. Defaults to 1.
-			"""
-			callBack = EarlyStopping(
-				monitor="val_recall",
-				min_delta=0,
-				patience=10,
-				verbose=0,
-				mode="max",
-				baseline=None,
-				restore_best_weights=True,
-			)
-			rlrop = ReduceLROnPlateau(monitor='val_loss',
-				mode='min',
-				patience=3,
-				factor=0.5,
-				min_lr=1e-6,
-				verbose=1,
-				min_delta=0.05)
-			self.model.summary()
-			self.model.compile(optimizer='adam',
-				loss={"FC": 'categorical_crossentropy'},
-				metrics={"FC": [Precision(), Recall()]})
-			self.FC_history = self.model.fit(trainGen,
-				batch_size=batch_size,
-				validation_data=valGen,
-				epochs=Nepoch,
-				callbacks=[callBack, rlrop])
-		
-	\end{lstlisting}
-	
-					      
-	
-	
-	Some text about training classifier with backbone
-	
-	\begin{lstlisting}[language=Python, caption=Classifier with Backbone training function, label=back_training]
-	def train_Classifier_withBackbone(self,
-									      trainGen,
-									      valGen,
-									      Nepoch=30,
-									      Nlayers=3,
-									      lr=0.0005):
-			"""To train FC with the backbone
-		
-			Args:
-			trainGen (class): class of training data
-			valGen (class): class of validation data
-			Nepoch (int, optional): for how many epochs to iterrate. Defaults to 1.
-			Nlayer (int, optional): the amount of layers to unfix from the end. Defaults to 3.
-			"""
-			self.unfix_layers_Backbone_weights(Nlayer=Nlayers)
-		
-			callBack = EarlyStopping(
-				monitor="val_recall_1",
-				min_delta=0,
-				patience=10,
-				verbose=0,
-				mode="max",
-				baseline=None,
-				restore_best_weights=True,
-			)
-			rlrop = ReduceLROnPlateau(monitor='val_loss',
-				mode='min',
-				patience=3,
-				factor=0.5,
-				min_lr=1e-6,
-				verbose=1,
-				min_delta=0.05)
-			self.model.summary()
-			optimizer = Adam(lr=lr)
-			self.model.compile(optimizer=optimizer,
-				loss={"FC": 'categorical_crossentropy'},
-				metrics={"FC": [Precision(), Recall()]})
-			self.FC_B_history = self.model.fit(trainGen,
-				validation_data=valGen,
-				epochs=Nepoch,
-				callbacks=[callBack, rlrop])
-	\end{lstlisting}
-	
-	
-	
-	
-	
 	\newpage
-	\section{Dataset}\label{Data}
+	\section{Design}
+	
+	
+	
+	\subsection{Methodology}
+	
+	\subsection{Dataset}\label{Data}
 	Choosing a dataset for this problem is crucial to many stages, first and foremost is the \emph{quality of the data}. Does the data clearly portray the goal that should be acquired? Secondly is the \emph{quantity of the dataset}, just like the quality, quantity is as important. \textbf{Neural Networks} require a lot of data, but the quantity mainly depends on the following:
 	\begin{itemize}
 		\item features that must be extracted from the data
@@ -569,45 +415,45 @@
 	With that being said, the data is a vital part of this project, and to be able to achieve high accuracy and precision of detecting the cancerous cells, it is a must to obtain high grade dataset. 
 	The most common age for the diagnosis of breast cancer is \emph{over 50} years of age. This has been conducted by the National Cancer Institute that the median age of breast cancer patients is between the age of \emph{55} to \emph{64} \cite{CDC}. 
 	\\[5mm]
-	\subsection{Data collection and statistics}\label{Data_collection}
+	\subsubsection{Data collection and statistics}\label{Data_collection}
 	In this Thesis, the procedure for \emph{data collection} was straight-forward as there is an already published dataset \cite{Dataset} with the purpose of research that was used in this Thesis. There is quite astonishing remarks regarding the dataset as it holds data for \textbf{1.952} patients with \textbf{4 images per patient}, two views per breast, which sets the total number of data to \textbf{7.808 images} in possession for processing, analyzing and configuring.\\[5mm]
 	Some constraints and observations were met regarding the labeling of the data where a patient is diagnosed as \emph{Cancer} or \emph{Benign} based on the presence of the tumor in at least one of their breast. While that could be true for the case of the patient, however, it is false labeling when it comes to the methodology this Thesis follows as a breast which does not contain any tumor cannot be labeled as not \emph{Normal}, this case could be seen in \emph{Table~\ref{data_label}}.
 	\begin{center}
-	% Please add the following required packages to your document preamble:
-	% \usepackage[table,xcdraw]{xcolor}
-	% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
-	\begin{table}[]
-		\caption{A preview for the labeling of the dataset}
-		\begin{tabular}{llllll}
-			\hline
-			\label{data_label}
-			\cellcolor[HTML]{222A35}{\color[HTML]{E7E6E6} fileName} & \cellcolor[HTML]{333F50}{\color[HTML]{E7E6E6} View} & \cellcolor[HTML]{8497B0}{\color[HTML]{E7E6E6} Side} & \cellcolor[HTML]{8994A1}{\color[HTML]{E7E6E6} Status} & \cellcolor[HTML]{8A9A8F}{\color[HTML]{E7E6E6} Age} & \cellcolor[HTML]{717F74}{\color[HTML]{E7E6E6} Tumour\_Contour} \\ \hline
-			\rowcolor[HTML]{D0CECE} 
-			C\_0236\_1.LEFT\_CC.png                                 & CC                                                  & LEFT                                                & Benign                                                & 67                                                 & -                                                              \\
-			\rowcolor[HTML]{D0CECE} 
-			C\_0236\_1.LEFT\_MLO.png                                & MLO                                                 & LEFT                                                & Benign                                                & 67                                                 & -                                                              \\
-			\rowcolor[HTML]{D0CECE} 
-			C\_0236\_1.RIGHT\_CC.png                                & CC                                                  & RIGHT                                               & Benign                                                & 67                                                 & RIGHT\_CC\_Mask.png                                            \\
-			\rowcolor[HTML]{D0CECE} 
-			C\_0236\_1.RIGHT\_MLO.png                               & MLO                                                 & RIGHT                                               & Benign                                                & 67                                                 & RIGHT\_MLO\_Mask.png                                           \\
-			\rowcolor[HTML]{F2F2F2} 
-			B\_3008\_1.LEFT\_CC.png                                 & CC                                                  & LEFT                                                & Cancer                                                & 53                                                 & -                                                              \\
-			\rowcolor[HTML]{F2F2F2} 
-			B\_3008\_1.LEFT\_MLO.png                                & MLO                                                 & LEFT                                                & Cancer                                                & 53                                                 & -                                                              \\
-			\rowcolor[HTML]{F2F2F2} 
-			B\_3008\_1.RIGHT\_CC.png                                & CC                                                  & RIGHT                                               & Cancer                                                & 53                                                 & RIGHT\_CC\_Mask.png                                            \\
-			\rowcolor[HTML]{F2F2F2} 
-			B\_3008\_1.RIGHT\_MLO.png                               & MLO                                                 & RIGHT                                               & Cancer                                                & 53                                                 & RIGHT\_MLO\_Mask.png                                           \\
-			\rowcolor[HTML]{D0CECE} 
-			A\_0218\_1.LEFT\_CC.png                                 & CC                                                  & LEFT                                                & Normal                                                & 59                                                 & -                                                              \\
-			\rowcolor[HTML]{D0CECE} 
-			A\_0218\_1.LEFT\_MLO.png                                & MLO                                                 & LEFT                                                & Normal                                                & 59                                                 & -                                                              \\
-			\rowcolor[HTML]{D0CECE} 
-			A\_0218\_1.RIGHT\_CC.png                                & CC                                                  & RIGHT                                               & Normal                                                & 59                                                 & -                                                              \\
-			\rowcolor[HTML]{D0CECE} 
-			A\_0218\_1.RIGHT\_MLO.png                               & MLO                                                 & RIGHT                                               & Normal                                                & 59                                                 & -                                                              \\ \hline
-		\end{tabular}
-	\end{table}
+		% Please add the following required packages to your document preamble:
+		% \usepackage[table,xcdraw]{xcolor}
+		% If you use beamer only pass "xcolor=table" option, i.e. \documentclass[xcolor=table]{beamer}
+		\begin{table}[]
+			\caption{A preview for the labeling of the dataset}
+			\begin{tabular}{llllll}
+				\hline
+				\label{data_label}
+				\cellcolor[HTML]{222A35}{\color[HTML]{E7E6E6} fileName} & \cellcolor[HTML]{333F50}{\color[HTML]{E7E6E6} View} & \cellcolor[HTML]{8497B0}{\color[HTML]{E7E6E6} Side} & \cellcolor[HTML]{8994A1}{\color[HTML]{E7E6E6} Status} & \cellcolor[HTML]{8A9A8F}{\color[HTML]{E7E6E6} Age} & \cellcolor[HTML]{717F74}{\color[HTML]{E7E6E6} Tumour\_Contour} \\ \hline
+				\rowcolor[HTML]{D0CECE} 
+				C\_0236\_1.LEFT\_CC.png                                 & CC                                                  & LEFT                                                & Benign                                                & 67                                                 & -                                                              \\
+				\rowcolor[HTML]{D0CECE} 
+				C\_0236\_1.LEFT\_MLO.png                                & MLO                                                 & LEFT                                                & Benign                                                & 67                                                 & -                                                              \\
+				\rowcolor[HTML]{D0CECE} 
+				C\_0236\_1.RIGHT\_CC.png                                & CC                                                  & RIGHT                                               & Benign                                                & 67                                                 & RIGHT\_CC\_Mask.png                                            \\
+				\rowcolor[HTML]{D0CECE} 
+				C\_0236\_1.RIGHT\_MLO.png                               & MLO                                                 & RIGHT                                               & Benign                                                & 67                                                 & RIGHT\_MLO\_Mask.png                                           \\
+				\rowcolor[HTML]{F2F2F2} 
+				B\_3008\_1.LEFT\_CC.png                                 & CC                                                  & LEFT                                                & Cancer                                                & 53                                                 & -                                                              \\
+				\rowcolor[HTML]{F2F2F2} 
+				B\_3008\_1.LEFT\_MLO.png                                & MLO                                                 & LEFT                                                & Cancer                                                & 53                                                 & -                                                              \\
+				\rowcolor[HTML]{F2F2F2} 
+				B\_3008\_1.RIGHT\_CC.png                                & CC                                                  & RIGHT                                               & Cancer                                                & 53                                                 & RIGHT\_CC\_Mask.png                                            \\
+				\rowcolor[HTML]{F2F2F2} 
+				B\_3008\_1.RIGHT\_MLO.png                               & MLO                                                 & RIGHT                                               & Cancer                                                & 53                                                 & RIGHT\_MLO\_Mask.png                                           \\
+				\rowcolor[HTML]{D0CECE} 
+				A\_0218\_1.LEFT\_CC.png                                 & CC                                                  & LEFT                                                & Normal                                                & 59                                                 & -                                                              \\
+				\rowcolor[HTML]{D0CECE} 
+				A\_0218\_1.LEFT\_MLO.png                                & MLO                                                 & LEFT                                                & Normal                                                & 59                                                 & -                                                              \\
+				\rowcolor[HTML]{D0CECE} 
+				A\_0218\_1.RIGHT\_CC.png                                & CC                                                  & RIGHT                                               & Normal                                                & 59                                                 & -                                                              \\
+				\rowcolor[HTML]{D0CECE} 
+				A\_0218\_1.RIGHT\_MLO.png                               & MLO                                                 & RIGHT                                               & Normal                                                & 59                                                 & -                                                              \\ \hline
+			\end{tabular}
+		\end{table}
 	\end{center}
 	Hence, all the patients that were diagnosed with a tumor in a single breast would be automatically diagnosed the same status in the other breast even though it is clear that the second breast does not contain any tumor as seen in \emph{Table~\ref{data_label}}, patient \emph{No. 0236} where only their right breast contains \emph{Benign} cells but their left breast did not contain any tumors. Taking pictures individually with the patient's label is a wrong approach to training an \emph{Image Classifier} as it will \emph{"confuse"} the model and stray it off and the model will start learning the wrong features.\\[5mm]
 	Some other special cases where found such as a patient containing multiple tumors in one breast, containing tumors in both their breasts and in very rare occasions only having the tumor detected in one view rather as in both views.\\[5mm]
@@ -627,7 +473,7 @@
 		\label{fig:Avg_Age}
 	\end{figure}
 	\newpage	
-	\subsection{Data imbalance}
+	\subsubsection{Data imbalance}
 	After performing the method described in \emph{Section~\ref{Data_collection}}, the dataset will be thrown into an imbalanced state where the amount of Normal (Tumor-less) images are severely outnumbering the two other cases, this can be seen in \emph{Figure~\ref{fig:imbalance}}.
 	\begin{figure}[h]
 		\centering
@@ -638,25 +484,7 @@
 	
 	As seen in the above figure, the dataset is 1:1:4 where the normal cases are \textbf{x4} the amount of the Benign and Cancer cases.
 	to counter this we simply store 1 Normal case for every 4 cases that are encountered. The Listing below explains the function that was used to counter the imbalance set.
-	\begin{lstlisting}[language=Python, caption=Python code to resolve the imbalanced data, label=balanced]
-		count = 0
-		for i in range(0, int(len(sheet) * self.train_size)):
-			if sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
-		i] == 'Cancer':
-				y_paths.append(sheet['Status'][i])
-				self.Cancer = self.Cancer.append(sheet.loc[i])
-			elif sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
-		i] == 'Benign':
-				y_paths.append(sheet['Status'][i])
-				self.Benign = self.Benign.append(sheet.loc[i])
-			else:
-				count = count + 1
-				if count == 4:
-					y_paths.append('Normal')
-					self.sheet['Status'][i] = 'Normal'
-					self.Normal = self.Normal.append(sheet.loc[i])
-					count = 0
-	\end{lstlisting}
+
 	After implementing this snippet into the \textbf{DataLoader}, the dataset imbalance was resolved, as could be seen in the figure below.
 	\begin{figure}[h]
 		\centering
@@ -665,6 +493,54 @@
 		\label{fig:balance}
 	\end{figure}
 	On another note, for the \textbf{Validation Data}, this imbalance will not affect the results in any way. That is why \emph{Listing~\ref{balanced}} will not be implemented for the loading of the validation data.
+	
+	\subsubsection{Preprocessing of Dataset}
+	
+	\subsection{Image Classifier}
+	The first approach to creating the MSOD model is to create the initial classifier which will be a broader approach to detecting whether the patient is diagnosed with \emph{Cancer}, \emph{Benign} or has no Tumor \emph{(Normal)}. Unfortunately, during training, the whole image is passed which could be seen in \emph{Figure~\ref{fig:img_cont} (a)}, and that contains many unwanted features that will reduce the performance of the trained model. With transfer learning using the \textbf{Efficient Net b-0}, the accuracy of 46.8\% was achieved.\\
+	In the figure below, the confusion matrix is shown for the first stage image classifier which was discussed in \emph{Section~\ref{Classification}}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.6\textwidth]{pics/Figures/1st_stage_conf_matrix.png}
+		\caption{\small{Confusion matrix of the first stage Classifier}}
+		\label{fig:conf-mat-first}
+	\end{figure}
+	Some quick analysis from this Confusion Matrix is that the model has learned to classify the Normal vs Tumor in an almost efficient way. But given that the labels are not \emph{`Normal`, `Tumor`} but rather \emph{`Normal`, `Benign`, `Cancer`}, the model had a hard time differentiating between the two tumor classes. Which is why the \textbf{Hierarchy Classifier}, which was discussed in \emph{Section~\ref{Hierarchy_Class}}, will achieve better results given that the first stage classifier will predict the two classes \emph{`Normal`, `Tumor`} and the second classifier will have the task of differentiating between \emph{`Benign`, `Cancer`}.
+	
+	\subsection{Hierarchy Classifier}
+	
+	code for running Hierarchy Classifier
+	
+	\begin{lstlisting}[language=Python, caption=Backbone layer unlocking function, label=unlock]
+		def unfix_layers_Backbone_weights(self, Nlayer=3):
+		"""To unfix the backbone weights
+		
+		Args:
+		Nlayer (int, optional): the amount of layers to unfix from the end. Defaults to 3.
+		"""
+		for i, _ in enumerate(self.model.layers[-5 - Nlayer:]):
+		self.model.layers[i].trainable = True
+	\end{lstlisting}
+
+	\subsubsection{Transfer Learning}
+	In transfer learning, it is crucial to keep the \emph{pre-trained weights} intact, at least most of them from the upmost layers, because they are the most important weights when it comes to feature extraction. This is why in \emph{Listing~\ref{Effnet-Model} line 9}, we have set that the \emph{Backbone's}, which corresponds to the pre-trained model, weights to be untrainable. This helps preserve the weights and not tamper with them during following training.\\
+	
+	
+	After successfully training the \emph{Fully Connected} (FC) layers using the function from \emph{Listing~\ref{FC_training}}, right after training the fully connected layers only, we will then begin to unlock just a few of the tailing layers from the backbone as seen in the function constructed in \emph{Listing~\ref{unlock}}. This function is automatically called from the function that is responsible for training the classifier with some $\textbf{N}$ layers of the backbone which can be seen in \emph{Listing~\ref{back_training}}
+	
+	
+	
+	This allows the last 3 layers of the backbone to unlock and be able to \emph{fine-tune} to our own custom dataset.
+	
+	\subsubsection{Training}
+	Some text about training 
+	
+	Some text about training classifier with backbone
+	
+	
+
+	\newpage
+	
 	\section{Conclusion}
 	In conclusion, in this thesis, the main objective will be to undergo several cases which were listed in \emph{Section~\ref{CV}} and end the Thesis with the chosen method which is a \emph{Multi-Stage Object Detector (Two-Stage object detector)}, this focuses on bridging the gap in paper \cite{one_shot} where the chosen approach was a \emph{Single-Stage object detector}. In theory, this should improve the results since it is known that Two-Stage object detection prioritizes accuracy over inference speed while Single-Stage object detectors rather sacrifice accuracy for inference speed (as used in \cite{one_shot}). 
 	\newpage

@@ -451,8 +451,7 @@ class HierarchySequenceLoader(Sequence):
                                       (1 - self.train_size)))):
 
                 first_x_paths.append(self.path + sheet['fullPath'][i])
-                second_x_paths.append(self.path + sheet['fullPath'][i])
-                print(first_x_paths[i - val_start])
+                second_x_paths.append(self.path + sheet['fullPath'][i]))
                 if sheet['Tumour_Contour'][i] != '-' and sheet['Status'][
                         i] == 'Cancer':
                     first_y_paths.append('Tumor')
