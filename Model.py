@@ -9,6 +9,16 @@ from tensorflow.keras.layers import Input, Dense, MaxPooling2D, Flatten, Dropout
 
 
 def hierarchy_pred(model_1, model_2, dataGen):
+    """For performing predictions when using `class Gierarchy` model
+
+    Args:
+        model_1 (object): Object of the first model. This model will be responsible to classify between `Normal` and `Tumor`
+        model_2 (object): Object of the second model. This model will be responsible to classify between `Benign` and `Cancer`
+        dataGen (object): Object of validation data generator/loader
+
+    Returns:
+        List, List: `Classes` list of predicted classes. `YY_true` list of true classes
+    """
     Classes = []
     YY_true = []
     for XX, YY in dataGen:
@@ -16,11 +26,12 @@ def hierarchy_pred(model_1, model_2, dataGen):
         YY_preds_first = model_1.model.predict(XX)
         if YY_preds_first[0][1] > YY_preds_first[0][0]:
             YY_preds_second = model_2.model.predict(XX)
-            Classes.append(YY_preds_second)
-            Classes.insert(0, 0)
+            if YY_preds_second[0][1] > YY_preds_second[0][0]:
+                Classes.append([0, 0, 1])
+            else:
+                Classes.append([0, 1, 0])
         else:
-            Classes.append([0, 0])
-            Classes.insert(0, 1)
+            Classes.append([1, 0, 0])
     return Classes, YY_true
 
 

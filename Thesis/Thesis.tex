@@ -379,7 +379,7 @@
 		\label{fig:GJU}
 	\end{figure}
 	
-	\subsection{Multi-Stage Object Detector}\label{Meth}
+	\subsubsection{Multi-Stage Object Detector}\label{Meth}
 	\emph{Single-Stage} object detectors work with having the classification process happen at the end of the detector since that is the quicker method, hence the name given to it is the \emph{"Single-Stage"}. However, in \emph{Two-Stage} object detectors, the object detector works on a single model and then if a detector detects an object, it is passed to another model and that is the second stage which is a classifier, hence the name \emph{"Two-Stage"} object detector is given and is also called the \textbf{Multi-Stage Object Detector (MSOD)}, this can be clearly seen on how insignificant it is in regards to inference speed in comparison to the Single-Stage object detector.\\[5mm]
 	\emph{Figure \ref{fig:Multi-Stage Obj Detector}} shows the work-flow of a \emph{MSOD}.\\[5mm]
 	\begin{figure}[h]
@@ -522,17 +522,14 @@
 		self.model.layers[i].trainable = True
 	\end{lstlisting}
 
-	\subsubsection{Transfer Learning}
-	In transfer learning, it is crucial to keep the \emph{pre-trained weights} intact, at least most of them from the upmost layers, because they are the most important weights when it comes to feature extraction. This is why in \emph{Listing~\ref{Effnet-Model} line 9}, we have set that the \emph{Backbone's}, which corresponds to the pre-trained model, weights to be untrainable. This helps preserve the weights and not tamper with them during following training.\\
-	
-	
-	After successfully training the \emph{Fully Connected} (FC) layers using the function from \emph{Listing~\ref{FC_training}}, right after training the fully connected layers only, we will then begin to unlock just a few of the tailing layers from the backbone as seen in the function constructed in \emph{Listing~\ref{unlock}}. This function is automatically called from the function that is responsible for training the classifier with some $\textbf{N}$ layers of the backbone which can be seen in \emph{Listing~\ref{back_training}}
+	\subsection{Transfer Learning}
+	In transfer learning, it is crucial to keep the \emph{pre-trained weights} intact, at least most of them from the upmost layers, because they are the most important weights when it comes to feature extraction. 
 	
 	
 	
 	This allows the last 3 layers of the backbone to unlock and be able to \emph{fine-tune} to our own custom dataset.
 	
-	\subsubsection{Training}
+	\subsection{Training}
 	Some text about training 
 	
 	Some text about training classifier with backbone
