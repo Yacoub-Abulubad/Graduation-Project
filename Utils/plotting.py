@@ -74,16 +74,16 @@ def Conf_Mat_Plot(y_pred, y_true, classes_list):
 
 
 def EFF_graphing(history):
-    plt.plot(history.history(list(history.history)[1]))
-    plt.plot(history.history(list(history.history)[4]))
+    plt.plot(history.history[list(history.history)[1]])
+    plt.plot(history.history[list(history.history)[4]])
     plt.title('model precision')
     plt.ylabel('Precision')
     plt.xlabel('Epoch')
     plt.legend(['train', 'val'], loc='upper left')
     plt.show()
 
-    plt.plot(history.history(list(history.history)[2]))
-    plt.plot(history.history(list(history.history)[5]))
+    plt.plot(history.history[list(history.history)[2]])
+    plt.plot(history.history[list(history.history)[5]])
     plt.title('model recall')
     plt.ylabel('Recall')
     plt.xlabel('Epoch')
@@ -92,16 +92,16 @@ def EFF_graphing(history):
 
 
 def EFFC_graphing(history):
-    plt.plot(history.history(list(history.history)[1]))
-    plt.plot(history.history(list(history.history)[4]))
+    plt.plot(history.history[list(history.history)[1]])
+    plt.plot(history.history[list(history.history)[4]])
     plt.title('model precision')
     plt.ylabel('Precision')
     plt.xlabel('Epoch')
     plt.legend(['train', 'val'], loc='upper left')
     plt.show()
 
-    plt.plot(history.history(list(history.history)[2]))
-    plt.plot(history.history(list(history.history)[5]))
+    plt.plot(history.history[list(history.history)[2]])
+    plt.plot(history.history[list(history.history)[5]])
     plt.title('model recall')
     plt.ylabel('Recall')
     plt.xlabel('Epoch')
