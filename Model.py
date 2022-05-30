@@ -24,7 +24,7 @@ def hierarchy_pred(model_1, model_2, dataGen):
     YY_preds = []
     YY_true = []
     for XX, YY in dataGen:
-        YY_true.append(YY)
+        YY_true.append(YY[0])
         YY_preds_first = model_1.model.predict(XX)
         if YY_preds_first[0][1] > YY_preds_first[0][0]:
             YY_preds_second = model_2.model.predict(XX)
