@@ -1,4 +1,6 @@
 import os
+import re
+import numpy as np
 from tensorflow.keras import Model
 from tensorflow.keras.optimizers import Adam
 from tensorflow.keras.metrics import Precision, Recall
@@ -17,9 +19,9 @@ def hierarchy_pred(model_1, model_2, dataGen):
         dataGen (object): Object of validation data generator/loader
 
     Returns:
-        List, List: `Classes` list of predicted classes. `YY_true` list of true classes
+        List, List: `YY_preds` list of predicted classes. `YY_true` list of true classes
     """
-    Classes = []
+    YY_preds = []
     YY_true = []
     for XX, YY in dataGen:
         YY_true.append(YY)
@@ -27,12 +29,14 @@ def hierarchy_pred(model_1, model_2, dataGen):
         if YY_preds_first[0][1] > YY_preds_first[0][0]:
             YY_preds_second = model_2.model.predict(XX)
             if YY_preds_second[0][1] > YY_preds_second[0][0]:
-                Classes.append([0, 0, 1])
+                YY_preds.append([0, 0, 1])
             else:
-                Classes.append([0, 1, 0])
+                YY_preds.append([0, 1, 0])
         else:
-            Classes.append([1, 0, 0])
-    return Classes, YY_true
+            YY_preds.append([1, 0, 0])
+    YY_true = np.array(YY_true)
+    YY_true.reshape((-1, 3))
+    return YY_preds, YY_true
 
 
 class Hierarchy:
@@ -40,13 +44,12 @@ class Hierarchy:
     """
 
     def __init__(self):
-        """MobileNET backbone
+        """Effnet backbone
         """
         input_img = Input(shape=(252, 252, 3))
-        Backbone = MobileNetV2(input_shape=(252, 252, 3),
-                               include_top=False,
-                               weights='imagenet',
-                               input_tensor=input_img)
+        Backbone = Effnet(include_top=False,
+                          weights='imagenet',
+                          input_tensor=input_img)
         Backbone.trainable = False
 
         x = MaxPooling2D((2, 2), padding='valid')(Backbone.output)
@@ -84,7 +87,7 @@ class Hierarchy:
             Nepoch (int, optional): for how many epochs to iterrate. Defaults to 1.
         """
         callBack = EarlyStopping(
-            monitor="val_recall",
+            monitor="val_loss",
             min_delta=0,
             patience=10,
             verbose=0,
@@ -126,7 +129,7 @@ class Hierarchy:
         self.unfix_layers_Backbone_weights(Nlayer=Nlayers)
 
         callBack = EarlyStopping(
-            monitor="val_recall_1",
+            monitor="val_loss",
             min_delta=0,
             patience=10,
             verbose=0,
@@ -177,18 +180,6 @@ class Hierarchy:
             checkpoint (str, optional): The checkpoint name. Defaults to "MobileNetV2_Model_weights".
         """
         self.model.load_weights(os.path.join(path, checkpoint) + ".h5")
-
-
-class OD:
-
-    def __init__(self):
-        pass
-
-
-class MSOD:
-
-    def __init__(self):
-        pass
 
 
 class Single_CLassifier:
