@@ -73,45 +73,17 @@ def Conf_Mat_Plot(y_pred, y_true, classes_list):
     scoring_system(y_pred_dec, y_true_dec, length, classes_list)
 
 
-def FC_graphing(history):
-    plt.plot(history.history['FC_precision'])
-    plt.plot(history.history['val_FC_precision'])
-    plt.title('model precision')
-    plt.ylabel('Precision')
-    plt.xlabel('Epoch')
-    plt.legend(['train', 'val'], loc='upper left')
-    plt.show()
-
-    plt.plot(history.history['FC_recall'])
-    plt.plot(history.history['val_FC_recall'])
-    plt.title('model recall')
-    plt.ylabel('Recall')
-    plt.xlabel('Epoch')
-    plt.legend(['train', 'val'], loc='upper left')
-    plt.show()
-
-
-def AE_graphing(history):
-    plt.plot(history.history['Dec_mean_absolute_error'])
-    plt.plot(history.history['val_Dec_mean_absolute_error'])
-    plt.title('Model MAE')
-    plt.ylabel('Mean Absolute Error')
-    plt.xlabel('Epoch')
-    plt.legend(['train', 'val'], loc='upper left')
-    plt.show()
-
-
 def EFF_graphing(history):
-    plt.plot(history.history['precision_1'])
-    plt.plot(history.history['val_precision_1'])
+    plt.plot(history.history(list(history.history)[1]))
+    plt.plot(history.history(list(history.history)[4]))
     plt.title('model precision')
     plt.ylabel('Precision')
     plt.xlabel('Epoch')
     plt.legend(['train', 'val'], loc='upper left')
     plt.show()
 
-    plt.plot(history.history['recall_1'])
-    plt.plot(history.history['val_recall_1'])
+    plt.plot(history.history(list(history.history)[2]))
+    plt.plot(history.history(list(history.history)[5]))
     plt.title('model recall')
     plt.ylabel('Recall')
     plt.xlabel('Epoch')
@@ -120,16 +92,16 @@ def EFF_graphing(history):
 
 
 def EFFC_graphing(history):
-    plt.plot(history.history['precision'])
-    plt.plot(history.history['val_precision'])
+    plt.plot(history.history(list(history.history)[1]))
+    plt.plot(history.history(list(history.history)[4]))
     plt.title('model precision')
     plt.ylabel('Precision')
     plt.xlabel('Epoch')
     plt.legend(['train', 'val'], loc='upper left')
     plt.show()
 
-    plt.plot(history.history['recall'])
-    plt.plot(history.history['val_recall'])
+    plt.plot(history.history(list(history.history)[2]))
+    plt.plot(history.history(list(history.history)[5]))
     plt.title('model recall')
     plt.ylabel('Recall')
     plt.xlabel('Epoch')
@@ -137,13 +109,8 @@ def EFFC_graphing(history):
     plt.show()
 
 
-def plot_performance(history, EffNet=True, Classifier=True):
-    if EffNet == True:
-        if Classifier == True:
-            EFFC_graphing(history)
-        else:
-            EFF_graphing(history)
-    elif Classifier == True:
-        FC_graphing(history)
+def plot_performance(history, Classifier=True):
+    if Classifier == True:
+        EFFC_graphing(history)
     else:
-        AE_graphing(history)
+        EFF_graphing(history)
