@@ -39,45 +39,45 @@ Warning--empty journal in mammography
 Warning--empty journal in CDC
 
 Done.
-You've used 28 entries,
+You've used 32 entries,
             4087 wiz_defined-function locations,
-            1504 strings with 22289 characters,
-and the built_in function-call counts, 17224 in all, are:
-= -- 1348
-> -- 400
-< -- 108
-+ -- 216
-- -- 75
-* -- 790
-:= -- 2688
-add.period$ -- 59
-call.type$ -- 28
-change.case$ -- 25
-chr.to.int$ -- 258
-cite$ -- 36
-duplicate$ -- 1296
-empty$ -- 1489
-format.name$ -- 90
-if$ -- 3982
+            1528 strings with 24054 characters,
+and the built_in function-call counts, 21435 in all, are:
+= -- 1589
+> -- 683
+< -- 119
++ -- 359
+- -- 143
+* -- 1010
+:= -- 3230
+add.period$ -- 67
+call.type$ -- 32
+change.case$ -- 30
+chr.to.int$ -- 282
+cite$ -- 40
+duplicate$ -- 1578
+empty$ -- 1785
+format.name$ -- 161
+if$ -- 4950
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 222
-newline$ -- 119
-num.names$ -- 28
-pop$ -- 564
+int.to.str$ -- 32
+missing$ -- 316
+newline$ -- 139
+num.names$ -- 31
+pop$ -- 836
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1341
+skip$ -- 1625
 stack$ -- 0
-substring$ -- 648
-swap$ -- 945
-text.length$ -- 22
+substring$ -- 709
+swap$ -- 1186
+text.length$ -- 25
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 28
+type$ -- 32
 warning$ -- 8
-while$ -- 70
-width$ -- 30
-write$ -- 275
+while$ -- 77
+width$ -- 34
+write$ -- 319
 (There were 7 error messages)

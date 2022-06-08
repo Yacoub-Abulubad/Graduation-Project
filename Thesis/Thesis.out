@@ -11,15 +11,20 @@
 \BOOKMARK [3][-]{subsubsection.2.2.1}{Image Classification}{subsection.2.2}% 11
 \BOOKMARK [3][-]{subsubsection.2.2.2}{Object Detection}{subsection.2.2}% 12
 \BOOKMARK [3][-]{subsubsection.2.2.3}{Hierarchy Classification}{subsection.2.2}% 13
-\BOOKMARK [2][-]{subsection.2.3}{Multi-Stage Object Detector}{section.2}% 14
+\BOOKMARK [3][-]{subsubsection.2.2.4}{Multi-Stage Object Detector}{subsection.2.2}% 14
 \BOOKMARK [1][-]{section.3}{Design}{}% 15
 \BOOKMARK [2][-]{subsection.3.1}{Methodology}{section.3}% 16
-\BOOKMARK [2][-]{subsection.3.2}{Dataset}{section.3}% 17
-\BOOKMARK [3][-]{subsubsection.3.2.1}{Data collection and statistics}{subsection.3.2}% 18
-\BOOKMARK [3][-]{subsubsection.3.2.2}{Data imbalance}{subsection.3.2}% 19
-\BOOKMARK [3][-]{subsubsection.3.2.3}{Preprocessing of Dataset}{subsection.3.2}% 20
-\BOOKMARK [2][-]{subsection.3.3}{Image Classifier}{section.3}% 21
-\BOOKMARK [2][-]{subsection.3.4}{Hierarchy Classifier}{section.3}% 22
-\BOOKMARK [3][-]{subsubsection.3.4.1}{Transfer Learning}{subsection.3.4}% 23
-\BOOKMARK [3][-]{subsubsection.3.4.2}{Training}{subsection.3.4}% 24
-\BOOKMARK [1][-]{section.4}{Conclusion}{}% 25
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Virtual Environment}{subsection.3.1}% 17
+\BOOKMARK [3][-]{subsubsection.3.1.2}{Google Colaboratory}{subsection.3.1}% 18
+\BOOKMARK [2][-]{subsection.3.2}{Dataset}{section.3}% 19
+\BOOKMARK [3][-]{subsubsection.3.2.1}{Data collection and statistics}{subsection.3.2}% 20
+\BOOKMARK [3][-]{subsubsection.3.2.2}{Data imbalance}{subsection.3.2}% 21
+\BOOKMARK [3][-]{subsubsection.3.2.3}{Data Augmentation}{subsection.3.2}% 22
+\BOOKMARK [2][-]{subsection.3.3}{Image Classifier}{section.3}% 23
+\BOOKMARK [2][-]{subsection.3.4}{Hierarchy Classifier}{section.3}% 24
+\BOOKMARK [2][-]{subsection.3.5}{Transfer Learning}{section.3}% 25
+\BOOKMARK [2][-]{subsection.3.6}{Training}{section.3}% 26
+\BOOKMARK [1][-]{section.4}{Results and Discussions}{}% 27
+\BOOKMARK [2][-]{subsection.4.1}{Single Classifier}{section.4}% 28
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 29
+\BOOKMARK [2][-]{subsection.5.1}{Future work}{section.5}% 30

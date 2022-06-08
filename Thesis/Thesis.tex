@@ -91,7 +91,7 @@
 	\begin{center}
 		\LARGE{\textbf{Abstract}}\\ \vspace{1cm}
 	\end{center}
-	The implementation of Computer Vision in the prediction of breast cancer is a necessity since it cuts down a lot of costs, with the main cost in this problem is time. This Thesis will discuss the different approaches towards using \emph{Artificial Intelligence (AI)} in detecting of these cancerous and non-cancerous (benign) tumors using \emph{Image Classification} and \emph{Object Detection}. The main goal is to reduce the time taken for a result to be in the reach of a professional, from weeks to matter of \textbf{seconds}. Reducing the time will not be the only goal of this thesis, but also the need for a radiologist profession will be optional, given the circumstances of the radiologist being busy or on vacation or having a shortage of staff. This will be possible by cutting the process of waiting for a call after a screening session to only be tested again for diagnostics of the abnormality, but rather have the diagnostics appear during the screening session, cutting down the time to detect and helping out the present radiologist in highlighting the work.\\[10mm]
+	The implementation of Computer Vision in the prediction of breast cancer is a necessity since it cuts down a lot of costs, with the main cost in this problem is time. This graduation project documentation will discuss the different approaches towards using \emph{Artificial Intelligence (AI)} in detecting of these cancerous and non-cancerous (benign) tumors using \emph{Image Classification} and \emph{Object Detection}. The main goal is to reduce the time taken for a result to be in the reach of a professional, from weeks to matter of \textbf{seconds}. Reducing the time will not be the only goal of this graduation project, but also the need for a radiologist profession will be optional, given the circumstances of the radiologist being busy or on vacation or having a shortage of staff. This will be possible by cutting the process of waiting for a call after a screening session to only be tested again for diagnostics of the abnormality, but rather have the diagnostics appear during the screening session, cutting down the time to detect and helping out the present radiologist in highlighting the work.\\[10mm]
 	Keywords: \emph{Breast Cancer\quad Classification\quad Detection}
 	\newpage
 	\tableofcontents
@@ -108,6 +108,7 @@
 			\multicolumn{1}{p{3cm}}{\large{\textbf{ANN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{A}rtificial \textbf{N}eural \textbf{N}etwork}} \\
 			\multicolumn{1}{p{3cm}}{\large{\textbf{CNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
 			\multicolumn{1}{p{3cm}}{\large{\textbf{DNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{D}eep \textbf{N}eural \textbf{N}etwork}} \\
+			\multicolumn{1}{p{3cm}}{\large{\textbf{DDSM}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{D}igital \textbf{D}atabase for \textbf{S}creening \textbf{M}ammography}} \\
 			\multicolumn{1}{p{3cm}}{\large{\textbf{MS-DCNN}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{M}ulti-\textbf{S}tage \textbf{D}eep \textbf{C}onvolutional \textbf{N}eural \textbf{N}etwork}}\\ 
 			\multicolumn{1}{p{3cm}}{\large{\textbf{MSOD}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{M}ulti-\textbf{S}tage \textbf{O}bject \textbf{D}etector}}\\ 
 			\multicolumn{1}{p{3cm}}{\large{\textbf{MAE}}} &  \multicolumn{1}{p{8cm}}{\large{\textbf{M}ean \textbf{A}bsolute \textbf{E}rror}}\\  
@@ -138,7 +139,7 @@
 	\large{}
 	\pagenumbering{arabic}
 	\section{Introduction}
-	The \emph{motivation} of this Thesis will be discussed in Section \ref{Motiv}, while explaining more what the \emph{actual problem} is and the \emph{purpose of this Thesis} in Section \ref{delay problem}. As for the \emph{objectives} of this Thesis, that will be briefly discussed in Section \ref{Obj}, while the \emph{organization} and the structure of this Thesis is to be discussed in Section \ref{Org}.
+	The \emph{motivation} of this graduation project will be discussed in Section \ref{Motiv}, while explaining more what the \emph{actual problem} is and the \emph{purpose of this graduation project} in Section \ref{delay problem}. As for the \emph{objectives} of this graduation project, that will be briefly discussed in Section \ref{Obj}, while the \emph{organization} and the structure of this graduation project documentation is to be discussed in Section \ref{Org}.
 	\subsection{Motivation}\label{Motiv}
 	
 	Breast cancer is the most common cause of new cancer cases, according to the \textbf{World Health Organization (WHO)}, standing at 2.26 million recorded cases in 2020, meanwhile, the total count of cancer caused mortality cases are recorded to be 10 million in 2020, breast cancer is documented to have caused 685,000 deaths in 2020 \cite{WHO_stats}. There are multiple ways of reducing the mortality rate of this disease, one of the main approaches would be early detection. A study has proved that a delayed diagnosis and detection of \emph{more than 6 weeks} gave these cancerous cells enough time to develop into much dangerous stages, but diagnosis that were conducted \emph{under 6 weeks} of delay detected less advanced stages of these cells \cite{caplan2014delay}. So the earlier the detection of these cells are prompted, the safer and less severe it is on the patient.
@@ -151,13 +152,13 @@
 	A key feature in making this quick and accurate detection is using two methods that fall under the \textbf{Artificial Intelligence (AI)} domain, \emph{Image Classification} and \emph{Object Detection}.
 	
 	\subsection{Objectives}\label{Obj}
-	The goal of this thesis is to compare and contrast the different results that could be obtained using different \emph{Convolutional Neural Network (CNN)} model structures. Applying \textbf{4 different concepts} to the same dataset but with different utilization of the data to measure the accuracy that might be obtained when manipulating the data differently. Due to the vast dataset that was obtained, one of the multiple hardware constraints were during loading the images from the \emph{Hard Disk Drive (HDD)} onto the \emph{Random Access Memory (RAM)}, there was no enough memory to load the whole dataset to proceed with the model training. \\[5mm]
+	The goal of this graduation project is to compare and contrast the different results that could be obtained using different \emph{Convolutional Neural Network (CNN)} model structures. Applying \textbf{4 different concepts} to the same dataset but with different utilization of the data to measure the accuracy that might be obtained when manipulating the data differently. Due to the vast dataset that was obtained, one of the multiple hardware constraints were during loading the images from the \emph{Hard Disk Drive (HDD)} onto the \emph{Random Access Memory (RAM)}, there was no enough memory to load the whole dataset to proceed with the model training. \\[5mm]
 	A different kind of hardware constraint that was faced is the absence of \emph{Graphical Processing Unit} (GPU), a GPU is crucial for \emph{Computer Vision} (CV) due to the enormous data stream that will take place during training \cite{GPU}.
 	\subsection{Organization}\label{Org}
-	The \emph{Literature Review} will be discussed in \emph{Section~\ref{Lit. Rev.}} alongside the essential background on the different kinds of Neural Networks with their diverse functionalities. A deeper dive into the application's functions will be thoroughly described in \emph{Section~\ref{CV}} and the two main techniques that will be implemented in this Thesis. In \emph{Section~\ref{Meth}}, there will be a detailed explanation on the \textbf{Multi-Stage approach} that is applied to obtain the results as well as the methods that helped surpassed the constraints that were mentioned in \emph{Secion~\ref{Obj}}. Detailed dissection of the dataset will be in \emph{Section~\ref{Data}}.
+	The \emph{Literature Review} will be discussed in \emph{Section~\ref{Lit. Rev.}} alongside the essential background on the different kinds of Neural Networks with their diverse functionalities. A deeper dive into the application's functions will be thoroughly described in \emph{Section~\ref{CV}} and the two main techniques that will be implemented in this graduation project. In \emph{Section~\ref{Meth}}, there will be a detailed explanation on the \textbf{Multi-Stage approach} that is applied to obtain the results as well as the methods that helped surpassed the constraints that were mentioned in \emph{Secion~\ref{Obj}}. Detailed dissection of the dataset will be in \emph{Section~\ref{Data}}.
 	\newpage
 	\section{Background}\label{Lit. Rev.}
-	This thesis will focus on implementing a \emph{Multi-Stage Object Detector}. There has been previous implementations of Brest cancer detection using a \emph{one stage} object detection, which will be explained in \emph{Section~\ref{Obj Detection}}, as seen in \cite{one_shot}, but the gap remains with setting up a \emph{two stage} object detector to detect and classify these tumors. In other words, this is an application of \textbf{Multi-Stage Deep Convolutional Neural Network (MS-DCNN)} since it relies on \emph{two stage object detection}, which will be explained in \emph{Section~\ref{Meth}}.
+	This graduation project will focus on implementing a \emph{Multi-Stage Object Detector}. There has been previous implementations of Brest cancer detection using a \emph{one stage} object detection, which will be explained in \emph{Section~\ref{Obj Detection}}, as seen in \cite{one_shot}, but the gap remains with setting up a \emph{two stage} object detector to detect and classify these tumors. In other words, this is an application of \textbf{Multi-Stage Deep Convolutional Neural Network (MS-DCNN)} since it relies on \emph{two stage object detection}, which will be explained in \emph{Section~\ref{Meth}}.
 	\subsection{Artificial Neural Networks}\label{ANN}
 	\emph{Artificial Neural Networks (ANNs)} are a simplified mathematical models that mimic the functionality of a human brain and nervous system \cite{ANN, ANN2}. Just like humans, these networks were designed to solve more complex, \emph{non-linear}, highly stochastic and multi-variable problems that a traditional program could not. These problems span out to the fields of medicine, finance, security and many more \cite{ANN_funct}. \emph{ANNs} are designed to approximating any continuous function thus are used in a wide spectrum of applications such as object detection \cite{Objdet, Objdet2}, image classification \cite{classification}, image enhancement \cite{enhancement} as well as several more uses.\\[5mm]
 	The \emph{ANN} is originally compromised from multiple \emph{neurons}, or \emph{perceptron}, which can be demonstrated in \emph{Figure~\ref{fig:Perceptron}}, hence the \emph{perceptron} is the ground foundation of \emph{ANNs}.
@@ -349,7 +350,7 @@
 		\caption{\small{Object Detection Diagram}}
 		\label{fig:Obj Detector}
 	\end{figure}
-	Unlike Image Classification, Object Detection is only responsible for detecting and localizing learned features no matter how many \emph{Classes'} features a detector learns. In instance when it comes to the two different kinds of object detectors, single and two stage detectors, this thesis will conduct the two stage object detector method as the results do not really rely on inference speed. And as discussed earlier, single stage object detectors would prioritize inference speed over accuracy as they would be widely used in real-time object detection. However, the dataset, which will be discussed in \emph{Section~\ref{Data}}, is not a live image but rather a static image which is processed after performing x-ray imaging \cite{mammography}. An object detector learns by inputting a single object that is restrained by a bounding box or a mask. An image with a contour mask could be seen in \emph{Figure~\ref{fig:img_cont}}.
+	Unlike Image Classification, Object Detection is only responsible for detecting and localizing learned features no matter how many \emph{Classes'} features a detector learns. In instance when it comes to the two different kinds of object detectors, single and two stage detectors, this graduation project will conduct the two stage object detector method as the results do not really rely on inference speed. And as discussed earlier, single stage object detectors would prioritize inference speed over accuracy as they would be widely used in real-time object detection. However, the dataset, which will be discussed in \emph{Section~\ref{Data}}, is not a live image but rather a static image which is processed after performing x-ray imaging \cite{mammography}. An object detector learns by inputting a single object that is restrained by a bounding box or a mask. An image with a contour mask could be seen in \emph{Figure~\ref{fig:img_cont}}.
 	\begin{figure}
 		\centering
 		\subfloat[\centering Image containing cancer cell]{{\includegraphics[width=4.5cm]{pics/Figures/cancer_img.jpg} }}%
@@ -399,10 +400,19 @@
 	
 	\newpage
 	\section{Design}
-	
+	This section will discuss the appropriate approach which was taken for performing the detection and the differentiation of the tumor cells found in the breast.
 	
 	
 	\subsection{Methodology}
+	Initial approach to starting is by gathering the required dataset, this was possible due to an open-source dataset which was found on \href{https://www.kaggle.com/}{Kaggle}, this website hosts multiple competitions in Machine Learning and Data Science domains, apart from competitions, the website also gathers open-source data. With this valuable resource acquired, the dataset under the name of \emph{Mini-DDSM} (Digital Database for Screening Mammography) \cite{Dataset} was used due to the accurate labeling made by professionals and the high quality and great quantity of images. Further discussion about the dataset will be found in \emph{Section~\ref{Data}}.
+	
+	\subsubsection{Virtual Environment}
+	To begin the process of writing the script for implementing the project there must be a standard library version use across the directory which contains the code-base, and that is by setting up a virtual environment \emph{locally} where the versions of the libraries could be isolated to eliminate version conflicts and imply a stable version dependency. \textbf{\textit{Anaconda}} already allows this functionality where multiple virtual environments could be set up on a single local machine \cite{anaconda}. With Anaconda's help, a virtual environment could be set up to help download and install all the required libraries and packages to run the code. The most prominent libraries and packages where \textbf{\textit{Tensorflow}} \cite{tensorflow2015-whitepaper}, \textbf{\textit{Keras}} \cite{chollet2015keras} and \textbf{\textit{NumPy}} \cite{harris2020array}, along many other packages which were used that could be found in \emph{Appendix~\ref{libraries}}.
+	
+	\subsubsection{Google Colaboratory}
+	Apart from local work, which was not computationally intensive, there were some sections of the project which were extremely computationally demanding and for these components, the cloud computing was helpful as there was no need to execute the code locally but rather using the cloud platform known as \emph{\href{https://research.google.com/colaboratory/}{Google Colab}} also known as \emph{Colab}. In addition, this platform grants limited use of a GPU which was heavily utilized in the process of this project.\\
+	Another positive aspect of using Colab is that all the required libraries are \textit{pre-installed} on their servers and are used quickly without the need to install them.
+	
 	
 	\subsection{Dataset}\label{Data}
 	Choosing a dataset for this problem is crucial to many stages, first and foremost is the \emph{quality of the data}. Does the data clearly portray the goal that should be acquired? Secondly is the \emph{quantity of the dataset}, just like the quality, quantity is as important. \textbf{Neural Networks} require a lot of data, but the quantity mainly depends on the following:
@@ -416,8 +426,8 @@
 	The most common age for the diagnosis of breast cancer is \emph{over 50} years of age. This has been conducted by the National Cancer Institute that the median age of breast cancer patients is between the age of \emph{55} to \emph{64} \cite{CDC}. 
 	\\[5mm]
 	\subsubsection{Data collection and statistics}\label{Data_collection}
-	In this Thesis, the procedure for \emph{data collection} was straight-forward as there is an already published dataset \cite{Dataset} with the purpose of research that was used in this Thesis. There is quite astonishing remarks regarding the dataset as it holds data for \textbf{1.952} patients with \textbf{4 images per patient}, two views per breast, which sets the total number of data to \textbf{7.808 images} in possession for processing, analyzing and configuring.\\[5mm]
-	Some constraints and observations were met regarding the labeling of the data where a patient is diagnosed as \emph{Cancer} or \emph{Benign} based on the presence of the tumor in at least one of their breast. While that could be true for the case of the patient, however, it is false labeling when it comes to the methodology this Thesis follows as a breast which does not contain any tumor cannot be labeled as not \emph{Normal}, this case could be seen in \emph{Table~\ref{data_label}}.
+	In this graduation project, the procedure for \emph{data collection} was straight-forward as there is an already published dataset \cite{Dataset} with the purpose of research that was used in this graduation project. There is quite astonishing remarks regarding the dataset as it holds data for \textbf{1.952} patients with \textbf{4 images per patient}, two views per breast, which sets the total number of data to \textbf{7.808 images} in possession for processing, analyzing and configuring.\\[5mm]
+	Some constraints and observations were met regarding the labeling of the data where a patient is diagnosed as \emph{Cancer} or \emph{Benign} based on the presence of the tumor in at least one of their breast. While that could be true for the case of the patient, however, it is false labeling when it comes to the methodology this graduation project documentation follows as a breast which does not contain any tumor cannot be labeled as not \emph{Normal}, this case could be seen in \emph{Table~\ref{data_label}}.
 	\begin{center}
 		% Please add the following required packages to your document preamble:
 		% \usepackage[table,xcdraw]{xcolor}
@@ -492,12 +502,14 @@
 		\caption{\small{Visualization of resolved imbalance}}
 		\label{fig:balance}
 	\end{figure}
-	On another note, for the \textbf{Validation Data}, this imbalance will not affect the results in any way. That is why \emph{Listing~\ref{balanced}} will not be implemented for the loading of the validation data.
+	On another note, for the \textbf{Validation Data}, this imbalance will not affect the results in any way.
 	
-	\subsubsection{Preprocessing of Dataset}
+	\subsection{Data Pipeline}
+	The process of handling the dataset is crucial when it comes to Deep Learning or any sort of AI projects as a \emph{Data-Loader} could quite easily act as a bottle neck in a completed project. 		
+	
 	
 	\subsection{Image Classifier}
-	The first approach to creating the MSOD model is to create the initial classifier which will be a broader approach to detecting whether the patient is diagnosed with \emph{Cancer}, \emph{Benign} or has no Tumor \emph{(Normal)}. Unfortunately, during training, the whole image is passed which could be seen in \emph{Figure~\ref{fig:img_cont} (a)}, and that contains many unwanted features that will reduce the performance of the trained model. With transfer learning using the \textbf{Efficient Net b-0}, the accuracy of 46.8\% was achieved.\\
+	The first approach to creating the MSOD model is to create the initial classifier which will be a broader approach to detecting whether the patient is diagnosed with \emph{Cancer}, \emph{Benign} or has no Tumor \emph{(Normal)}. Unfortunately, during training, the whole image is passed which could be seen in \emph{Figure~\ref{fig:img_cont} (a)}, and that contains many unwanted features that will reduce the performance of the trained model.
 	In the figure below, the confusion matrix is shown for the first stage image classifier which was discussed in \emph{Section~\ref{Classification}}.
 	\begin{figure}[h]
 		\centering
@@ -538,8 +550,14 @@
 
 	\newpage
 	
+	\section{Results and Discussions}
+	 \subsection{Single Classifier}
+	 With transfer learning using the \textbf{Efficient Net b-0}, the accuracy of 46.8\% was achieved.\\
+	
 	\section{Conclusion}
-	In conclusion, in this thesis, the main objective will be to undergo several cases which were listed in \emph{Section~\ref{CV}} and end the Thesis with the chosen method which is a \emph{Multi-Stage Object Detector (Two-Stage object detector)}, this focuses on bridging the gap in paper \cite{one_shot} where the chosen approach was a \emph{Single-Stage object detector}. In theory, this should improve the results since it is known that Two-Stage object detection prioritizes accuracy over inference speed while Single-Stage object detectors rather sacrifice accuracy for inference speed (as used in \cite{one_shot}). 
+	In conclusion, in this graduation project, the main objective will be to undergo several cases which were listed in \emph{Section~\ref{CV}} and end the graduation project with the chosen method which is a \emph{Multi-Stage Object Detector (Two-Stage object detector)}, this focuses on bridging the gap in paper \cite{one_shot} where the chosen approach was a \emph{Single-Stage object detector}. In theory, this should improve the results since it is known that Two-Stage object detection prioritizes accuracy over inference speed while Single-Stage object detectors rather sacrifice accuracy for inference speed (as used in \cite{one_shot}). 
+	\subsection{Future work}
+	For MSOD 
 	\newpage
 
 	\bibliographystyle{IEEEtran}
