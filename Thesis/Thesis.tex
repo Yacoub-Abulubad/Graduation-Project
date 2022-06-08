@@ -483,7 +483,7 @@
 		\label{fig:Avg_Age}
 	\end{figure}
 	\newpage	
-	\subsubsection{Data imbalance}
+	\subsubsection{Data imbalance}\label{imbalance}
 	After performing the method described in \emph{Section~\ref{Data_collection}}, the dataset will be thrown into an imbalanced state where the amount of Normal (Tumor-less) images are severely outnumbering the two other cases, this can be seen in \emph{Figure~\ref{fig:imbalance}}.
 	\begin{figure}[h]
 		\centering
@@ -505,8 +505,21 @@
 	On another note, for the \textbf{Validation Data}, this imbalance will not affect the results in any way.
 	
 	\subsection{Data Pipeline}
-	The process of handling the dataset is crucial when it comes to Deep Learning or any sort of AI projects as a \emph{Data-Loader} could quite easily act as a bottle neck in a completed project. 		
+	The process of handling the dataset is crucial when it comes to Deep Learning or any sort of AI projects as a \emph{Data-Loader} could quite easily act as a bottle-neck in a completed project.\\
+	Creating a Data-Loader requires the use of Object Oriented Programming which was possible to perform in \emph{Python} programming language. Since the main sub-library \textbf{\textit{Keras}} is responsible for the architecture and the build of the \emph{Neural Networks}, Keras also provides a Data-Loader class, named \textbf{\textit{Sequence}}, which was utilized by inheriting it into the custom made Data-Loader that is implemented in this graduation project.\\
+	The objective of a Data-Loader is to load, preprocess and feed the data, by batches, into the \textbf{\textit{Neural Network Model}}, which could also be referred to as \emph{Model}. So in this subsection, the three main stages of loading the data into the model will be discussed in the following order.
+	\begin{itemize}
+		\item Data Loading
+		\item Data Preprocessing
+		\item Batch feeding
+	\end{itemize}
 	
+	It was helpful to locate the path of each image from an included \emph{Comma Separated Values} (CSV) file in the \emph{Mini-DDSM} dataset which was collected for this project. This CSV file contained all the labeling and all the paths of the images, as seen in \emph{Table~\ref{data_label}}. 
+	
+	\subsubsection{Data Loading}
+	The data loading function would start off by collecting all of the paths from the CSV file and convert them into a \emph{list of paths}, this was crucial to have the ability to iterate through the paths without having the need to refer back to the CSV file and would additionally be much more easier to manipulate, for example, shuffle and provide custom conditions to the list.\\
+	Here there were 3 sets of empty lists created with labels of each corresponding case \emph{(Normal, Cancer or Benign)}. As the iteration flows through the CSV file, there would be a custom condition set to collect the Cancer labeled images' path into the `Cancer` labeled list, the Benign images' path into the `Benign` labeled list and the Normal images' path into the `Normal` labeled list. But for each 4 Normal images we would append only 1 image into the list for the imbalance case as seen in \emph{Section~\ref{imbalance}}. This allows for separation in each class so there will not be any mislabeling happening which could confuse the \emph{Model} while training or provide false results during evaluation.\\
+	The custom Data-Loader has been modified from the \emph{Sequence} inheritance by performing \emph{memory-extensive} loading, this desperately needed as the local machine which was used for the creation of this project had limited physical memory and upon loading the data, the machine was subjected to \emph{"crash"}, this was countered by loading the data in batches, this also includes preprocessing in batches which will be discussed in the next Sub-Section. This method of intensely reducing memory usage was performed by utilizing the \emph{list of paths} and with the functionalities of the inherited class \emph{Sequence}, that was by calling a \emph{fetching function}, known as \emph{\textbf{\_\_getitem\_\_}}, the Model was able to acquire a preprocessed batch which would be ready for training.
 	
 	\subsection{Image Classifier}
 	The first approach to creating the MSOD model is to create the initial classifier which will be a broader approach to detecting whether the patient is diagnosed with \emph{Cancer}, \emph{Benign} or has no Tumor \emph{(Normal)}. Unfortunately, during training, the whole image is passed which could be seen in \emph{Figure~\ref{fig:img_cont} (a)}, and that contains many unwanted features that will reduce the performance of the trained model.

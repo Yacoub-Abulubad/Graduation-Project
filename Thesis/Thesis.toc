@@ -19,12 +19,13 @@
 \contentsline {subsection}{\numberline {3.2}Dataset}{21}{subsection.3.2}%
 \contentsline {subsubsection}{\numberline {3.2.1}Data collection and statistics}{22}{subsubsection.3.2.1}%
 \contentsline {subsubsection}{\numberline {3.2.2}Data imbalance}{25}{subsubsection.3.2.2}%
-\contentsline {subsubsection}{\numberline {3.2.3}Data Augmentation}{26}{subsubsection.3.2.3}%
-\contentsline {subsection}{\numberline {3.3}Image Classifier}{26}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Hierarchy Classifier}{27}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Transfer Learning}{27}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Training}{28}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Results and Discussions}{29}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Single Classifier}{29}{subsection.4.1}%
-\contentsline {section}{\numberline {5}Conclusion}{29}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Future work}{29}{subsection.5.1}%
+\contentsline {subsection}{\numberline {3.3}Data Pipeline}{25}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Data Loading}{27}{subsubsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.4}Image Classifier}{28}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Hierarchy Classifier}{29}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Transfer Learning}{29}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Training}{29}{subsection.3.7}%
+\contentsline {section}{\numberline {4}Results and Discussions}{30}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Single Classifier}{30}{subsection.4.1}%
+\contentsline {section}{\numberline {5}Conclusion}{30}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Future work}{30}{subsection.5.1}%
