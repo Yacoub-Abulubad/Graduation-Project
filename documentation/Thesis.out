@@ -21,11 +21,13 @@
 \BOOKMARK [3][-]{subsubsection.3.2.2}{Data imbalance}{subsection.3.2}% 21
 \BOOKMARK [2][-]{subsection.3.3}{Data Pipeline}{section.3}% 22
 \BOOKMARK [3][-]{subsubsection.3.3.1}{Data Loading}{subsection.3.3}% 23
-\BOOKMARK [2][-]{subsection.3.4}{Image Classifier}{section.3}% 24
-\BOOKMARK [2][-]{subsection.3.5}{Hierarchy Classifier}{section.3}% 25
-\BOOKMARK [2][-]{subsection.3.6}{Transfer Learning}{section.3}% 26
-\BOOKMARK [2][-]{subsection.3.7}{Training}{section.3}% 27
-\BOOKMARK [1][-]{section.4}{Results and Discussions}{}% 28
-\BOOKMARK [2][-]{subsection.4.1}{Single Classifier}{section.4}% 29
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 30
-\BOOKMARK [2][-]{subsection.5.1}{Future work}{section.5}% 31
+\BOOKMARK [3][-]{subsubsection.3.3.2}{Data preprocessing}{subsection.3.3}% 24
+\BOOKMARK [3][-]{subsubsection.3.3.3}{Batch Feeding}{subsection.3.3}% 25
+\BOOKMARK [2][-]{subsection.3.4}{Image Classifier}{section.3}% 26
+\BOOKMARK [2][-]{subsection.3.5}{Hierarchy Classifier}{section.3}% 27
+\BOOKMARK [2][-]{subsection.3.6}{Transfer Learning}{section.3}% 28
+\BOOKMARK [2][-]{subsection.3.7}{Training}{section.3}% 29
+\BOOKMARK [1][-]{section.4}{Results and Discussions}{}% 30
+\BOOKMARK [2][-]{subsection.4.1}{Single Classifier}{section.4}% 31
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 32
+\BOOKMARK [2][-]{subsection.5.1}{Future work}{section.5}% 33
