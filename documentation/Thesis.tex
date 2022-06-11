@@ -533,14 +533,21 @@
 	 	\label{fig:Data_loader}
 	 \end{figure}
 	
-	\subsubsection{Data preprocessing}\label{preproc}
+	\subsubsection{Data Preprocessing}\label{preproc}
 	After loading the images from the paths, the next step into readying the dataset for the \emph{Model} would be by preprocessing the images. This will achieve unification of image sizes, as the size of the \emph{Model} input shall remain the same, and the process of augmenting the training data to reduce over-fitting of the \emph{Model}.\\
 	Even though the open-source \emph{Mini-DDSM} dataset lacked almost nothing, it had one flaw and that was the different sizes that each image had, with such varying sizes, this imposed an issue for the \emph{Model} as the input size, or shape, of the first layer shall always remain the same size, hence the preprocessing of the whole dataset shall take place. Since the \emph{aspect-ratio} of the images also vary this means that having a constant width or height of an image will be deemed impossible since the area of the image will never equal to the rest of the images, this is why resizing alone will not be effective but shall be accompanied with a zero padding to the remaining gaps, whether being along the top and bottom or left and right sides of the images.\\
 	The mean of the widths and the mean of the heights of the images were calculated and that was the chosen desired width and length of the image sizes which will be input into the \emph{Model}.\\
-	
+	Apart from resizing, some \emph{Data Augmentation} has been applied to the training data, per each batch of input data, half the images are flipped horizontally and half the images are flipped vertically. This helps with reducing over-fitting since the model might over-fit on the wrong features at certain areas in the image. An illustration can be observed in \emph{Figure~\ref{fig:Data_preproc}}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=1\textwidth]{pics/Figures/Data_preproc.pdf}
+		\caption{\small{Illustration of data preprocessing}}
+		\label{fig:Data_preproc}
+	\end{figure}
 	
 	\subsubsection{Batch Feeding}\label{batching}
-	This method of intensely reducing memory usage was performed by utilizing the \emph{list of paths} and with the functionalities of the inherited class \emph{Sequence}, that was by calling a \emph{fetching function}, known as \emph{\textbf{\_\_getitem\_\_}}, the Model was able to acquire a preprocessed batch which would be ready for training.
+	This method of intensely reducing memory usage was performed by utilizing the \emph{list of paths} and with the functionalities of the inherited class \emph{Sequence}, that was by calling a \emph{fetching function}, known as \emph{\textbf{\_\_getitem\_\_}}, the Model was able to acquire a preprocessed batch which would be ready for training. \emph{Batch Feeding} is not just a stand alone functionality like \emph{Data Loader} or \emph{Data Preprocessing}, instead it works within these two previously discussed functionalities.\\
+	The \emph{Batch Feeding} functionality is called in the stage where the path is converted into an image (and loaded into the ram), as well as implemented after the preprocessing of the loaded images. This functionality acts like a tunnel which hosts each batch from loading, to preprocessing all the way till these images reach the model to train or evaluate. In \emph{Figure~\ref{fig:Data_loader}}, starting from the function \emph{Path to Image function} all the way till the Augmentation in \emph{Figure~\ref{fig:Data_preproc}}, that describes the \emph{Batch Feeding} functionality.
 	
 	\subsection{Single Classifier}
 	The first approach to creating the MSOD model is to create the initial classifier which will be a broader approach to detecting whether the patient is diagnosed with \emph{Cancer}, \emph{Benign} or has no Tumor \emph{(Normal)}. Unfortunately, during training, the whole image is passed which could be seen in \emph{Figure~\ref{fig:img_cont} (a)}, and that contains many unwanted features that will reduce the performance of the trained model.

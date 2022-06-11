@@ -181,7 +181,7 @@ class Hierarchy:
         self.model.load_weights(os.path.join(path, checkpoint) + ".h5")
 
 
-class Single_CLassifier:
+class Single_Classifier:
     """A class to create a pretrained model
     """
 
