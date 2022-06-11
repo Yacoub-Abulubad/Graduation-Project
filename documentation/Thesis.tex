@@ -493,9 +493,9 @@
 	\end{figure}
 	
 	As seen in the above figure, the dataset is 1:1:4 where the normal cases are \textbf{x4} the amount of the Benign and Cancer cases.
-	to counter this we simply store 1 Normal case for every 4 cases that are encountered. The Listing below explains the function that was used to counter the imbalance set.
+	To counter this, the method of simply storing 1 Normal case for every 4 cases that are encountered will be sufficient. 
 
-	After implementing this snippet into the \textbf{DataLoader}, the dataset imbalance was resolved, as could be seen in the figure below.
+	After implementing this method into the \textbf{DataLoader}, the dataset imbalance was resolved, as could be seen in \emph{Figure~\ref{fig:balance}}.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.5\textwidth]{pics/Figures/Train_balance.png}
@@ -542,17 +542,8 @@
 	\subsubsection{Batch Feeding}\label{batching}
 	This method of intensely reducing memory usage was performed by utilizing the \emph{list of paths} and with the functionalities of the inherited class \emph{Sequence}, that was by calling a \emph{fetching function}, known as \emph{\textbf{\_\_getitem\_\_}}, the Model was able to acquire a preprocessed batch which would be ready for training.
 	
-	\subsection{Image Classifier}
+	\subsection{Single Classifier}
 	The first approach to creating the MSOD model is to create the initial classifier which will be a broader approach to detecting whether the patient is diagnosed with \emph{Cancer}, \emph{Benign} or has no Tumor \emph{(Normal)}. Unfortunately, during training, the whole image is passed which could be seen in \emph{Figure~\ref{fig:img_cont} (a)}, and that contains many unwanted features that will reduce the performance of the trained model.
-	In the figure below, the confusion matrix is shown for the first stage image classifier which was discussed in \emph{Section~\ref{Classification}}.
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=0.6\textwidth]{pics/Figures/1st_stage_conf_matrix.png}
-		\caption{\small{Confusion matrix of the first stage Classifier}}
-		\label{fig:conf-mat-first}
-	\end{figure}
-	Some quick analysis from this Confusion Matrix is that the model has learned to classify the Normal vs Tumor in an almost efficient way. But given that the labels are not \emph{`Normal`, `Tumor`} but rather \emph{`Normal`, `Benign`, `Cancer`}, the model had a hard time differentiating between the two tumor classes. Which is why the \textbf{Hierarchy Classifier}, which was discussed in \emph{Section~\ref{Hierarchy_Class}}, will achieve better results given that the first stage classifier will predict the two classes \emph{`Normal`, `Tumor`} and the second classifier will have the task of differentiating between \emph{`Benign`, `Cancer`}.
-	
 	\subsection{Hierarchy Classifier}
 	
 	code for running Hierarchy Classifier
@@ -585,6 +576,16 @@
 	\newpage
 	
 	\section{Results and Discussions}
+	\subsection{Single Classifier}
+	In the figure below, the confusion matrix is shown for the first stage image classifier which was discussed in \emph{Section~\ref{Classification}}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.6\textwidth]{pics/Figures/1st_stage_conf_matrix.png}
+		\caption{\small{Confusion matrix of the first stage Classifier}}
+		\label{fig:conf-mat-first}
+	\end{figure}
+	Some quick analysis from this Confusion Matrix is that the model has learned to classify the Normal vs Tumor in an almost efficient way. But given that the labels are not \emph{`Normal`, `Tumor`} but rather \emph{`Normal`, `Benign`, `Cancer`}, the model had a hard time differentiating between the two tumor classes. Which is why the \textbf{Hierarchy Classifier}, which was discussed in \emph{Section~\ref{Hierarchy_Class}}, will achieve better results given that the first stage classifier will predict the two classes \emph{`Normal`, `Tumor`} and the second classifier will have the task of differentiating between \emph{`Benign`, `Cancer`}.
+	
 	 \subsection{Single Classifier}
 	 With transfer learning using the \textbf{Efficient Net b-0}, the accuracy of 46.8\% was achieved.\\
 	
