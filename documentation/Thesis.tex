@@ -407,7 +407,7 @@
 	Initial approach to starting is by gathering the required dataset, this was possible due to an open-source dataset which was found on \href{https://www.kaggle.com/}{Kaggle}, this website hosts multiple competitions in Machine Learning and Data Science domains, apart from competitions, the website also gathers open-source data. With this valuable resource acquired, the dataset under the name of \emph{Mini-DDSM} (Digital Database for Screening Mammography) \cite{Dataset} was used due to the accurate labeling made by professionals and the high quality and great quantity of images. Further discussion about the dataset will be found in \emph{Section~\ref{Data}}.
 	
 	\subsubsection{Virtual Environment}
-	To begin the process of writing the script for implementing the project there must be a standard library version use across the directory which contains the code-base, and that is by setting up a virtual environment \emph{locally} where the versions of the libraries could be isolated to eliminate version conflicts and imply a stable version dependency. \textbf{\textit{Anaconda}} already allows this functionality where multiple virtual environments could be set up on a single local machine \cite{anaconda}. With Anaconda's help, a virtual environment could be set up to help download and install all the required libraries and packages to run the code. The most prominent libraries and packages where \textbf{\textit{Tensorflow}} \cite{tensorflow2015-whitepaper}, \textbf{\textit{Keras}} \cite{chollet2015keras} and \textbf{\textit{NumPy}} \cite{harris2020array}, along many other packages which were used that could be found in \emph{Appendix~\ref{libraries}}.
+	To begin the process of writing the script for implementing the project there must be a standard library version use across the directory which contains the code-base, and that is by setting up a virtual environment \emph{locally} where the versions of the libraries could be isolated to eliminate version conflicts and imply a stable version dependency. \textbf{\textit{Anaconda}} already allows this functionality where multiple virtual environments could be set up on a single local machine \cite{anaconda}. With Anaconda's help, a virtual environment could be set up to help download and install all the required libraries and packages to run the code. The most prominent libraries and packages where \textbf{\textit{Tensorflow}} \cite{tensorflow2015-whitepaper}, \textbf{\textit{Keras}} \cite{chollet2015keras} and \textbf{\textit{NumPy}} \cite{harris2020array}, along many other packages which were used that could be found in \emph{Appendix~\ref{appendix:libraries}}.
 	
 	\subsubsection{Google Colaboratory}
 	Apart from local work, which was not computationally intensive, there were some sections of the project which were extremely computationally demanding and for these components, the cloud computing was helpful as there was no need to execute the code locally but rather using the cloud platform known as \emph{\href{https://research.google.com/colaboratory/}{Google Colab}} also known as \emph{Colab}. In addition, this platform grants limited use of a GPU which was heavily utilized in the process of this project.\\
@@ -522,9 +522,11 @@
 		\label{fig:pipeline}
 	\end{figure}
 	
-	\subsubsection{Data Loading}
+	\subsubsection{Data Loading}\label{data loading}
 	The data loading function would start off by collecting all of the paths from the CSV file and convert them into a \emph{list of paths}, this was crucial to have the ability to iterate through the paths without having the need to refer back to the CSV file and would additionally be much more easier to manipulate, for example, shuffle and provide custom conditions to the list.\\
 	Here there were 3 sets of empty lists created with labels of each corresponding case \emph{(Normal, Cancer or Benign)}. As the iteration flows through the CSV file, there would be a custom condition set to collect the Cancer labeled images' path into the `Cancer` labeled list, the Benign images' path into the `Benign` labeled list and the Normal images' path into the `Normal` labeled list. But for each 4 Normal images we would append only 1 image into the list for the imbalance case as seen in \emph{Section~\ref{imbalance}}. This allows for separation in each class so there will not be any mislabeling happening which could confuse the \emph{Model} while training or provide false results during evaluation.\\
+	Each list of paths is then corresponded with a list of vectors which would be made up of the \emph{One-Hot encoded} labels. This method helps translating the 3 labels into a vector of size $\bm{[3, 1]}$, in a case of \emph{Normal} class, the \emph{One-Hot encoded} vector will look like this $\bm{[1, 0, 0]}$, while for \emph{Benign} it will translate to $\bm{[0, 1, 0]}$ and finally for \emph{Cancer} it will be $\bm{[0, 0, 1]}$. These vectors are packed into a list alongside the paths of each corresponding image.
+	\\
 	The custom Data-Loader has been modified from the \emph{Sequence} inheritance by performing \emph{memory-extensive} loading, this is desperately needed as the local machine which was used for the creation of this project had limited physical memory and upon loading the data, the machine was subjected to \emph{run out of memory}, this was countered by loading the data in batches, which will be discussed in \emph{Section~\ref{preproc}}, this also includes preprocessing in batches which will be discussed in \emph{Section~\ref{batching}}.
 	 \begin{figure}[h]
 	 	\centering
@@ -549,25 +551,77 @@
 	This method of intensely reducing memory usage was performed by utilizing the \emph{list of paths} and with the functionalities of the inherited class \emph{Sequence}, that was by calling a \emph{fetching function}, known as \emph{\textbf{\_\_getitem\_\_}}, the Model was able to acquire a preprocessed batch which would be ready for training. \emph{Batch Feeding} is not just a stand alone functionality like \emph{Data Loader} or \emph{Data Preprocessing}, instead it works within these two previously discussed functionalities.\\
 	The \emph{Batch Feeding} functionality is called in the stage where the path is converted into an image (and loaded into the ram), as well as implemented after the preprocessing of the loaded images. This functionality acts like a tunnel which hosts each batch from loading, to preprocessing all the way till these images reach the model to train or evaluate. In \emph{Figure~\ref{fig:Data_loader}}, starting from the function \emph{Path to Image function} all the way till the Augmentation in \emph{Figure~\ref{fig:Data_preproc}}, that describes the \emph{Batch Feeding} functionality.
 	
-	\subsection{Single Classifier}
-	The first approach to creating the MSOD model is to create the initial classifier which will be a broader approach to detecting whether the patient is diagnosed with \emph{Cancer}, \emph{Benign} or has no Tumor \emph{(Normal)}. Unfortunately, during training, the whole image is passed which could be seen in \emph{Figure~\ref{fig:img_cont} (a)}, and that contains many unwanted features that will reduce the performance of the trained model.
+	\subsection{Single Classifier}\label{single}
+	The first approach to creating the classifier, which will be a broader approach to detecting whether the patient is diagnosed with \emph{Cancer}, \emph{Benign} or has no Tumor \emph{(Normal)}, is to retrieve an existing pre-trained model from \emph{Tensorflow Zoo} \cite{tensorflow2015-whitepaper}. The chosen \emph{Model} is the \emph{EfficientNet-B0} which can be shortened to \emph{Effnet} and that acted as the \textbf{\textit{BackBone}} of the whole model, but the problem is that it is not customized to this project's custom labels and outputs, hence an addition of 7 layers have been added to the overall network, six of these layers follow the output of \emph{Effnet} and an input layer placed before the start of the \emph{Effnet} model. An overall visualization can be seen in \emph{Figure~\ref{fig:single}}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=1\textwidth]{pics/Figures/effnet_model_out.png}
+		\caption{\small{Visualization of the custom \emph{Effnet} model}}
+		\label{fig:single}
+	\end{figure}
+	Unfortunately, during training, the whole image is passed which could be seen in \emph{Figure~\ref{fig:img_cont} (a)}, and that contains many unwanted features that will reduce the performance of the trained model and might also lead to over-fitting.\\
+	This \emph{Single Classifier} was built with an output of size 3 \emph{(Nodes)} where each one of the three nodes inside the final output layer represents a class.
+	\begin{equation}
+		\bm{[N, B, C]}
+	\end{equation}
+	where $\bm{N}$ corresponds to the Normal class, $\bm{B}$ as benign and $\bm{C}$ as Cancer. This vector is familiar to the \emph{One-Hot encoded} vector which was introduced in \emph{Section~\ref{data loading}}.\\
+	After an image is passed down into the input layer, the \emph{Effnet} model performs data \emph{normalization} where it normalizes all the values (pixels) inside the image to have a standard deviation of 1, this helps with eliminating a case of exploding gradient of the weights inside the model, this is why the \emph{normalization} process was not implemented in the \emph{Data Preprocessing}.
+	
+	
 	\subsection{Hierarchy Classifier}
 	
-	code for running Hierarchy Classifier
+	For the \emph{Hierarchy Classification}, two \emph{Single Classifiers} have been connected together to develop a hierarchical classification effect. The main objective of the \emph{Hierarchy Classifier} is to create a much more equal difference between the classes which will be predicted. To put this into perspective, the difference between the class \emph{Normal} and the two classes \emph{Cancer} and \emph{Benign} is vast noting that in \emph{Normal} there is no tumor but for both other classes there is a tumor. The real problem comes when the model needs to differentiate between both \emph{Cancer} and \emph{Benign} as they are closely related to being a Tumor. The difference between the \emph{Hierarchy Classifier} and the \emph{Single Classifier} will be discussed in the following sections.
 	
-	\begin{lstlisting}[language=Python, caption=Backbone layer unlocking function, label=unlock]
-		def unfix_layers_Backbone_weights(self, Nlayer=3):
-		"""To unfix the backbone weights
+	\subsubsection{Data Loader modifications}\label{modification}
+	As to having a different functionality, the \emph{Data} should also be modified to fit the Hierarchy that was built. As the model will not be differentiating between the 3 classes at once but will rather differentiate between \emph{Tumor} vs \emph{No-Tumpr} and if the model predicts that there is a tumor, then the image is passed onto the second classifier which will have the purpose of distinguishing between the two types of tumors in the image, to whether it being classified as \emph{Benign} or \emph{Cancer}.\\
+	This means that the approach that was discussed in \emph{Section~\ref{data loading}} should be slightly modified. Instead of just having a single list of labels, and each label being a vector of size $\bm{[3, 1]}$, this approach will differ by having two sets of list, one for each classifier with the labels in both lists consisting of vectors of size $\bm{[2, 1]}$. For the first classifier the labels are going to be 
+	\begin{equation}
+		\bm{[N, T]}
+	\end{equation}
+	where $\bm{N}$ corresponds to \emph{Normal} and $\bm{T}$ means \emph{Tumor}, and in the case of the model predicting a \emph{Tumor}, it would mean one of the two tumor types which will be the job of the second classifier.\\
+	The second classifier's label outputs are going to be
+	\begin{equation}
+		\bm{[B, C]}
+	\end{equation}
+	with $\bm{B}$ being \emph{Benign} and $\bm{C}$ being \emph{Cancer}.\\
+	
+	\subsubsection{Model modification}
+	Apart from Data modifications, and stating that the hierarchy classifiers uses two single classifiers, there has to be some changes made to the classifiers as well.\\
+	In \emph{Section~\ref{modification}}, it was concluded that the vector size of the labels has been shortened to $\bm{[2, 1]}$ and in \emph{Section~\ref{single}} it was discussed that the output size is of \textbf{3} nodes. This will cause an issue since the given output shape does not meet the vector label shape and this will raise an error. To fix that issue the output size of both hierarchical classifiers shall be changed to \textbf{2} nodes. This will meet the requirement of the vector shape that will be provided by the \emph{Data Loader}. \emph{Figure~\ref{fig:Hierarchical Classifier}} from \emph{Section~\ref{Hierarchy_Class}} shows how the \emph{Hierarchy classification} would work except for few changes to the labels that are used.\\
+	In addition, the normal function which is granted by \emph{Keras} will no longer work on the proposed model, thus a custom prediction function was built and could be seen in \emph{Listing~\ref{hierarchy_pred}}.\newpage
+	\begin{lstlisting}[language=Python, caption=Hierarchy prediction function, label=hierarchy_pred]
+		def hierarchy_pred(model_1, model_2, dataGen):
+			"""For performing predictions when using `class Hierarchy` model
 		
-		Args:
-		Nlayer (int, optional): the amount of layers to unfix from the end. Defaults to 3.
-		"""
-		for i, _ in enumerate(self.model.layers[-5 - Nlayer:]):
-		self.model.layers[i].trainable = True
+			Args:
+			model_1 (object): Object of the first model. This model will be responsible to classify between `Normal` and `Tumor`
+			model_2 (object): Object of the second model. This model will be responsible to classify between `Benign` and `Cancer`
+			dataGen (object): Object of validation data generator/loader
+		
+			Returns:
+			List, List: `YY_preds` list of predicted classes. `YY_true` list of true classes
+			"""
+			YY_preds = []
+			YY_true = []
+			for XX, YY in dataGen:
+				YY_true.append(YY[0])
+				YY_preds_first = model_1.model.predict(XX)
+				if YY_preds_first[0][1] > YY_preds_first[0][0]:
+					YY_preds_second = model_2.model.predict(XX)
+					if YY_preds_second[0][1] > YY_preds_second[0][0]:
+						YY_preds.append([0, 0, 1])
+					else:
+						YY_preds.append([0, 1, 0])
+				else:
+					YY_preds.append([1, 0, 0])
+			YY_true = np.array(YY_true)
+			YY_true.reshape((-1, 3))
+			return YY_preds, YY_true
 	\end{lstlisting}
+	\newpage
 
 	\subsection{Transfer Learning}
-	In transfer learning, it is crucial to keep the \emph{pre-trained weights} intact, at least most of them from the upmost layers, because they are the most important weights when it comes to feature extraction. 
+	In transfer learning, it is crucial to keep the \emph{pre-trained weights} intact, at least most of them from the upmost layers, because they are the most important weights when it comes to feature extraction. And to be able to maintain the original weights, all of the \emph{BackBone} weights were frozen and only the additional 6 layers were unfrozen so that the weight were able to be adjusted during back propagation
 	
 	
 	
@@ -591,17 +645,38 @@
 		\caption{\small{Confusion matrix of the first stage Classifier}}
 		\label{fig:conf-mat-first}
 	\end{figure}
+	With transfer learning using the \textbf{Efficient Net b-0}, the accuracy of 46.8\% was achieved.\\
 	Some quick analysis from this Confusion Matrix is that the model has learned to classify the Normal vs Tumor in an almost efficient way. But given that the labels are not \emph{`Normal`, `Tumor`} but rather \emph{`Normal`, `Benign`, `Cancer`}, the model had a hard time differentiating between the two tumor classes. Which is why the \textbf{Hierarchy Classifier}, which was discussed in \emph{Section~\ref{Hierarchy_Class}}, will achieve better results given that the first stage classifier will predict the two classes \emph{`Normal`, `Tumor`} and the second classifier will have the task of differentiating between \emph{`Benign`, `Cancer`}.
 	
-	 \subsection{Single Classifier}
-	 With transfer learning using the \textbf{Efficient Net b-0}, the accuracy of 46.8\% was achieved.\\
+	 \subsection{Hierarchy Classifier}
+	 results of hierarchy classifier
 	
 	\section{Conclusion}
 	In conclusion, in this graduation project, the main objective will be to undergo several cases which were listed in \emph{Section~\ref{CV}} and end the graduation project with the chosen method which is a \emph{Multi-Stage Object Detector (Two-Stage object detector)}, this focuses on bridging the gap in paper \cite{one_shot} where the chosen approach was a \emph{Single-Stage object detector}. In theory, this should improve the results since it is known that Two-Stage object detection prioritizes accuracy over inference speed while Single-Stage object detectors rather sacrifice accuracy for inference speed (as used in \cite{one_shot}). 
 	\subsection{Future work}
 	For MSOD 
 	\newpage
-
+	\appendix\section{Code base}\label{appendix:code}
+	Link to raw code\\ \href{https://github.com/Yacoub-Abulubad/Graduation-Project}{https://github.com/Yacoub-Abulubad/Graduation-Project}
+	\newpage
+	\section{requirements}\label{appendix:libraries}
+	\begin{lstlisting}[language=Python, label=requiremtns]
+		imbalanced_learn==0.9.0
+		imblearn==0.0
+		imgaug==0.4.0
+		matplotlib==3.2.2
+		numpy==1.22.3
+		opencv_python==4.5.5.64
+		pandas==1.2.4
+		Pillow==9.1.1
+		scikit_image==0.18.1
+		scikit_learn==1.1.1
+		seaborn==0.11.2
+		skimage==0.0
+		tensorflow==2.8.0
+		visualkeras==0.0.2
+	\end{lstlisting}
+	\newpage
 	\bibliographystyle{IEEEtran}
 	\bibliography{IEEEabrv,myrefs}
 	

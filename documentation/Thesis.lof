@@ -17,6 +17,7 @@
 \contentsline {figure}{\numberline {3.3}{\ignorespaces \small {Visualization of imbalanced dataset}\relax }}{25}{figure.caption.18}%
 \contentsline {figure}{\numberline {3.4}{\ignorespaces \small {Visualization of resolved imbalance}\relax }}{26}{figure.caption.19}%
 \contentsline {figure}{\numberline {3.5}{\ignorespaces \small {Illustration of data pipeline}\relax }}{27}{figure.caption.20}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces \small {Illustration of data loader}\relax }}{28}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces \small {Illustration of data loader}\relax }}{29}{figure.caption.21}%
 \contentsline {figure}{\numberline {3.7}{\ignorespaces \small {Illustration of data preprocessing}\relax }}{30}{figure.caption.22}%
-\contentsline {figure}{\numberline {4.1}{\ignorespaces \small {Confusion matrix of the first stage Classifier}\relax }}{33}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces \small {Visualization of the custom \emph {Effnet} model}\relax }}{31}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \small {Confusion matrix of the first stage Classifier}\relax }}{37}{figure.caption.24}%

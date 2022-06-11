@@ -10,7 +10,7 @@ from tensorflow.keras.layers import Input, Dense, MaxPooling2D, Flatten, Dropout
 
 
 def hierarchy_pred(model_1, model_2, dataGen):
-    """For performing predictions when using `class Gierarchy` model
+    """For performing predictions when using `class Hierarchy` model
 
     Args:
         model_1 (object): Object of the first model. This model will be responsible to classify between `Normal` and `Tumor`
