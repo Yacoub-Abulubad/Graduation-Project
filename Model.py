@@ -54,7 +54,7 @@ class Hierarchy:
         x = MaxPooling2D((2, 2), padding='valid')(Backbone.output)
         x = Flatten(name="avg_pool")(x)
         x = BatchNormalization(name='BN_CL')(x)
-        x = Dense(10, activation='relu')(x)
+        x = Dense(10, activation='relu', name="Dense")(x)
         x = Dropout(0.2)(x)
         xFC = Dense(2, activation='softmax', name="FC")(x)
         self.model = Model(inputs=input_img, outputs=[xFC])
@@ -63,12 +63,12 @@ class Hierarchy:
         """To fix the backbone weights
         """
         for i, layer in enumerate(self.model.layer):
-            if layer.name == 'BN_CL' or layer.name == "FC" or layer.name == "avg_pool":
+            if layer.name == 'BN_CL' or layer.name == "FC" or layer.name == "avg_pool" or layer.name == "Dense":
                 self.model.layers[i].trainable = True
             else:
                 self.model.layers[i].trainable = False
 
-    def unfix_layers_Backbone_weights(self, Nlayer=3):
+    def unfix_layers_Backbone_weights(self, Nlayer=5):
         """To unfix the backbone weights
 
         Args:
@@ -197,7 +197,7 @@ class Single_Classifier:
         x = MaxPooling2D((2, 2), padding='valid')(Backbone.output)
         x = Flatten(name="avg_pool")(x)
         x = BatchNormalization(name='BN_CL')(x)
-        x = Dense(10, activation='relu')(x)
+        x = Dense(10, activation='relu', name="Dense")(x)
         x = Dropout(0.2)(x)
         xFC = Dense(3, activation='softmax', name="FC")(x)
         self.model = Model(inputs=input_img, outputs=[xFC])
@@ -206,12 +206,12 @@ class Single_Classifier:
         """To fix the backbone weights
         """
         for i, layer in enumerate(self.model.layer):
-            if layer.name == 'BN_CL' or layer.name == "FC" or layer.name == "avg_pool":
+            if layer.name == 'BN_CL' or layer.name == "FC" or layer.name == "avg_pool" or layer.name == "Dense":
                 self.model.layers[i].trainable = True
             else:
                 self.model.layers[i].trainable = False
 
-    def unfix_layers_Backbone_weights(self, Nlayer=3):
+    def unfix_layers_Backbone_weights(self, Nlayer=5):
         """To unfix the backbone weights
 
         Args:
@@ -258,7 +258,7 @@ class Single_Classifier:
                                       trainGen,
                                       valGen,
                                       Nepoch=30,
-                                      Nlayers=3,
+                                      Nlayers=5,
                                       lr=0.0005):
         """To train FC with the backbone
 
