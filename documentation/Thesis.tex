@@ -83,19 +83,21 @@
 	% % Start roman numbering
 	\setcounter{page}{1}
 	%%% CONTENT HERE %%%%
-	%j\begin{center}
-	%\Large{\textbf{Acknowledgments}}\\ \vspace{1cm}
-	%\end{center}
-	%Acknowledgment Goes Here...
-	%\newpage
+	\begin{center}
+	\Large{\textbf{Acknowledgments}}\\ \vspace{1cm}
+	\end{center}
+	Firstly I would like to praise Allah for granting me the chance of reaching this stage in my life.\\\\
+	I would like to thank Jude Mansour for providing me with great spreadsheet visualization, granting me constant motivation and keeping me goal oriented during the course of my graduation project.\\\\
+	Thanks to my supervisor, Assistant Prof. Dr. Talal Edwan, for the regular check up, theoretical and practical support in all the aspects of Deep Learning and Computer Vision.\\\\
+	And lastly, but most importantly, I would like to thank my parents for believing in me no matter what the outcome would be, and for them I am forever grateful.
+	\newpage
 	\begin{center}
 		\LARGE{\textbf{Abstract}}\\ \vspace{1cm}
 	\end{center}
-	The implementation of Computer Vision in the prediction of breast cancer is a necessity since it cuts down a lot of costs, with the main cost in this problem is time. This graduation project documentation will discuss the different approaches towards using \emph{Artificial Intelligence (AI)} in detecting of these cancerous and non-cancerous (benign) tumors using \emph{Image Classification} and \emph{Object Detection}. The main goal is to reduce the time taken for a result to be in the reach of a professional, from weeks to matter of \textbf{seconds}. Reducing the time will not be the only goal of this graduation project, but also the need for a radiologist profession will be optional, given the circumstances of the radiologist being busy or on vacation or having a shortage of staff. This will be possible by cutting the process of waiting for a call after a screening session to only be tested again for diagnostics of the abnormality, but rather have the diagnostics appear during the screening session, cutting down the time to detect and helping out the present radiologist in highlighting the work.\\[10mm]
+	The implementation of Computer Vision in the prediction of breast cancer is a necessity since it cuts down a lot of costs, with the main cost in this problem is time. This graduation project documentation will discuss the different approaches towards using \emph{Artificial Intelligence (AI)} in the detection of these cancerous and non-cancerous (benign) tumors using \emph{Image Classification} and \emph{Object Detection}. The main goal is to reduce the time taken for a result to be in the reach of a professional, from weeks to matter of \textbf{seconds}. Reducing the time will not be the only goal of this graduation project, but also the need for a radiologist profession will be optional, given the circumstances of the radiologist being busy or on vacation or having a shortage of staff. This will be possible by cutting the process of waiting for a call after a screening session to only be tested again for diagnostics of the abnormality, but rather have the diagnostics appear during the screening session, cutting down the time to detect and helping out the present radiologist in highlighting the work.\\[10mm]
 	Keywords: \emph{Breast Cancer\quad Classification\quad Detection}
 	\newpage
 	\tableofcontents
-	\newpage
 	\listoffigures
 	\lstlistoflistings
 	\listoftables
@@ -410,7 +412,7 @@
 	To begin the process of writing the script for implementing the project there must be a standard library version use across the directory which contains the code-base, and that is by setting up a virtual environment \emph{locally} where the versions of the libraries could be isolated to eliminate version conflicts and imply a stable version dependency. \textbf{\textit{Anaconda}} already allows this functionality where multiple virtual environments could be set up on a single local machine \cite{anaconda}. With Anaconda's help, a virtual environment could be set up to help download and install all the required libraries and packages to run the code. The most prominent libraries and packages where \textbf{\textit{Tensorflow}} \cite{tensorflow2015-whitepaper}, \textbf{\textit{Keras}} \cite{chollet2015keras} and \textbf{\textit{NumPy}} \cite{harris2020array}, along many other packages which were used that could be found in \emph{Appendix~\ref{appendix:libraries}}.
 	
 	\subsubsection{Google Colaboratory}
-	Apart from local work, which was not computationally intensive, there were some sections of the project which were extremely computationally demanding and for these components, the cloud computing was helpful as there was no need to execute the code locally but rather using the cloud platform known as \emph{\href{https://research.google.com/colaboratory/}{Google Colab}} also known as \emph{Colab}. In addition, this platform grants limited use of a GPU which was heavily utilized in the process of this project.\\
+	Apart from local work, which was not computationally intensive, there were some sections of the project which were extremely computationally demanding and for these components, the cloud computing was helpful as there was no need to execute the code locally but rather using the cloud platform known as \emph{\href{https://research.google.com/colaboratory/}{Google Colab}} also referred to as \emph{Colab}. In addition, this platform grants limited use of a GPU which was heavily utilized in the process of this project.\\
 	Another positive aspect of using Colab is that all the required libraries are \textit{pre-installed} on their servers and are used quickly without the need to install them.
 	
 	
@@ -621,17 +623,8 @@
 	\newpage
 
 	\subsection{Transfer Learning}
-	In transfer learning, it is crucial to keep the \emph{pre-trained weights} intact, at least most of them from the upmost layers, because they are the most important weights when it comes to feature extraction. And to be able to maintain the original weights, all of the \emph{BackBone} weights were frozen and only the additional 6 layers were unfrozen so that the weight were able to be adjusted during back propagation
-	
-	
-	
-	This allows the last 3 layers of the backbone to unlock and be able to \emph{fine-tune} to our own custom dataset.
-	
-	\subsection{Training}
-	Some text about training 
-	
-	Some text about training classifier with backbone
-	
+	In transfer learning, it is crucial to keep the \emph{pre-trained weights} intact, at least most of them from the upmost layers, because they are the most important weights when it comes to feature extraction. And to be able to maintain the original weights, all of the \emph{Backbone} weights were frozen and only the additional 6 layers were unfrozen so that the weight were able to be adjusted during back propagation (training).\\
+	This will only allow the custom layers to be trained as a classifier and maintaining the \emph{Backbone} as a feature extractor. With that method set, the model trains on the \emph{Mini-DDSM} dataset that is fed to it for 5 \emph{epochs}. After the initial training is completed, the transfer learning implementation shall take place, and that is performed by \emph{unfreezing} or \emph{unblocking} several layers off of the backbone so that high levels of feature extraction be able to \emph{fine-tune} to the own custom dataset. Functional code could be retrieved from \emph{Appendix~\ref{appendix:code}}.
 	
 
 	\newpage
@@ -642,23 +635,37 @@
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=0.6\textwidth]{pics/Figures/1st_stage_conf_matrix.png}
-		\caption{\small{Confusion matrix of the first stage Classifier}}
-		\label{fig:conf-mat-first}
+		\caption{\small{Confusion matrix of the Single Classifier}}
+		\label{fig:conf-mat-single}
 	\end{figure}
 	With transfer learning using the \textbf{Efficient Net b-0}, the accuracy of 46.8\% was achieved.\\
 	Some quick analysis from this Confusion Matrix is that the model has learned to classify the Normal vs Tumor in an almost efficient way. But given that the labels are not \emph{`Normal`, `Tumor`} but rather \emph{`Normal`, `Benign`, `Cancer`}, the model had a hard time differentiating between the two tumor classes. Which is why the \textbf{Hierarchy Classifier}, which was discussed in \emph{Section~\ref{Hierarchy_Class}}, will achieve better results given that the first stage classifier will predict the two classes \emph{`Normal`, `Tumor`} and the second classifier will have the task of differentiating between \emph{`Benign`, `Cancer`}.
 	
 	 \subsection{Hierarchy Classifier}
-	 results of hierarchy classifier
+	 For the Hierarchy Classifier, the overall 53.2\% accuracy was achieved which gave an extra 6.4\% in accuracy compared to the Single Classifier. The confusion matrix can be seen in \emph{Figure~\ref{fig:conf-mat-hierarchy}}.\\
+	 \begin{figure}[h]
+	 	\centering
+	 	\includegraphics[width=0.6\textwidth]{pics/Figures/hierarchy_conf_mat.png}
+	 	\caption{\small{Confusion matrix of the Hierarchical Classifier}}
+	 	\label{fig:conf-mat-hierarchy}
+	 \end{figure}
+ 	 As for the individual models which make up the Hierarchical Classifier, the first model achieved an accuracy of 55.7\%, as for the second model, an accuracy of 44.8\% was achieved. Further analysis could be seen in the confusion matrix \emph{Figure~\ref{fig:two_models_conf_mat}}.
+	 \begin{figure}
+	 	\centering
+	 	\subfloat[\centering First Classifier confusion matrix ]{{\includegraphics[width=7cm]{pics/Figures/1st_hierarchy_conf_mat.png} }}%
+	 	\qquad
+	 	\subfloat[\centering Second Classifier confusion matrix]{{\includegraphics[width=7cm]{pics/Figures/2nd_hierarchy_conf_mat.png} }}%
+	 	\caption{Displaying the confusion matrix of both classifiers which represent the Hierarchical classifier as a whole}
+	 	\label{fig:two_models_conf_mat}
+	\end{figure}
+ 	This is a clear indication that the Hierarchical approach works, and better yet could be even further improved with higher hardware capabilities. The Hierarchy Classifier was able to present better results on the same amount of training period and same training and testing data that was used for the Single Classifier, the only difference was the approach taken to predict these different classes.
 	
 	\section{Conclusion}
-	In conclusion, in this graduation project, the main objective will be to undergo several cases which were listed in \emph{Section~\ref{CV}} and end the graduation project with the chosen method which is a \emph{Multi-Stage Object Detector (Two-Stage object detector)}, this focuses on bridging the gap in paper \cite{one_shot} where the chosen approach was a \emph{Single-Stage object detector}. In theory, this should improve the results since it is known that Two-Stage object detection prioritizes accuracy over inference speed while Single-Stage object detectors rather sacrifice accuracy for inference speed (as used in \cite{one_shot}). 
+	In conclusion, this graduation project focused on proving the concept and the main objective which is to undergo several cases which were listed in \emph{Section~\ref{CV}}, this focuses on bridging the gap in paper \cite{one_shot} where the chosen approach was a \emph{Single-Stage object detector}. This has been practically proven during this graduation project work and has been concluded that the Hierarchical approach poses better accuracy than the Single Classifier which was discussed in theory about the different aspects of features, whether being relatively similar or vastly different, in this case the difference between the Normal case vs the Tumor case and for the differences of the type of Tumor to be held on a different classifier. 
 	\subsection{Future work}
-	For MSOD 
+	To take this project even further, this can be implemented using Object Detectors where they can be set up in a Hierarchical manner with an Image Classifier rather than using two Image Classifiers. The intuition here is that the Object detector will help the Image Classifier focus only on the \emph{Tumor} and classify only the \emph{Tumor} rather than classifying the whole image with many unwanted features that might confuse the classifier. 
 	\newpage
-	\appendix\section{Code base}\label{appendix:code}
-	Link to raw code\\ \href{https://github.com/Yacoub-Abulubad/Graduation-Project}{https://github.com/Yacoub-Abulubad/Graduation-Project}
-	\newpage
+	\appendix
 	\section{requirements}\label{appendix:libraries}
 	\begin{lstlisting}[language=Python, label=requiremtns]
 		imbalanced_learn==0.9.0
@@ -677,6 +684,10 @@
 		visualkeras==0.0.2
 	\end{lstlisting}
 	\newpage
+	\section{Code base}\label{appendix:code}
+	Link to raw code\\ \href{https://github.com/Yacoub-Abulubad/Graduation-Project}{https://github.com/Yacoub-Abulubad/Graduation-Project}
+	\newpage
+	
 	\bibliographystyle{IEEEtran}
 	\bibliography{IEEEabrv,myrefs}
 	

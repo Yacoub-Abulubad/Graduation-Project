@@ -162,8 +162,6 @@ class HierarchySequenceLoader(Sequence):
             if self.first_classifier:
                 self.y_path = first_y_paths
                 self.x_path = first_x_paths
-                print(self.y_path)
-                print(self.x_path)
             else:
                 self.y_path = second_y_paths
                 self.x_path = second_x_paths
@@ -366,9 +364,9 @@ class SingleSequenceLoader(Sequence):
             balance_size = min(len(self.Cancer), len(self.Benign),
                                len(self.Normal))
             for i in range(0, balance_size):
-                x_paths.append(self.Cancer['fullPath'][i])
-                x_paths.append(self.Benign['fullPath'][i])
-                x_paths.append(self.Normal['fullPath'][i])
+                x_paths.append(self.path + self.Cancer['fullPath'][i])
+                x_paths.append(self.path + self.Benign['fullPath'][i])
+                x_paths.append(self.path + self.Normal['fullPath'][i])
 
             self.y_path = y_paths
             self.x_path = x_paths

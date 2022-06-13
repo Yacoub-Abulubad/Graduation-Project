@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.16)  11 JUN 2022 16:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2022.1.16)  12 JUN 2022 18:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1067,7 +1067,7 @@ your preamble.
  on input line 64.
 
 \c@lstlisting=\count387
-<pics/AAU_Logo.jpg, id=159, 165.61874pt x 204.765pt>
+<pics/AAU_Logo.jpg, id=155, 165.61874pt x 204.765pt>
 File: pics/AAU_Logo.jpg Graphic file (type jpg)
 <use pics/AAU_Logo.jpg>
 Package pdftex.def Info: pics/AAU_Logo.jpg  used on input line 66.
@@ -1078,17 +1078,31 @@ LaTeX Warning: No \author given.
 [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./pics/AAU_Logo.jpg>]pdfTe
-X warning (ext4): destination with the same identifier (name{page.i}) has been 
-already used, duplicate ignored
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./pics/AAU_Logo.jpg>]
+Underfull \hbox (badness 10000) in paragraph at lines 89--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--93
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--93
+
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.96 	\newpage
-               [1] (./Thesis.toc [2])
+l.93 	\newpage
+               [1] [2] (./Thesis.toc [3])
 \tf@toc=\write5
 \openout5 = `Thesis.toc'.
 
- [3] (./Thesis.lof)
+ (./Thesis.lof [4])
 \tf@lof=\write6
 \openout6 = `Thesis.lof'.
 
@@ -1101,21 +1115,21 @@ l.96 	\newpage
 \tf@lot=\write8
 \openout8 = `Thesis.lot'.
 
- [4] [5]
-Underfull \hbox (badness 10000) in paragraph at lines 111--111
+ [5]
+Underfull \hbox (badness 10000) in paragraph at lines 113--113
 []|\OT1/cmr/bx/n/14.4 D\OT1/cmr/m/n/14.4 igital \OT1/cmr/bx/n/14.4 D\OT1/cmr/m/
 n/14.4 atabase for \OT1/cmr/bx/n/14.4 S\OT1/cmr/m/n/14.4 creening
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 112--112
+Underfull \hbox (badness 10000) in paragraph at lines 114--114
 []|\OT1/cmr/bx/n/14.4 M\OT1/cmr/m/n/14.4 ulti-\OT1/cmr/bx/n/14.4 S\OT1/cmr/m/n/
 14.4 tage \OT1/cmr/bx/n/14.4 D\OT1/cmr/m/n/14.4 eep \OT1/cmr/bx/n/14.4 C\OT1/cm
 r/m/n/14.4 onvolutional
  []
 
 [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 145--148
+Underfull \hbox (badness 10000) in paragraph at lines 147--150
 
  []
 
@@ -1129,7 +1143,7 @@ df>
 (epstopdf)                    size: 32959 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/Perceptron-ep
 s-converted-to.pdf pics/Figures/Perceptron.eps>
-(epstopdf)             \includegraphics on input line 167.
+(epstopdf)             \includegraphics on input line 169.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1141,7 +1155,7 @@ t>
 File: pics/Figures/Perceptron-eps-converted-to.pdf Graphic file (type pdf)
 <use pics/Figures/Perceptron-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/Perceptron-eps-converted-to.pdf  used on 
-input line 167.
+input line 169.
 (pdftex.def)             Requested size: 330.42041pt x 166.32668pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1150,7 +1164,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 206.
+(amsmath)                 on input line 208.
 
 [6]
 Package epstopdf Info: Source file: <pics/Figures/ANN.eps>
@@ -1161,7 +1175,7 @@ Package epstopdf Info: Source file: <pics/Figures/ANN.eps>
 (epstopdf)                    size: 50108 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/ANN-eps-conve
 rted-to.pdf pics/Figures/ANN.eps>
-(epstopdf)             \includegraphics on input line 231.
+(epstopdf)             \includegraphics on input line 233.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1171,7 +1185,7 @@ pdfTeX warning: /usr/bin/pdflatex (file ./pics/Figures/ANN-eps-converted-to.pdf
 File: pics/Figures/ANN-eps-converted-to.pdf Graphic file (type pdf)
 <use pics/Figures/ANN-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/ANN-eps-converted-to.pdf  used on input l
-ine 231.
+ine 233.
 (pdftex.def)             Requested size: 330.42041pt x 227.45862pt.
 [7 <./pics/Figures/ANN-eps-converted-to.pdf>] [8]
 Package epstopdf Info: Source file: <pics/Figures/MLP.eps>
@@ -1182,7 +1196,7 @@ Package epstopdf Info: Source file: <pics/Figures/MLP.eps>
 (epstopdf)                    size: 45576 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/MLP-eps-conve
 rted-to.pdf pics/Figures/MLP.eps>
-(epstopdf)             \includegraphics on input line 262.
+(epstopdf)             \includegraphics on input line 264.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1192,37 +1206,37 @@ pdfTeX warning: /usr/bin/pdflatex (file ./pics/Figures/MLP-eps-converted-to.pdf
 File: pics/Figures/MLP-eps-converted-to.pdf Graphic file (type pdf)
 <use pics/Figures/MLP-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/MLP-eps-converted-to.pdf  used on input l
-ine 262.
+ine 264.
 (pdftex.def)             Requested size: 330.42041pt x 275.7436pt.
 [9 <./pics/Figures/MLP-eps-converted-to.pdf>] [10]
 <pics/Figures/convolution.png, id=438, 661.87276pt x 307.74976pt>
 File: pics/Figures/convolution.png Graphic file (type png)
 <use pics/Figures/convolution.png>
-Package pdftex.def Info: pics/Figures/convolution.png  used on input line 290.
+Package pdftex.def Info: pics/Figures/convolution.png  used on input line 292.
 (pdftex.def)             Requested size: 377.62642pt x 175.58823pt.
  [11 <./pics/Figures/convolution.png>] [12]
 <pics/Figures/reverse_convolution.png, id=457, 667.89525pt x 280.04625pt>
 File: pics/Figures/reverse_convolution.png Graphic file (type png)
 <use pics/Figures/reverse_convolution.png>
 Package pdftex.def Info: pics/Figures/reverse_convolution.png  used on input li
-ne 313.
+ne 315.
 (pdftex.def)             Requested size: 377.62642pt x 158.34178pt.
  [13 <./pics/Figures/reverse_convolution.png>]
 <pics/Figures/Classification.png, id=471, 352.31625pt x 352.31625pt>
 File: pics/Figures/Classification.png Graphic file (type png)
 <use pics/Figures/Classification.png>
 Package pdftex.def Info: pics/Figures/Classification.png  used on input line 32
-5.
+7.
 (pdftex.def)             Requested size: 170.71652pt x 170.71727pt.
 <pics/Figures/Multi_Class.png, id=474, 210.7875pt x 210.7875pt>
 File: pics/Figures/Multi_Class.png Graphic file (type png)
 <use pics/Figures/Multi_Class.png>
-Package pdftex.def Info: pics/Figures/Multi_Class.png  used on input line 327.
+Package pdftex.def Info: pics/Figures/Multi_Class.png  used on input line 329.
 (pdftex.def)             Requested size: 170.71652pt x 170.72086pt.
 <pics/Figures/mnist.png, id=479, 853.1875pt x 621.32124pt>
 File: pics/Figures/mnist.png Graphic file (type png)
 <use pics/Figures/mnist.png>
-Package pdftex.def Info: pics/Figures/mnist.png  used on input line 334.
+Package pdftex.def Info: pics/Figures/mnist.png  used on input line 336.
 (pdftex.def)             Requested size: 330.42041pt x 240.62677pt.
 Package epstopdf Info: Source file: <pics/Figures/Classifier_Block_Diagram.eps>
 
@@ -1234,7 +1248,7 @@ converted-to.pdf>
 (epstopdf)                    size: 16517 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/Classifier_Bl
 ock_Diagram-eps-converted-to.pdf pics/Figures/Classifier_Block_Diagram.eps>
-(epstopdf)             \includegraphics on input line 341.
+(epstopdf)             \includegraphics on input line 343.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1247,7 +1261,7 @@ File: pics/Figures/Classifier_Block_Diagram-eps-converted-to.pdf Graphic file (
 type pdf)
 <use pics/Figures/Classifier_Block_Diagram-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/Classifier_Block_Diagram-eps-converted-to
-.pdf  used on input line 341.
+.pdf  used on input line 343.
 (pdftex.def)             Requested size: 236.01561pt x 45.72041pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1264,7 +1278,7 @@ verted-to.pdf>
 (epstopdf)                    size: 18066 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/Obj_Det_Block
 _Diagram-eps-converted-to.pdf pics/Figures/Obj_Det_Block_Diagram.eps>
-(epstopdf)             \includegraphics on input line 349.
+(epstopdf)             \includegraphics on input line 351.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1277,22 +1291,22 @@ File: pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf Graphic file (typ
 e pdf)
 <use pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pd
-f  used on input line 349.
+f  used on input line 351.
 (pdftex.def)             Requested size: 236.01561pt x 46.44327pt.
 <pics/Figures/cancer_img.jpg, id=490, 1465.475pt x 2300.595pt>
 File: pics/Figures/cancer_img.jpg Graphic file (type jpg)
 <use pics/Figures/cancer_img.jpg>
-Package pdftex.def Info: pics/Figures/cancer_img.jpg  used on input line 356.
+Package pdftex.def Info: pics/Figures/cancer_img.jpg  used on input line 358.
 (pdftex.def)             Requested size: 128.0374pt x 200.97159pt.
 <pics/Figures/contour_img.jpg, id=491, 1465.475pt x 2300.595pt>
 File: pics/Figures/contour_img.jpg Graphic file (type jpg)
 <use pics/Figures/contour_img.jpg>
-Package pdftex.def Info: pics/Figures/contour_img.jpg  used on input line 358.
+Package pdftex.def Info: pics/Figures/contour_img.jpg  used on input line 360.
 (pdftex.def)             Requested size: 128.0374pt x 200.97159pt.
 <pics/Figures/result_img.jpg, id=492, 351.714pt x 552.1428pt>
 File: pics/Figures/result_img.jpg Graphic file (type jpg)
 <use pics/Figures/result_img.jpg>
-Package pdftex.def Info: pics/Figures/result_img.jpg  used on input line 360.
+Package pdftex.def Info: pics/Figures/result_img.jpg  used on input line 362.
 (pdftex.def)             Requested size: 128.0374pt x 201.00389pt.
 [14 <./pics/Figures/Classification.png> <./pics/Figures/Multi_Class.png>]
 
@@ -1311,7 +1325,7 @@ _Diagram-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/Hierarchical_
 Classifier_Block_Diagram-eps-converted-to.pdf pics/Figures/Hierarchical_Classif
 ier_Block_Diagram.eps>
-(epstopdf)             \includegraphics on input line 371.
+(epstopdf)             \includegraphics on input line 373.
 Package epstopdf Info: Output file is already uptodate.
 <pics/Figures/Hierarchical_Classifier_Block_Diagram-eps-converted-to.pdf, id=52
 5, 1744.5175pt x 614.295pt>
@@ -1319,7 +1333,7 @@ File: pics/Figures/Hierarchical_Classifier_Block_Diagram-eps-converted-to.pdf G
 raphic file (type pdf)
 <use pics/Figures/Hierarchical_Classifier_Block_Diagram-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/Hierarchical_Classifier_Block_Diagram-eps
--converted-to.pdf  used on input line 371.
+-converted-to.pdf  used on input line 373.
 (pdftex.def)             Requested size: 330.42041pt x 116.34232pt.
 Package epstopdf Info: Source file: <pics/Figures/GJU_H.eps>
 (epstopdf)                    date: 2022-01-18 16:24:53
@@ -1329,13 +1343,13 @@ Package epstopdf Info: Source file: <pics/Figures/GJU_H.eps>
 (epstopdf)                    size: 16635 bytes
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/GJU_H-eps-con
 verted-to.pdf pics/Figures/GJU_H.eps>
-(epstopdf)             \includegraphics on input line 378.
+(epstopdf)             \includegraphics on input line 380.
 Package epstopdf Info: Output file is already uptodate.
 <pics/Figures/GJU_H-eps-converted-to.pdf, id=529, 317.185pt x 476.78125pt>
 File: pics/Figures/GJU_H-eps-converted-to.pdf Graphic file (type pdf)
 <use pics/Figures/GJU_H-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/GJU_H-eps-converted-to.pdf  used on input
- line 378.
+ line 380.
 (pdftex.def)             Requested size: 236.01561pt x 354.77687pt.
  [16 <./pics/Figures/Obj_Det_Block_Diagram-eps-converted-to.pdf> <./pics/Figure
 s/cancer_img.jpg> <./pics/Figures/contour_img.jpg> <./pics/Figures/result_img.j
@@ -1352,7 +1366,7 @@ agram-eps-converted-to.pdf>
 (epstopdf)             Command: <repstopdf --outfile=pics/Figures/Hierarchical_
 Obj_Det_Block_Diagram-eps-converted-to.pdf pics/Figures/Hierarchical_Obj_Det_Bl
 ock_Diagram.eps>
-(epstopdf)             \includegraphics on input line 388.
+(epstopdf)             \includegraphics on input line 390.
 Package epstopdf Info: Output file is already uptodate.
 
 
@@ -1365,12 +1379,12 @@ File: pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf Grap
 hic file (type pdf)
 <use pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf>
 Package pdftex.def Info: pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-co
-nverted-to.pdf  used on input line 388.
+nverted-to.pdf  used on input line 390.
 (pdftex.def)             Requested size: 330.42041pt x 118.52164pt.
 <pics/Figures/cropped.jpg, id=571, 94.6737pt x 87.2058pt>
 File: pics/Figures/cropped.jpg Graphic file (type jpg)
 <use pics/Figures/cropped.jpg>
-Package pdftex.def Info: pics/Figures/cropped.jpg  used on input line 395.
+Package pdftex.def Info: pics/Figures/cropped.jpg  used on input line 397.
 (pdftex.def)             Requested size: 236.01561pt x 217.40181pt.
 [18 <./pics/Figures/GJU_H-eps-converted-to.pdf>]
 
@@ -1378,37 +1392,37 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 [19 <./pics/Figures/Hierarchical_Obj_Det_Block_Diagram-eps-converted-to.pdf>]
 [20 <./pics/Figures/cropped.jpg>] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 425--428
+Underfull \hbox (badness 10000) in paragraph at lines 427--430
 
  []
 
 [22]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 435.
+               Default added (so using `tbp') on input line 437.
 
 [23]
 <pics/Figures/Age_Dist.png, id=640, 853.1875pt x 347.2975pt>
 File: pics/Figures/Age_Dist.png Graphic file (type png)
 <use pics/Figures/Age_Dist.png>
-Package pdftex.def Info: pics/Figures/Age_Dist.png  used on input line 475.
+Package pdftex.def Info: pics/Figures/Age_Dist.png  used on input line 477.
 (pdftex.def)             Requested size: 472.03123pt x 192.14827pt.
 <pics/Figures/Avg_Age.png, id=641, 419.5675pt x 275.0275pt>
 File: pics/Figures/Avg_Age.png Graphic file (type png)
 <use pics/Figures/Avg_Age.png>
-Package pdftex.def Info: pics/Figures/Avg_Age.png  used on input line 481.
+Package pdftex.def Info: pics/Figures/Avg_Age.png  used on input line 483.
 (pdftex.def)             Requested size: 236.01561pt x 154.70677pt.
  [24 <./pics/Figures/Age_Dist.png> <./pics/Figures/Avg_Age.png>]
 <pics/Figures/Train_imbalance.png, id=650, 403.5075pt x 289.08pt>
 File: pics/Figures/Train_imbalance.png Graphic file (type png)
 <use pics/Figures/Train_imbalance.png>
 Package pdftex.def Info: pics/Figures/Train_imbalance.png  used on input line 4
-90.
+92.
 (pdftex.def)             Requested size: 236.01561pt x 169.08685pt.
 <pics/Figures/Train_balance.png, id=652, 403.5075pt x 289.08pt>
 File: pics/Figures/Train_balance.png Graphic file (type png)
 <use pics/Figures/Train_balance.png>
-Package pdftex.def Info: pics/Figures/Train_balance.png  used on input line 501
+Package pdftex.def Info: pics/Figures/Train_balance.png  used on input line 503
 .
 (pdftex.def)             Requested size: 236.01561pt x 169.08685pt.
 
@@ -1419,7 +1433,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <pics/Figures/Data_pipeline.pdf, id=660, 845.04686pt x 597.50786pt>
 File: pics/Figures/Data_pipeline.pdf Graphic file (type pdf)
 <use pics/Figures/Data_pipeline.pdf>
-Package pdftex.def Info: pics/Figures/Data_pipeline.pdf  used on input line 520
+Package pdftex.def Info: pics/Figures/Data_pipeline.pdf  used on input line 522
 .
 (pdftex.def)             Requested size: 472.03123pt x 333.76334pt.
 
@@ -1429,7 +1443,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <pics/Figures/Data_loader.pdf, id=664, 845.04686pt x 597.50786pt>
 File: pics/Figures/Data_loader.pdf Graphic file (type pdf)
 <use pics/Figures/Data_loader.pdf>
-Package pdftex.def Info: pics/Figures/Data_loader.pdf  used on input line 533.
+Package pdftex.def Info: pics/Figures/Data_loader.pdf  used on input line 535.
 (pdftex.def)             Requested size: 472.03123pt x 333.76334pt.
 [26 <./pics/Figures/Train_balance.png>] [27 <./pics/Figures/Data_pipeline.pdf>]
 
@@ -1438,7 +1452,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <pics/Figures/Data_preproc.pdf, id=682, 845.04686pt x 597.50786pt>
 File: pics/Figures/Data_preproc.pdf Graphic file (type pdf)
 <use pics/Figures/Data_preproc.pdf>
-Package pdftex.def Info: pics/Figures/Data_preproc.pdf  used on input line 545.
+Package pdftex.def Info: pics/Figures/Data_preproc.pdf  used on input line 547.
 
 (pdftex.def)             Requested size: 472.03123pt x 333.76334pt.
 [28]
@@ -1450,11 +1464,11 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: pics/Figures/effnet_model_out.png Graphic file (type png)
 <use pics/Figures/effnet_model_out.png>
 Package pdftex.def Info: pics/Figures/effnet_model_out.png  used on input line 
-558.
+560.
 (pdftex.def)             Requested size: 472.03123pt x 265.35527pt.
 
 [31 <./pics/Figures/effnet_model_out.png>] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 585--587
+Underfull \hbox (badness 10000) in paragraph at lines 587--589
 
  []
 
@@ -1462,35 +1476,55 @@ Underfull \hbox (badness 10000) in paragraph at lines 585--587
 File: lstlang1.sty 2019/09/10 1.8c listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 592.
+nput line 594.
 
 [35] [36]
-<pics/Figures/1st_stage_conf_matrix.png, id=784, 403.5075pt x 322.20375pt>
+<pics/Figures/1st_stage_conf_matrix.png, id=785, 403.5075pt x 322.20375pt>
 File: pics/Figures/1st_stage_conf_matrix.png Graphic file (type png)
 <use pics/Figures/1st_stage_conf_matrix.png>
 Package pdftex.def Info: pics/Figures/1st_stage_conf_matrix.png  used on input 
-line 644.
+line 637.
 (pdftex.def)             Requested size: 283.22162pt x 226.15564pt.
- [37 <./pics/Figures/1st_stage_conf_matrix.png>] [38] [39] [40]
-(./Thesis.bbl [41] [42] [43]) [44]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 684.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 684.
+<pics/Figures/hierarchy_conf_mat.png, id=788, 403.5075pt x 322.20375pt>
+File: pics/Figures/hierarchy_conf_mat.png Graphic file (type png)
+<use pics/Figures/hierarchy_conf_mat.png>
+Package pdftex.def Info: pics/Figures/hierarchy_conf_mat.png  used on input lin
+e 648.
+(pdftex.def)             Requested size: 283.22162pt x 226.15564pt.
+<pics/Figures/1st_hierarchy_conf_mat.png, id=790, 353.32pt x 266.9975pt>
+File: pics/Figures/1st_hierarchy_conf_mat.png Graphic file (type png)
+<use pics/Figures/1st_hierarchy_conf_mat.png>
+Package pdftex.def Info: pics/Figures/1st_hierarchy_conf_mat.png  used on input
+ line 655.
+(pdftex.def)             Requested size: 199.16928pt x 150.50755pt.
+<pics/Figures/2nd_hierarchy_conf_mat.png, id=791, 362.35374pt x 266.9975pt>
+File: pics/Figures/2nd_hierarchy_conf_mat.png Graphic file (type png)
+<use pics/Figures/2nd_hierarchy_conf_mat.png>
+Package pdftex.def Info: pics/Figures/2nd_hierarchy_conf_mat.png  used on input
+ line 657.
+(pdftex.def)             Requested size: 199.16928pt x 146.75943pt.
+ [37 <./pics/Figures/1st_stage_conf_matrix.png>] [38 <./pics/Figures/hierarchy_
+conf_mat.png>] [39 <./pics/Figures/1st_hierarchy_conf_mat.png> <./pics/Figures/
+2nd_hierarchy_conf_mat.png>] [40] [41] [42] (./Thesis.bbl [43]
+[44] [45]) [46]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 695.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 695.
  (./Thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 684.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 684.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 695.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 695.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: A1E4E75A9801C3BD97FB5CE586508A9D;2581.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 684.
+(rerunfilecheck)             Checksum: D8853E3AB37A08862BACA93BD4EEBB44;2523.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 695.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 60 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 35254 strings out of 481239
- 829491 string characters out of 5920377
- 1474870 words of memory out of 5000000
- 49652 multiletter control sequences out of 15000+600000
+ 35276 strings out of 481239
+ 830255 string characters out of 5920377
+ 1475169 words of memory out of 5000000
+ 49668 multiletter control sequences out of 15000+600000
  550650 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  76i,17n,102p,1440b,3407s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1509,10 +1543,10 @@ msy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.
 pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/sh
 are/texmf/fonts/type1/public/cm-super/sfrm1440.pfb>
-Output written on Thesis.pdf (52 pages, 1500438 bytes).
+Output written on Thesis.pdf (54 pages, 1527645 bytes).
 PDF statistics:
- 955 PDF objects out of 1000 (max. 8388607)
- 809 compressed objects within 9 object streams
- 211 named destinations out of 1000 (max. 500000)
- 452 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 971 PDF objects out of 1000 (max. 8388607)
+ 817 compressed objects within 9 object streams
+ 214 named destinations out of 1000 (max. 500000)
+ 459 words of extra memory for PDF output out of 10000 (max. 10000000)
 

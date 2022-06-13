@@ -28,11 +28,10 @@
 \BOOKMARK [3][-]{subsubsection.3.5.1}{Data Loader modifications}{subsection.3.5}% 28
 \BOOKMARK [3][-]{subsubsection.3.5.2}{Model modification}{subsection.3.5}% 29
 \BOOKMARK [2][-]{subsection.3.6}{Transfer Learning}{section.3}% 30
-\BOOKMARK [2][-]{subsection.3.7}{Training}{section.3}% 31
-\BOOKMARK [1][-]{section.4}{Results and Discussions}{}% 32
-\BOOKMARK [2][-]{subsection.4.1}{Single Classifier}{section.4}% 33
-\BOOKMARK [2][-]{subsection.4.2}{Hierarchy Classifier}{section.4}% 34
-\BOOKMARK [1][-]{section.5}{Conclusion}{}% 35
-\BOOKMARK [2][-]{subsection.5.1}{Future work}{section.5}% 36
-\BOOKMARK [1][-]{appendix.A}{Code base}{}% 37
-\BOOKMARK [1][-]{appendix.B}{requirements}{}% 38
+\BOOKMARK [1][-]{section.4}{Results and Discussions}{}% 31
+\BOOKMARK [2][-]{subsection.4.1}{Single Classifier}{section.4}% 32
+\BOOKMARK [2][-]{subsection.4.2}{Hierarchy Classifier}{section.4}% 33
+\BOOKMARK [1][-]{section.5}{Conclusion}{}% 34
+\BOOKMARK [2][-]{subsection.5.1}{Future work}{section.5}% 35
+\BOOKMARK [1][-]{appendix.A}{requirements}{}% 36
+\BOOKMARK [1][-]{appendix.B}{Code base}{}% 37
