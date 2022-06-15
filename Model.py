@@ -153,7 +153,7 @@ class Hierarchy:
                                            epochs=Nepoch,
                                            callbacks=[callBack, rlrop])
 
-    def save_model(self, path, modelname="MobileNet_Model"):
+    def save_model(self, path, modelname="Effnet_Hierarchy_Model"):
         """To save the whole model
 
         Args:
@@ -162,7 +162,7 @@ class Hierarchy:
         """
         self.model.save(os.path.join(path, modelname) + ".h5")
 
-    def save_weights(self, path, checkpoint="MobileNetV2_Model_weights"):
+    def save_weights(self, path, checkpoint="Effnet_Hierarchy_Model_weights"):
         """To save the model weights
 
         Args:
@@ -171,7 +171,7 @@ class Hierarchy:
         """
         self.model.save_weights(os.path.join(path, checkpoint) + ".h5")
 
-    def load_weights(self, path, checkpoint="MobileNetV2_Model_weights"):
+    def load_weights(self, path, checkpoint="Effnet_Hierarchy_Model_weights"):
         """To load the saved weights
 
         Args:
